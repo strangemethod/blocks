@@ -1,6 +1,8 @@
 # Blocks
 A simple CMS for storytelling.
 
+Blocks has no database. An Express API writes content data to JSON.
+
 ## Install and Run
 - `npm install`
 - `npm run dev` runs express and the front end (gulp and webpack concurrently) in dev mode, which allows editing.

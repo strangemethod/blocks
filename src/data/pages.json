@@ -1,0 +1,12 @@
+[
+  {
+    "id": "page-1",
+    "title": "Page 1",
+    "text": "This is a page."
+  },
+  {
+    "id": "page-2",
+    "title": "Page 2",
+    "text": "This is a page."
+  }
+]

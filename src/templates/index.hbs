@@ -1,22 +1,21 @@
 {{#extend "layout"}}
   {{#content "content"}}
     <section class="container">
-        <h1>Blocks</h1>
-      </section>
+      <h1>{{page.title}}</h1>
+      <h2>{{page.text}}</h2>
+    </section>
 
-      {{#if editMode}}
-        <section>
-          <div class="grid">
-            <button id="addBlock">+Add Blocks</button>
-          </div>
-        </section>
+    <section class="container">
+      {{#if pages}}
+        <ul>
+          {{#each pages}}
+            <li>
+              <a href="/{{this.id}}">{{this.title}}</a>
+            </li>
+          {{/each}}
+        </ul>
       {{/if}}
+    </section>
 
-      {{#each blocks}}
-        {{> (get_partial this.type) block=this}}
-      {{/each}}
   {{/content}}
 {{/extend}}
-
-
-
