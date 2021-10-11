@@ -1,6 +1,7 @@
 const paths = {
   components: './src/components/',
   data: './src/data/',
+  editor: './src/editor/',
   partials: './src/partials/',
   sass: './src/sass/',
   scripts: './src/js/',

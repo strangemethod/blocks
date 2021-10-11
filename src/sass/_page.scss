@@ -3,7 +3,11 @@
 }
 
 body {
-	background: #EFEFEF;
+	background: $color-grey--light;
+
+	&.edit {
+		padding-top: 70px;
+	}
 }
 
 .container {
@@ -16,8 +20,4 @@ body {
 img {
 	height: auto;
 	width: 100%;
-}
-
-#addBlock {
-	margin: 60px 0;
 }

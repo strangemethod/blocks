@@ -1,0 +1,24 @@
+.editor {
+	background: $color-yellow;
+	height: 70px;
+	left: 0;
+	padding: 20px 10px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	&__grid {
+		justify-content: flex-end;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	&__button {
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 16px;
+		margin: 0 10px;
+		padding: 5px;
+	}
+}

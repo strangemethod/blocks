@@ -4,15 +4,6 @@
         <h1>Blocks</h1>
       </section>
 
-      {{#if editMode}}
-        <section>
-          <div class="grid">
-            <button id="addPage">+Add Page</button>
-            <button id="addBlock">+Add Block</button>
-          </div>
-        </section>
-      {{/if}}
-
       {{#each blocks}}
         {{> (get_partial this.type) block=this}}
       {{/each}}

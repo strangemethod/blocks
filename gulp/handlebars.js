@@ -24,6 +24,7 @@ gulp.task('handlebars', () => {
   // Push index page to pages data.
   const indexPage = {
     "id": "index",
+    "index" : true,
     "title": "Blocks",
     "text": "A simple, database-free CMS for storytelling.",
     "template": "index.hbs"
@@ -35,12 +36,10 @@ gulp.task('handlebars', () => {
     const pageTemplate = page.template || 'page.hbs';
     const destPath = page.id === 'index' ? '' : `${page.id}/`;
 
-    console.log(page.id);
-    console.log(destPath);
-
     const pagesStream = hb()
         .partials(path.join(CONFIG_.paths.partials, '*.hbs'))
         .partials(path.join(CONFIG_.paths.components, '**/*.hbs'))
+        .partials(path.join(CONFIG_.paths.editor, '*.hbs'))
         .data(path.join(CONFIG_.paths.data, '*.json'))
         .data({'page': page})
         .data({'editMode': editMode})

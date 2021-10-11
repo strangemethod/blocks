@@ -1,0 +1,27 @@
+// Font families
+$font-open-sans: 'Open Sans', sans-serif;
+$font-oxygen: 'Oxygen', sans-serif;
+
+// Type hierarchy
+h1,
+h2,
+h3,
+h4 {
+	font-family: $font-oxygen;
+}
+
+p,
+li,
+button {
+	font-family: $font-open-sans;
+	font-weight: 600;
+}
+
+// General
+a,
+a:visited,
+a:focus,
+a:hover {
+	color: $color-blue;
+	text-decoration: none;
+}

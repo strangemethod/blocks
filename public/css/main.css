@@ -1,26 +1,47 @@
+/* line 6, src/sass/_type.scss */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Oxygen", sans-serif; }
+
+/* line 13, src/sass/_type.scss */
+p,
+li,
+button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600; }
+
+/* line 21, src/sass/_type.scss */
+a,
+a:visited,
+a:focus,
+a:hover {
+  color: #007bff;
+  text-decoration: none; }
+
 /* line 1, src/sass/_page.scss */
 * {
   box-sizing: border-box; }
 
 /* line 5, src/sass/_page.scss */
 body {
-  background: #EFEFEF; }
+  background: #efefef; }
+  /* line 8, src/sass/_page.scss */
+  body.edit {
+    padding-top: 70px; }
 
-/* line 9, src/sass/_page.scss */
+/* line 13, src/sass/_page.scss */
 .container {
   margin: 0 auto;
   max-width: 1200px;
   padding: 40px;
   width: 100%; }
 
-/* line 16, src/sass/_page.scss */
+/* line 20, src/sass/_page.scss */
 img {
   height: auto;
   width: 100%; }
-
-/* line 21, src/sass/_page.scss */
-#addBlock {
-  margin: 60px 0; }
 
 /*
  * Flexbox grid layout.
@@ -147,3 +168,27 @@ img {
           -ms-flex-preferred-size: calc(75% - 10px);
               flex-basis: calc(75% - 10px);
           width: calc(75% - 10px); } }
+
+/* line 1, src/sass/_editor.scss */
+.editor {
+  background: #ff0;
+  height: 70px;
+  left: 0;
+  padding: 20px 10px;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+  /* line 10, src/sass/_editor.scss */
+  .editor__grid {
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    margin: 0 auto;
+    padding: 0; }
+  /* line 16, src/sass/_editor.scss */
+  .editor__button {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    margin: 0 10px;
+    padding: 5px; }

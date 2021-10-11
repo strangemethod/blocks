@@ -7,17 +7,27 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Oxygen:wght@700&display=swap" rel="stylesheet">
+
 		<link rel="stylesheet" href="/vendor/css/normalize.css">
 		<link rel="stylesheet" href="/css/main.css">
 		<link rel="stylesheet" href="/css/components.css">
+
+
 	</head>
-	<body>
+	<body {{#if editMode}}class="edit"{{/if}}>
 		<!--[if lte IE 9]>
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
+		
+    {{#if editMode}}
+      {{> banner}}
+    {{/if}}
+
 		{{#block "content"}}{{/block}}
 
 		<script type="text/javascript" src="/js/main.js"></script>
-<!-- 		<script type="text/javascript" src="/js/components.js"></script>
- -->	</body>
+	</body>
 </html>
