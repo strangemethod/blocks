@@ -1,0 +1,105 @@
+/*
+ * Flexbox grid layout.
+ */
+
+$grid-img-height: 40vw;
+$grid-img-max-height: 490px;
+
+@mixin col-width($cols) {
+  flex-basis: calc(#{($cols/12) * 100}% - 10px);
+  width: calc(#{($cols/12) * 100}% - 10px);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 20px;
+
+  @include bp(tablet) {
+    margin: 0 60px;
+  }
+
+  &-col {
+    margin: 5px 0 0;
+
+    @include bp(tablet) {
+      margin: 5px;
+      max-height: $grid-img-max-height;
+      overflow: hidden;
+      height: $grid-img-height;
+    }
+
+    &--1 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(1);
+      }
+    }
+
+    &--2 {
+      @include col-width(2);
+
+      @include bp(tablet) {
+        @include col-width(2);
+      }
+    }
+
+    &--3 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(3);
+      }
+    }
+
+    &--4 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(4);
+      }
+    }
+
+    &--5 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(5);
+      }
+    }
+
+    &--6 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(6);
+      }
+    }
+
+    &--7 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(7);
+      }
+    }
+
+    &--8 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(8);
+      }
+    }
+
+    &--9 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(9);
+      }
+    }
+  }
+}
