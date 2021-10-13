@@ -3,7 +3,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const jsonfile = require('jsonfile');
 const fs = require('fs');
-const dataPath = './src/data/';
+const dataPath = './src/data/blocks/';
 
 // Post blocks.
 router.post('/blocks', (req, res) => {
