@@ -29,12 +29,14 @@ gulp.task('handlebars', () => {
     "text": "A simple, database-free CMS for storytelling.",
     "template": "index.hbs"
   }
-  pagesData.push(indexPage);
+  pagesData['index'] = indexPage;
 
   // Create pages from JSON data.
-  pagesData.forEach((page) => {
+  const pageKeys = Object.keys(pagesData);
+  pageKeys.forEach((pageKey) => {
+    const page = pagesData[pageKey];
     const pageTemplate = page.template || 'page.hbs';
-    const destPath = page.id === 'index' ? '' : `${page.id}/`;
+    const destPath = pageKey === 'index' ? '' : `${pageKey}/`;
 
     const pagesStream = hb()
         .partials(path.join(CONFIG_.paths.partials, '*.hbs'))

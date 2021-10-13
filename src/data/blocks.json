@@ -13,5 +13,10 @@
     "id": "block-3",
     "type": "text-image",
     "text": "This is a block from the API."
+  },
+  {
+    "id": "block-4",
+    "type": "text-image",
+    "text": "This is a block from the API."
   }
 ]

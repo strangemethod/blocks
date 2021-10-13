@@ -7,7 +7,8 @@ const fs = require('fs');
 
 // Config
 const port = 4000;
-const dataPath = './src/data/blocks.json';
+const blocksDataPath = './src/data/blocks.json';
+const pagesDataPath = './src/data/pages.json';
 
 /*
  * Middleware
@@ -20,28 +21,60 @@ app.use(bodyParser.json());
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-})
+});
+
 
 /*
- * Blocks API
+ * Post pages.
+ */
+app.post('/pages', (req, res) => {
+	// Get existing blocks data.
+  const pagesJson = fs.existsSync(pagesDataPath) ? fs.readFileSync(pagesDataPath) : null;
+  let pagesData = pagesJson ? JSON.parse(pagesJson) : [];
+	const pageId = req.body.id;
+
+	if (pagesData[pageId]) {
+		return res.status(400).send({
+		  message: 'This is an error!'
+		});
+	}
+
+  // Add data for new block.
+	const pageData = {
+		'title': req.body.text,
+		'text': req.body.text
+	}
+	pagesData[pageId] = pageData;
+
+	// Write JSON to file.
+  jsonfile.writeFile(pagesDataPath, pagesData, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+
+  res.send(pageData);
+});
+
+
+/*
+ * Post blocks.
  */
 app.post('/blocks', (req, res) => {
 	// Get existing blocks data.
-  const blocksJson = fs.existsSync(dataPath) ? fs.readFileSync(dataPath) : null;
+  const blocksJson = fs.existsSync(blocksDataPath) ? fs.readFileSync(blocksDataPath) : null;
   let blocksData = blocksJson ? JSON.parse(blocksJson) : [];
 
   // Add data for new block.
-	const moduleData = {
+	const blockData = {
 		'id': `block-${blocksData.length + 1}`,
 		'type': req.body.type,
 		'text': req.body.text
 	}
-	blocksData.push(moduleData);
+	blocksData.push(blockData);
 
 	// Write JSON to file.
-  jsonfile.writeFile(dataPath, blocksData, {spaces: 2}, function (err) {
+  jsonfile.writeFile(blocksDataPath, blocksData, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 
-  res.send(moduleData);
-})
+  res.send(blockData);
+});

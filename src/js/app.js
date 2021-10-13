@@ -1,3 +1,5 @@
-import BlocksApi from './blocksApi.js';
+import Blocks from './blocks.js';
+import Pages from './pages.js';
 
-const api = new BlocksApi;
+new Blocks;
+new Pages;
