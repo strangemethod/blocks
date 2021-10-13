@@ -9,7 +9,7 @@ const fs = require('fs');
 const port = 4000;
 
 // Routes
-const blocksRouter = require('./routes/pages');
+const blocksRouter = require('./routes/blocks');
 const pagesRouter = require('./routes/pages');
 
 app.use(cors());

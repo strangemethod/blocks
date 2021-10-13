@@ -22,7 +22,20 @@
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
 		
-      <section id="pageDialog" class="dialog hidden">
+      <section id="blockDialog" class="dialog hidden">
+      	<div class="dialog__grid grid container">
+      		<h2>Add a new Block</h2>
+      		
+      		<label for="blockType">Block Type</label>
+      		<select id="blockType">
+      			<option value="text-image">Text and Image</option>
+      			<option value="three-up-image">Three-up Image</option>
+      			<option value="two-up-image">Two-Up Image</option>
+      		</select>
+      
+      		<button id="submitBlock">Submit</button>
+      	</div>
+      </section>      <section id="pageDialog" class="dialog hidden">
       	<div class="dialog__grid grid container">
       		<h2>Add a new Page</h2>
       		<label for="username">Page Title</label>

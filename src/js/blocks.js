@@ -5,22 +5,47 @@ class Blocks {
 	constructor () {
 		this.endpoint = 'http://localhost:4000/blocks';
 		this.blockButton = document.getElementById('addBlock');
-
+		this.dialog = document.getElementById('blockDialog');
+		this.blockType = document.getElementById('blockType');
+		this.submitBlock = document.getElementById('submitBlock');
+		this.page = document.getElementById('page');
+		this.pageId = page.dataset.page;
 		this.bindEventListeners();
 	}
 
 	bindEventListeners() {
 		if (this.blockButton) {
 			this.blockButton.addEventListener('click', () => {
-				this.postBlock();
+				this.showDialog();
+			});
+		}
+
+		if (this.submitBlock) {
+			this.submitBlock.addEventListener('click', () => {
+				this.getBlockData();
 			});
 		}
 	}
 
-	postBlock() {
+	showDialog() {
+		this.dialog.classList.remove('hidden');
+	}
+
+	hideDialog() {
+		this.dialog.classList.add('hidden');
+		setTimeout(() => {
+			window.location.reload();
+		}, 400);
+	}
+
+	getBlockData() {
+		const blockType = this.blockType.value;
+
+		if (!blockType) return;
+
 		const blockData = {
-			type: 'text-image',
-			text: 'This is a block from the API.'
+			page: this.pageId,
+			type: blockType
 		}
 
 		this.postData(blockData)
@@ -35,8 +60,12 @@ class Blocks {
 			method: 'POST',
 			body: JSON.stringify(data)
 		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) })
+		.then((res) => {
+			this.hideDialog();
+		})
+		.catch((res) => {
+			console.log(res)
+		})
 	}
 }
 

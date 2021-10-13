@@ -51,7 +51,7 @@ gulp.task('handlebars', () => {
         .partials(path.join(CONFIG_.paths.components, '**/*.hbs'))
         .partials(path.join(CONFIG_.paths.editor, '*.hbs'))
         .data(path.join(CONFIG_.paths.data, '*.json'))
-        .data({'page': page, 'blocks': blocksData })
+        .data({'id': pageKey, 'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})
         .helpers({
           get_partial: function(input) {

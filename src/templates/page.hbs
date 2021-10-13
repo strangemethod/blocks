@@ -1,11 +1,13 @@
 {{#extend "layout"}}
-  {{#content "content"}}
-    <section class="container">
-        <h1>Blocks</h1>
-      </section>
+	{{#content "content"}}
+		<main id="page" data-page="{{id}}">
+			<section class="container">
+				<h1>Blocks</h1>
+			</section>
 
-      {{#each blocks}}
-        {{> (get_partial this.type) block=this}}
-      {{/each}}
-  {{/content}}
+			{{#each blocks}}
+				{{> (get_partial this.type) block=this}}
+			{{/each}}
+		</main>
+	{{/content}}
 {{/extend}}

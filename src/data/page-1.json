@@ -10,5 +10,13 @@
   "block-3": {
     "type": "text-image",
     "text": "This is a block from JSON data.."
+  },
+  "block-4": {
+    "type": "text-image",
+    "text": "hardcoded text"
+  },
+  "block-5": {
+    "type": "text-image",
+    "text": "hardcoded text"
   }
 }

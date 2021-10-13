@@ -3,21 +3,24 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const jsonfile = require('jsonfile');
 const fs = require('fs');
-const blocksDataPath = './src/data/blocks.json';
+const dataPath = './src/data/';
 
 // Post blocks.
 router.post('/blocks', (req, res) => {
+	const blocksDataPath = `${dataPath}${req.body.page}.json`;
+
 	// Get existing blocks data.
   const blocksJson = fs.existsSync(blocksDataPath) ? fs.readFileSync(blocksDataPath) : null;
-  let blocksData = blocksJson ? JSON.parse(blocksJson) : [];
+  let blocksData = blocksJson ? JSON.parse(blocksJson) : {};
+  const blocksCount = Object.keys(blocksData).length;
 
   // Add data for new block.
+  const blockKey = `block-${blocksCount + 1}`;
 	const blockData = {
-		'id': `block-${blocksData.length + 1}`,
 		'type': req.body.type,
-		'text': req.body.text
+		'text': 'hardcoded text'
 	}
-	blocksData.push(blockData);
+	blocksData[blockKey] = blockData;
 
 	// Write JSON to file.
   jsonfile.writeFile(blocksDataPath, blocksData, {spaces: 2}, function (err) {

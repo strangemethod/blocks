@@ -26,7 +26,6 @@ class Pages {
 				this.getPageData();
 			});
 		}
-
 	}
 
 	showDialog() {
