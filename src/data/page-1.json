@@ -1,0 +1,14 @@
+{
+  "block-1": {
+    "type": "two-up-image",
+    "text": "This is a block from JSON data.."
+  },
+  "block-2": {
+    "type": "three-up-image",
+    "text": "This is a block from JSON data.."
+  },
+  "block-3": {
+    "type": "text-image",
+    "text": "This is a block from JSON data.."
+  }
+}

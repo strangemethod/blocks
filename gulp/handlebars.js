@@ -36,14 +36,22 @@ gulp.task('handlebars', () => {
   pageKeys.forEach((pageKey) => {
     const page = pagesData[pageKey];
     const pageTemplate = page.template || 'page.hbs';
-    const destPath = pageKey === 'index' ? '' : `${pageKey}/`;
+    const isIndex = pageKey === 'index';
+    const destPath = isIndex ? '' : `${pageKey}/`;
+    let blocksData = {};
+
+    if (!isIndex){
+      const blocksDataPath = path.join(CONFIG_.paths.data, `${pageKey}.json`);
+      const rawBlocksData = fs.readFileSync(blocksDataPath);
+      blocksData = JSON.parse(rawBlocksData);
+    }
 
     const pagesStream = hb()
         .partials(path.join(CONFIG_.paths.partials, '*.hbs'))
         .partials(path.join(CONFIG_.paths.components, '**/*.hbs'))
         .partials(path.join(CONFIG_.paths.editor, '*.hbs'))
         .data(path.join(CONFIG_.paths.data, '*.json'))
-        .data({'page': page})
+        .data({'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})
         .helpers({
           get_partial: function(input) {
