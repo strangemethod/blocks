@@ -5,6 +5,11 @@ class Pages {
 	constructor () {
 		this.endpoint = 'http://localhost:4000/pages';
 		this.pageButton = document.getElementById('addPage');
+		this.pageDialog = document.getElementById('pageDialog');
+		this.submitPage = document.getElementById('submitPage');
+		this.pageTitle = document.getElementById('pageTitle');
+		this.pageSlug = document.getElementById('pageSlug');
+		this.pageText = document.getElementById('pageText');
 
 		this.bindEventListeners();
 	}
@@ -12,17 +17,44 @@ class Pages {
 	bindEventListeners() {
 		if (this.pageButton) {
 			this.pageButton.addEventListener('click', () => {
-				this.postPage();
+				this.showDialog();
 			});
 		}
+
+		if (this.submitPage) {
+			this.submitPage.addEventListener('click', () => {
+				this.getPageData();
+			});
+		}
+
 	}
 
-	postPage() {
+	showDialog() {
+		this.pageDialog.classList.remove('hidden');
+	}
+
+	hideDialog() {
+		this.pageDialog.classList.add('hidden');
+		this.pageTitle.value = '';
+		this.pageSlug.value = '';
+		this.pageText.value = '';
+		setTimeout(() => {
+			window.location.reload();
+		}, 400);
+	}
+
+	getPageData() {
+		const title = this.pageTitle.value;
+		const slug = this.pageSlug.value;
+		const text = this.pageText.value;
+
+		if (!title || !slug) return;
+
 		const pageData = {
-	    "id": "page-2",
-	    "title": "Page 2",
-	    "text": "This is a new page."
-	  }
+			"id": slug,
+			"title": title,
+			"text": text
+		}
 
 		this.postData(pageData)
 	}
@@ -36,8 +68,12 @@ class Pages {
 			method: 'POST',
 			body: JSON.stringify(data)
 		})
-		.then(function(res){ console.log(res) })
-		.catch(function(res){ console.log(res) })
+		.then((res) => {
+			this.hideDialog();
+		})
+		.catch((res) => {
+			console.log(res)
+		})
 	}
 }
 

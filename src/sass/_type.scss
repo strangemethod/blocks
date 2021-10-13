@@ -1,19 +1,21 @@
 // Font families
-$font-open-sans: 'Open Sans', sans-serif;
-$font-oxygen: 'Oxygen', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+$font-headline: 'Fjalla One', sans-serif;
 
 // Type hierarchy
 h1,
 h2,
 h3,
 h4 {
-	font-family: $font-oxygen;
+	font-family: $font-headline;
 }
 
 p,
 li,
-button {
-	font-family: $font-open-sans;
+button,
+label,
+input {
+	font-family: $font-body;
 	font-weight: 600;
 }
 

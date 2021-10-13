@@ -2,9 +2,5 @@
   "page-1": {
     "title": "Page 1",
     "text": "This is a page."
-  },
-  "page-2": {
-    "title": "This is a new page.",
-    "text": "This is a new page."
   }
 }

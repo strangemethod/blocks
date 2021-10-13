@@ -3,16 +3,18 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Oxygen", sans-serif; }
+  font-family: "Fjalla One", sans-serif; }
 
 /* line 13, src/sass/_type.scss */
 p,
 li,
-button {
+button,
+label,
+input {
   font-family: "Open Sans", sans-serif;
   font-weight: 600; }
 
-/* line 21, src/sass/_type.scss */
+/* line 23, src/sass/_type.scss */
 a,
 a:visited,
 a:focus,
@@ -192,3 +194,36 @@ img {
     line-height: 16px;
     margin: 0 10px;
     padding: 5px; }
+
+/* line 26, src/sass/_editor.scss */
+.dialog {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+  /* line 34, src/sass/_editor.scss */
+  .dialog.hidden {
+    display: none;
+    pointer-events: none; }
+  /* line 39, src/sass/_editor.scss */
+  .dialog__grid {
+    background: #fff;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    height: calc(100vh - 190px);
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    margin: 130px auto 0;
+    width: calc(100vw - 120px); }
+  /* line 48, src/sass/_editor.scss */
+  .dialog form {
+    margin-top: 40px; }
+  /* line 52, src/sass/_editor.scss */
+  .dialog input {
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 5px 0 20px;
+    padding: 20px;
+    width: 100%; }

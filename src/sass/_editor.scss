@@ -22,3 +22,38 @@
 		padding: 5px;
 	}
 }
+
+.dialog {
+	background: $color-overlay;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	&.hidden {
+		display: none;
+		pointer-events: none;
+	}
+
+	&__grid {
+		background: $color-white;
+		flex-direction: column;
+		height: calc(100vh - 190px);
+		justify-content: flex-start;
+		margin: 130px auto 0;
+		width: calc(100vw - 120px);
+	}
+
+	form {
+		margin-top: 40px;
+	}
+
+	input {
+		border: 1px solid $color-black;
+		border-radius: 5px;
+		margin: 5px 0 20px;
+		padding: 20px;
+		width: 100%;
+	}
+}

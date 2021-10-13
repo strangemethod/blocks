@@ -41,7 +41,7 @@ app.post('/pages', (req, res) => {
 
   // Add data for new block.
 	const pageData = {
-		'title': req.body.text,
+		'title': req.body.title,
 		'text': req.body.text
 	}
 	pagesData[pageId] = pageData;
