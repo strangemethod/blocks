@@ -1,59 +1,100 @@
-.editor {
-	background: $color-yellow;
-	height: 70px;
-	left: 0;
-	padding: 20px 10px;
-	position: fixed;
-	top: 0;
-	width: 100%;
+.edit-mode {
+	padding-top: 60px;
 
-	&__grid {
-		justify-content: flex-end;
-		margin: 0 auto;
-		padding: 0;
-	}
-
-	&__button {
-		cursor: pointer;
-		font-size: 16px;
-		font-weight: 600;
-		line-height: 16px;
-		margin: 0 10px;
-		padding: 5px;
-	}
-}
-
-.dialog {
-	background: $color-overlay;
-	height: 100%;
-	left: 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
-
-	&.hidden {
-		display: none;
-		pointer-events: none;
-	}
-
-	&__grid {
-		background: $color-white;
-		flex-direction: column;
-		height: calc(100vh - 190px);
-		justify-content: flex-start;
-		margin: 130px auto 0;
-		width: calc(100vw - 120px);
-	}
-
-	form {
-		margin-top: 40px;
-	}
-
-	input {
-		border: 1px solid $color-black;
-		border-radius: 5px;
-		margin: 5px 0 20px;
-		padding: 20px;
+	.edit-banner {
+		background: $color-yellow;
+		height: 70px;
+		left: 0;
+		padding: 20px 10px;
+		position: fixed;
+		top: 0;
 		width: 100%;
+
+		&__grid {
+			justify-content: flex-end;
+			margin: 0 auto;
+			padding: 0;
+		}
+
+		&__button {
+			cursor: pointer;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 16px;
+			margin: 0 10px;
+			padding: 5px;
+		}
+	}
+
+	.dialog {
+		background: $color-overlay;
+		height: 100%;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+
+		&.hidden {
+			display: none;
+			pointer-events: none;
+		}
+
+		&__grid {
+			background: $color-white;
+			flex-direction: column;
+			height: calc(100vh - 190px);
+			justify-content: flex-start;
+			margin: 130px auto 0;
+			width: calc(100vw - 120px);
+		}
+
+		form {
+			margin-top: 40px;
+		}
+
+		input {
+			border: 1px solid $color-black;
+			border-radius: 5px;
+			margin: 5px 0 20px;
+			padding: 20px;
+			width: 100%;
+		}
+	}
+
+	// Show WYSIWYG overlays.
+	.block,
+	.new-block {
+		box-shadow: 0 0 0 4px $color-yellow;
+		cursor: pointer;
+		
+		&:hover {
+			box-shadow: 0 0 0 10px $color-yellow;
+			position: relative;
+
+			&::after {
+				background: $color-overlay;
+				color: $color-white;
+				content: 'EDIT';
+				display: flex;
+				font-size: 36px;
+				flex-direction: column;
+				height: 100%;
+				justify-content: center;
+				left: 0;
+				position: absolute;
+				text-align: center;
+				top: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	.new-block {
+		justify-content: center;
+		height: 60px;
+
+		&:hover::after {
+			content: 'ADD';
+		}
 	}
 }

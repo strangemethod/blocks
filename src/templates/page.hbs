@@ -5,8 +5,16 @@
 				<h1>Blocks</h1>
 			</section>
 
+			{{#if ../editMode}}
+				<section class="grid new-block" data-after-block="-1"></section>
+			{{/if}}
+
 			{{#each blocks}}
-				{{> (get_partial this.type) block=this}}
+				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
+				{{#if ../editMode}}
+					<section class="grid new-block" data-after-block="{{@index}}"></section>
+				{{/if}}
+
 			{{/each}}
 		</main>
 	{{/content}}

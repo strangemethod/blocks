@@ -172,58 +172,97 @@ img {
           width: calc(75% - 10px); } }
 
 /* line 1, src/sass/_editor.scss */
-.editor {
-  background: #ff0;
-  height: 70px;
-  left: 0;
-  padding: 20px 10px;
-  position: fixed;
-  top: 0;
-  width: 100%; }
-  /* line 10, src/sass/_editor.scss */
-  .editor__grid {
-    -ms-flex-pack: end;
-        justify-content: flex-end;
-    margin: 0 auto;
-    padding: 0; }
-  /* line 16, src/sass/_editor.scss */
-  .editor__button {
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 16px;
-    margin: 0 10px;
-    padding: 5px; }
-
-/* line 26, src/sass/_editor.scss */
-.dialog {
-  background: rgba(0, 0, 0, 0.8);
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%; }
-  /* line 34, src/sass/_editor.scss */
-  .dialog.hidden {
-    display: none;
-    pointer-events: none; }
-  /* line 39, src/sass/_editor.scss */
-  .dialog__grid {
-    background: #fff;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    height: calc(100vh - 190px);
-    -ms-flex-pack: start;
-        justify-content: flex-start;
-    margin: 130px auto 0;
-    width: calc(100vw - 120px); }
-  /* line 48, src/sass/_editor.scss */
-  .dialog form {
-    margin-top: 40px; }
-  /* line 52, src/sass/_editor.scss */
-  .dialog input {
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin: 5px 0 20px;
-    padding: 20px;
+.edit-mode {
+  padding-top: 60px; }
+  /* line 4, src/sass/_editor.scss */
+  .edit-mode .edit-banner {
+    background: #ff0;
+    height: 70px;
+    left: 0;
+    padding: 20px 10px;
+    position: fixed;
+    top: 0;
     width: 100%; }
+    /* line 13, src/sass/_editor.scss */
+    .edit-mode .edit-banner__grid {
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+      margin: 0 auto;
+      padding: 0; }
+    /* line 19, src/sass/_editor.scss */
+    .edit-mode .edit-banner__button {
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16px;
+      margin: 0 10px;
+      padding: 5px; }
+  /* line 29, src/sass/_editor.scss */
+  .edit-mode .dialog {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%; }
+    /* line 37, src/sass/_editor.scss */
+    .edit-mode .dialog.hidden {
+      display: none;
+      pointer-events: none; }
+    /* line 42, src/sass/_editor.scss */
+    .edit-mode .dialog__grid {
+      background: #fff;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      height: calc(100vh - 190px);
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      margin: 130px auto 0;
+      width: calc(100vw - 120px); }
+    /* line 51, src/sass/_editor.scss */
+    .edit-mode .dialog form {
+      margin-top: 40px; }
+    /* line 55, src/sass/_editor.scss */
+    .edit-mode .dialog input {
+      border: 1px solid #000;
+      border-radius: 5px;
+      margin: 5px 0 20px;
+      padding: 20px;
+      width: 100%; }
+  /* line 65, src/sass/_editor.scss */
+  .edit-mode .block,
+  .edit-mode .new-block {
+    box-shadow: 0 0 0 4px #ff0;
+    cursor: pointer; }
+    /* line 70, src/sass/_editor.scss */
+    .edit-mode .block:hover,
+    .edit-mode .new-block:hover {
+      box-shadow: 0 0 0 10px #ff0;
+      position: relative; }
+      /* line 74, src/sass/_editor.scss */
+      .edit-mode .block:hover::after,
+      .edit-mode .new-block:hover::after {
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        content: 'EDIT';
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 36px;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        height: 100%;
+        -ms-flex-pack: center;
+            justify-content: center;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%; }
+  /* line 92, src/sass/_editor.scss */
+  .edit-mode .new-block {
+    -ms-flex-pack: center;
+        justify-content: center;
+    height: 60px; }
+    /* line 96, src/sass/_editor.scss */
+    .edit-mode .new-block:hover::after {
+      content: 'ADD'; }
