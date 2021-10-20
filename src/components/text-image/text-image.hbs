@@ -1,10 +1,23 @@
-<section class="block text-image grid"
-		data-block="{{id}}">
-	<div class="grid-col--5">
-		<img src="https://place-hold.it/600x400" />
-	</div>
-	<div class="grid-col--1"></div>
-	<div class="grid-col--6">
-		<h2>{{block.text}}</h2>
+<section class="block text-image container" data-block="{{id}}">
+	<div class="grid">
+		<div class="grid-col--5">
+	  	{{> image/image
+	  			imageSrc=image
+	  			editMode=editMode
+	  			blockId=id
+	  			blockType="text-image"
+	  			fieldId="image"
+	  			fieldType="image"}}
+		</div>
+		<div class="grid-col--1"></div>
+		<div class="grid-col--6">
+			{{> text/text
+					editMode=editMode
+					text=text
+	  			blockId=id
+	  			blockType="text-image"
+	  			fieldId="text"
+	  			fieldType="text"}}
+		</div>
 	</div>
 </section>

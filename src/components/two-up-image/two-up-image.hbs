@@ -1,11 +1,24 @@
-<section class="block two-up-image grid"
-		data-block="{{id}}">
-  <div class="grid-col grid-col--1"></div>
-  <div class="grid-col grid-col--5">
-		<img src="https://place-hold.it/600x400" />
-  </div>
-  <div class="grid-col grid-col--5">
-		<img src="https://place-hold.it/600x400" />
-  </div>
-  <div class="grid-col grid-col--1"></div>
+<section class="block two-up-image container">
+	<div class="grid">
+	  <div class="grid-col grid-col--1"></div>
+	  <div class="grid-col grid-col--5">
+	  	{{> image/image
+	  			imageSrc=image-1
+	  			editMode=editMode
+	  			blockId=id
+	  			blockType="two-up-image"
+	  			fieldId="image-1"
+	  			fieldType="image"}}
+	  </div>
+	  <div class="grid-col grid-col--5">
+	  	{{> image/image
+	  			imageSrc=image-2
+	  			editMode=editMode
+	  			blockId=id
+	  			blockType="two-up-image"
+	  			fieldId="image-2"
+	  			fieldType="image"}}
+	  </div>
+	  <div class="grid-col grid-col--1"></div>
+	 </div>
 </section>

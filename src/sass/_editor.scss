@@ -28,11 +28,11 @@
 
 	.dialog {
 		background: $color-overlay;
-		height: 100%;
 		left: 0;
+		height: 100vh;
 		position: fixed;
 		top: 0;
-		width: 100%;
+		width: 100vw;
 
 		&.hidden {
 			display: none;
@@ -42,10 +42,14 @@
 		&__grid {
 			background: $color-white;
 			flex-direction: column;
-			height: calc(100vh - 190px);
 			justify-content: flex-start;
-			margin: 130px auto 0;
+			left: 50%;
+			margin: 0;
+			position: relative;
+			top: 50%;
+			transform: translate(-50%, -50%);
 			width: calc(100vw - 120px);
+			z-index: 999;
 		}
 
 		form {
@@ -59,16 +63,19 @@
 			padding: 20px;
 			width: 100%;
 		}
+
+		button {
+			margin: 10px auto;
+			padding: 10px;
+			width: auto;
+		}
 	}
 
 	// Show WYSIWYG overlays.
-	.block,
+	.edit-block,
 	.new-block {
-		box-shadow: 0 0 0 4px $color-yellow;
-		cursor: pointer;
-		
 		&:hover {
-			box-shadow: 0 0 0 10px $color-yellow;
+			cursor: pointer;
 			position: relative;
 
 			&::after {
@@ -85,6 +92,7 @@
 				text-align: center;
 				top: 0;
 				width: 100%;
+				z-index: 9;
 			}
 		}
 	}
@@ -96,5 +104,12 @@
 		&:hover::after {
 			content: 'ADD';
 		}
+	}
+
+	.close {
+		align-self: flex-end;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 20px;
 	}
 }

@@ -15,7 +15,7 @@ gulp.task('watch', function() {
     gulp.watch(path.join(CONFIG_.paths.data, '**/*.json'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.partials, '**/*.hbs'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.templates, '**/*.hbs'), ['handlebars']);
-    gulp.watch(path.join(CONFIG_.paths.editor, '/*.hbs'), ['handlebars']);
+    gulp.watch(path.join(CONFIG_.paths.editor, '**/*.hbs'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.components, '**/*.hbs'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.components, '**/*.{scss,js}'), ['components']);
     gulp.watch(path.join(CONFIG_.paths.sass, '**/*.scss'), ['sass']);

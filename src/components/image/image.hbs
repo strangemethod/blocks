@@ -1,0 +1,11 @@
+{{#if editMode}}
+	<div class="edit-block"
+			data-block-id={{blockId}}
+			data-block-type={{blockType}}
+			data-field-id={{fieldId}}
+			data-field-type={{fieldType}}>
+		<img src="{{#if imageSrc}}{{imageSrc}}{{else}}http://placehold.it/600x400{{/if}}" />
+	</div>
+{{else}}
+	<img src="{{imageSrc}}" />
+{{/if}}

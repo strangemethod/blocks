@@ -23,9 +23,12 @@
 		<![endif]-->
 		
     {{#if editMode}}
-      {{> blocks-dialog}}
-      {{> pages-dialog}}
-      {{> banner}}
+      {{> dialogs/image-dialog}}
+      {{> dialogs/text-dialog}}
+
+{{!--       {{> dialogs/blocks-dialog}}
+      {{> dialogs/pages-dialog}}
+      {{> banner}} --}}
     {{/if}}
 
 		{{#block "content"}}{{/block}}

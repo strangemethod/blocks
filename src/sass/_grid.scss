@@ -21,15 +21,6 @@ $grid-img-max-height: 490px;
   }
 
   &-col {
-    margin: 5px 0 0;
-
-    @include bp(tablet) {
-      margin: 5px;
-      max-height: $grid-img-max-height;
-      overflow: hidden;
-      height: $grid-img-height;
-    }
-
     &--1 {
       @include col-width(12);
 

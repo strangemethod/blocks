@@ -10,6 +10,7 @@ class Pages {
 		this.pageTitle = document.getElementById('pageTitle');
 		this.pageSlug = document.getElementById('pageSlug');
 		this.pageText = document.getElementById('pageText');
+		this.closeButton = document.getElementById('closePage');
 
 		this.bindEventListeners();
 	}
@@ -26,6 +27,12 @@ class Pages {
 				this.getPageData();
 			});
 		}
+
+		if (this.closeButton) {
+			this.closeButton.addEventListener('click', () => {
+				this.hideDialog();
+			});
+		};
 	}
 
 	showDialog() {

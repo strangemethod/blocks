@@ -1,18 +1,14 @@
 {{#extend "layout"}}
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
-			<section class="container">
-				<h1>Blocks</h1>
-			</section>
-
 			{{#if ../editMode}}
-				<section class="grid new-block" data-after-block="-1"></section>
+				<section class="grid new-block"></section>
 			{{/if}}
 
 			{{#each blocks}}
 				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
 				{{#if ../editMode}}
-					<section class="grid new-block" data-after-block="{{@index}}"></section>
+					<section class="grid new-block" data-after-block="{{@key}}"></section>
 				{{/if}}
 
 			{{/each}}

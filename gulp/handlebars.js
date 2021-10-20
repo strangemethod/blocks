@@ -49,7 +49,7 @@ gulp.task('handlebars', () => {
     const pagesStream = hb()
         .partials(path.join(CONFIG_.paths.partials, '*.hbs'))
         .partials(path.join(CONFIG_.paths.components, '**/*.hbs'))
-        .partials(path.join(CONFIG_.paths.editor, '*.hbs'))
+        .partials(path.join(CONFIG_.paths.editor, '**/*.hbs'))
         .data(path.join(CONFIG_.paths.data, '*.json'))
         .data({'id': pageKey, 'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})

@@ -1,0 +1,9 @@
+<h2 class="text {{#if editMode}}edit-block{{/if}}"
+		{{#if editMode}}
+			data-block-id={{blockId}}
+			data-block-type={{blockType}}
+			data-field-id={{fieldId}}
+			data-field-type={{fieldType}}
+		{{/if}}>
+	{{block.text}}
+</h2>
