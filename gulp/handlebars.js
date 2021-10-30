@@ -56,6 +56,9 @@ gulp.task('handlebars', () => {
         .helpers({
           get_partial: function(input) {
             return input + '/' + input;
+          },
+          equal_values: function(a, b) {
+            return a == b;
           }
         })
         .helpers(layouts);

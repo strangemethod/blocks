@@ -1,0 +1,51 @@
+.dialog {
+	background: $color-overlay;
+	left: 0;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 9;
+
+	&.hidden {
+		display: none;
+		pointer-events: none;
+	}
+
+	&__grid {
+		background: $color-white;
+		flex-direction: column;
+		justify-content: flex-start;
+		left: 50%;
+		margin: 0;
+		position: relative;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100vw - 120px);
+	}
+
+	form {
+		margin-top: 40px;
+	}
+
+	input {
+		border: 1px solid $color-black;
+		border-radius: 5px;
+		margin: 5px 0 20px;
+		padding: 20px;
+		width: 100%;
+	}
+
+	button {
+		margin: 10px auto;
+		padding: 10px;
+		width: auto;
+	}
+
+	.close {
+		align-self: flex-end;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 20px;
+	}
+}

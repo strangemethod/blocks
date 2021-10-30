@@ -1,115 +1,52 @@
-.edit-mode {
-	padding-top: 60px;
+@mixin overlay {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
 
-	.edit-banner {
-		background: $color-yellow;
-		height: 70px;
-		left: 0;
-		padding: 20px 10px;
-		position: fixed;
-		top: 0;
-		width: 100%;
+.editor {
+	margin: 0 60px;
 
-		&__grid {
-			justify-content: flex-end;
-			margin: 0 auto;
-			padding: 0;
-		}
+	&-overlay {
+		background: $color-grey--light;
+		justify-content: center;
+		height: 60px;
+		margin: 0;
+		min-height: 60px;
 
-		&__button {
-			cursor: pointer;
-			font-size: 16px;
-			font-weight: 600;
-			line-height: 16px;
-			margin: 0 10px;
-			padding: 5px;
-		}
-	}
-
-	.dialog {
-		background: $color-overlay;
-		left: 0;
-		height: 100vh;
-		position: fixed;
-		top: 0;
-		width: 100vw;
-
-		&.hidden {
-			display: none;
-			pointer-events: none;
-		}
-
-		&__grid {
-			background: $color-white;
-			flex-direction: column;
-			justify-content: flex-start;
-			left: 50%;
-			margin: 0;
-			position: relative;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			width: calc(100vw - 120px);
-			z-index: 999;
-		}
-
-		form {
-			margin-top: 40px;
-		}
-
-		input {
-			border: 1px solid $color-black;
-			border-radius: 5px;
-			margin: 5px 0 20px;
-			padding: 20px;
-			width: 100%;
-		}
-
-		button {
-			margin: 10px auto;
-			padding: 10px;
-			width: auto;
-		}
-	}
-
-	// Show WYSIWYG overlays.
-	.edit-block,
-	.new-block {
 		&:hover {
 			cursor: pointer;
 			position: relative;
 
 			&::after {
+				@include overlay;
+
 				background: $color-overlay;
 				color: $color-white;
 				content: 'EDIT';
 				display: flex;
 				font-size: 36px;
 				flex-direction: column;
-				height: 100%;
 				justify-content: center;
-				left: 0;
-				position: absolute;
 				text-align: center;
-				top: 0;
-				width: 100%;
-				z-index: 9;
 			}
 		}
 	}
 
-	.new-block {
-		justify-content: center;
-		height: 60px;
+	&-container {
+		position: relative;
 
-		&:hover::after {
-			content: 'ADD';
+		.editor {
+			margin: 0;
 		}
-	}
 
-	.close {
-		align-self: flex-end;
-		cursor: pointer;
-		font-weight: bold;
-		font-size: 20px;
+		.editor-overlay {
+			@include overlay;
+
+			background: transparent;
+		}
 	}
 }

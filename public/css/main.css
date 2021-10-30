@@ -28,7 +28,7 @@ a:hover {
 
 /* line 5, src/sass/_page.scss */
 body {
-  background: #efefef; }
+  background: #fff; }
   /* line 8, src/sass/_page.scss */
   body.edit {
     padding-top: 70px; }
@@ -161,108 +161,102 @@ img {
             flex-basis: calc(75% - 10px);
         width: calc(75% - 10px); } }
 
-/* line 1, src/sass/_editor.scss */
-.edit-mode {
-  padding-top: 60px; }
-  /* line 4, src/sass/_editor.scss */
-  .edit-mode .edit-banner {
-    background: #ff0;
-    height: 70px;
-    left: 0;
-    padding: 20px 10px;
-    position: fixed;
-    top: 0;
-    width: 100%; }
-    /* line 13, src/sass/_editor.scss */
-    .edit-mode .edit-banner__grid {
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-      margin: 0 auto;
-      padding: 0; }
-    /* line 19, src/sass/_editor.scss */
-    .edit-mode .edit-banner__button {
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 16px;
-      margin: 0 10px;
-      padding: 5px; }
-  /* line 29, src/sass/_editor.scss */
-  .edit-mode .dialog {
-    background: rgba(0, 0, 0, 0.8);
-    left: 0;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100vw; }
-    /* line 37, src/sass/_editor.scss */
-    .edit-mode .dialog.hidden {
-      display: none;
-      pointer-events: none; }
-    /* line 42, src/sass/_editor.scss */
-    .edit-mode .dialog__grid {
-      background: #fff;
-      -ms-flex-direction: column;
-          flex-direction: column;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-      left: 50%;
-      margin: 0;
-      position: relative;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: calc(100vw - 120px);
-      z-index: 999; }
-    /* line 55, src/sass/_editor.scss */
-    .edit-mode .dialog form {
-      margin-top: 40px; }
-    /* line 59, src/sass/_editor.scss */
-    .edit-mode .dialog input {
-      border: 1px solid #000;
-      border-radius: 5px;
-      margin: 5px 0 20px;
-      padding: 20px;
-      width: 100%; }
-    /* line 67, src/sass/_editor.scss */
-    .edit-mode .dialog button {
-      margin: 10px auto;
-      padding: 10px;
-      width: auto; }
-  /* line 77, src/sass/_editor.scss */
-  .edit-mode .edit-block:hover,
-  .edit-mode .new-block:hover {
-    cursor: pointer;
-    position: relative; }
-    /* line 81, src/sass/_editor.scss */
-    .edit-mode .edit-block:hover::after,
-    .edit-mode .new-block:hover::after {
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      content: 'EDIT';
-      display: -ms-flexbox;
-      display: flex;
-      font-size: 36px;
-      -ms-flex-direction: column;
-          flex-direction: column;
-      height: 100%;
-      -ms-flex-pack: center;
-          justify-content: center;
-      left: 0;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: 100%;
-      z-index: 9; }
-  /* line 100, src/sass/_editor.scss */
-  .edit-mode .new-block {
+/*
+ * @todo: remove Editor styles from dist bundle.
+ */
+/* line 10, src/sass/_editor.scss */
+.editor {
+  margin: 0 60px; }
+  /* line 13, src/sass/_editor.scss */
+  .editor-overlay {
+    background: #efefef;
     -ms-flex-pack: center;
         justify-content: center;
-    height: 60px; }
-    /* line 104, src/sass/_editor.scss */
-    .edit-mode .new-block:hover::after {
-      content: 'ADD'; }
-  /* line 109, src/sass/_editor.scss */
-  .edit-mode .close {
+    height: 60px;
+    margin: 0;
+    min-height: 60px; }
+    /* line 20, src/sass/_editor.scss */
+    .editor-overlay:hover {
+      cursor: pointer;
+      position: relative; }
+      /* line 24, src/sass/_editor.scss */
+      .editor-overlay:hover::after {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        content: 'EDIT';
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 36px;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        -ms-flex-pack: center;
+            justify-content: center;
+        text-align: center; }
+  /* line 39, src/sass/_editor.scss */
+  .editor-container {
+    position: relative; }
+    /* line 42, src/sass/_editor.scss */
+    .editor-container .editor {
+      margin: 0; }
+    /* line 46, src/sass/_editor.scss */
+    .editor-container .editor-overlay {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      background: transparent; }
+
+/* line 1, src/sass/_dialog.scss */
+.dialog {
+  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 9; }
+  /* line 10, src/sass/_dialog.scss */
+  .dialog.hidden {
+    display: none;
+    pointer-events: none; }
+  /* line 15, src/sass/_dialog.scss */
+  .dialog__grid {
+    background: #fff;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    left: 50%;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 120px); }
+  /* line 27, src/sass/_dialog.scss */
+  .dialog form {
+    margin-top: 40px; }
+  /* line 31, src/sass/_dialog.scss */
+  .dialog input {
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 5px 0 20px;
+    padding: 20px;
+    width: 100%; }
+  /* line 39, src/sass/_dialog.scss */
+  .dialog button {
+    margin: 10px auto;
+    padding: 10px;
+    width: auto; }
+  /* line 45, src/sass/_dialog.scss */
+  .dialog .close {
     -ms-flex-item-align: end;
         align-self: flex-end;
     cursor: pointer;

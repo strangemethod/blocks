@@ -1,80 +1,100 @@
 /*
  * Sends data to express app to write JSON data for blocks.
  */
-class Blocks {
+class Editor {
 	constructor () {
 		this.endpoint = 'http://localhost:4000/blocks';
-		this.blockButton = document.getElementById('addBlock');
-		this.dialog = document.getElementById('blockDialog');
-		this.submitButtons = document.querySelectorAll('.submit');
 		this.page = document.getElementById('page');
 		this.pageId = page.dataset.page;
-		this.closeButton = document.getElementById('closeBlock');
-		this.editBlockTriggers = document.querySelectorAll('.edit-block');
-		this.newBlocks = document.querySelectorAll('.new-block');
+		this.dialogGrids = document.querySelectorAll('.dialog .grid');
+
+		this.triggers = {
+			'add': document.querySelectorAll('.new-block'),
+			'close': document.querySelectorAll('.close'),
+			'edit': document.querySelectorAll('.edit-block'),
+			'submitBlock': document.querySelectorAll('.submit-block'),
+			'submitField': document.querySelectorAll('.submit-field'),
+		}
 
 		this.dialogs = {
+			'add': document.getElementById('blockDialog'),
 			'image': document.getElementById('imageDialog'),
 			'text': document.getElementById('textDialog'),
 		}
 
 		this.formFields = {
+			'blockType': document.getElementById('blockType'),
 			'image': document.getElementById('imageField'),
 			'text': document.getElementById('textField'),
 		}
 
-		this.fieldData = {};
+		this.fieldData = null;
 
 		this.bindEventListeners();
 	}
 
 	bindEventListeners() {
-		// if (this.blockButton) {
-		// 	this.blockButton.addEventListener('click', () => {
-		// 		this.showDialog();
-		// 	});
-		// }
-
-		this.submitButtons.forEach((button) => {
-			button.addEventListener('click', () => {
-				this.getFieldData();
+		this.triggers.add.forEach((block) => {
+			block.addEventListener('click', () => {
+				this.showDialog();
 			});
 		});
 
-		if (this.closeButton) {
-			this.closeButton.addEventListener('click', () => {
+		this.triggers.close.forEach((button) => {
+			button.addEventListener('click', () => {
 				this.hideDialogs();
 			});
-		}
+		});
 
-		this.editBlockTriggers.forEach((block) => {
+		this.dialogGrids.forEach((grid) => {
+			grid.addEventListener('click', (e) => {
+				e.stopPropagation();
+			});
+		});
+
+		this.triggers.edit.forEach((block) => {
 			block.addEventListener('click', () => {
 				this.fieldData = block.dataset;
 				this.showDialog();
 			});
 		});
 
-		// this.newBlocks.forEach((block) => {
-		// 	block.addEventListener('click', () => {
-		// 		const blockId = block.dataset.afterBlock;
-		// 		this.showDialog('add', blockId);
-		// 	});
-		// });
+		this.triggers.submitBlock.forEach((button) => {
+			button.addEventListener('click', () => {
+				this.addBlock();
+			});
+		});
+
+		this.triggers.submitField.forEach((button) => {
+			button.addEventListener('click', () => {
+				this.getFieldData();
+			});
+		});
 	}
 
 	showDialog() {
-		const dialog = this.dialogs[this.fieldData.fieldType];
+		const blockExists = this.fieldData;
+		const dialog = blockExists ? this.dialogs[this.fieldData.fieldType] : this.dialogs.add;
+		
 		dialog.classList.remove('hidden');
 	}
 
 	hideDialogs() {
 		const dialogKeys = Object.keys(this.dialogs);
+		this.fieldData = null;
+
 		dialogKeys.forEach((dialogKey) => {
 			this.dialogs[dialogKey].classList.add('hidden');
 			setTimeout(() => {
 				window.location.reload();
 			}, 400);
 		});
+	}
+
+	addBlock() {
+		const fieldInput = this.formFields.blockType.value;
+
+		console.log(fieldInput);
 	}
 
 	getFieldData() {
@@ -90,6 +110,7 @@ class Blocks {
 			fieldInput: pathedInput,
 		}
 
+		console.log(blockData);
 		this.postData(blockData)
 	}
 
@@ -111,4 +132,4 @@ class Blocks {
 	}
 }
 
-export default Blocks
+export default Editor

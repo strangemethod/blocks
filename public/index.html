@@ -11,34 +11,19 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Fjalla+One&display=swap" rel="stylesheet">
 
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
 		<link rel="stylesheet" href="/vendor/css/normalize.css">
 		<link rel="stylesheet" href="/css/main.css">
 		<link rel="stylesheet" href="/css/components.css">
 
 
 	</head>
-	<body class="edit-mode">
+	<body class="edit-mode" id="editor">
 		<!--[if lte IE 9]>
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
 		
-      <section id="imageDialog" class="dialog hidden">
-      	<div class="dialog__grid grid container">
-      		<div id="closeBlock" class="close">CLOSE</div>
-      		<p>Edit Image</p>
-      		<input type="file" id="imageField" accept="image/png, image/jpeg">
-      		<button id="submitBlock">Submit</button>
-      	</div>
-      </section>
-      <section id="textDialog" class="dialog hidden">
-      	<div class="dialog__grid grid container">
-      		<div id="closeBlock" class="close">CLOSE</div>
-      		<p>Edit Text</p>
-      		<input type="text" id="textField">
-      		<button class="submit">Submit</button>
-      	</div>
-      </section>
-
 
 		    <main id="page" data-page="index">
       <section class="container">
@@ -58,6 +43,6 @@
     </main>
 
 
-		<script type="text/javascript" src="/js/main.js"></script>
+			<script type="text/javascript" src="/js/app.js"></script>
 	</body>
 </html>

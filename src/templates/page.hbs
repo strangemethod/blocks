@@ -1,16 +1,20 @@
 {{#extend "layout"}}
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
-			{{#if ../editMode}}
-				<section class="grid new-block"></section>
-			{{/if}}
-
 			{{#each blocks}}
-				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
 				{{#if ../editMode}}
-					<section class="grid new-block" data-after-block="{{@key}}"></section>
+					{{#if (equal_values @index '0')}}
+						<div>
+							<section class="editor" data-operation="add"></section>
+						</div>
+					{{/if}}
 				{{/if}}
 
+				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
+				
+				{{#if ../editMode}}
+					<section class="editor" data-operation="add" data-after-block="{{@key}}"></section>
+				{{/if}}
 			{{/each}}
 		</main>
 	{{/content}}

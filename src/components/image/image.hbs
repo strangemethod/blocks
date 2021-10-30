@@ -1,9 +1,12 @@
 {{#if editMode}}
-	<div class="edit-block"
+	<div class="editor-container">
+		<div class="editor" 
+			data-operation="edit"
 			data-block-id={{blockId}}
 			data-block-type={{blockType}}
 			data-field-id={{fieldId}}
 			data-field-type={{fieldType}}>
+		</div>
 		<img src="{{#if imageSrc}}{{imageSrc}}{{else}}http://placehold.it/600x400{{/if}}" />
 	</div>
 {{else}}
