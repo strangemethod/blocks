@@ -1,5 +1,6 @@
-<h2 class="text {{#if editMode}}edit-block{{/if}}"
+<h2 class="text {{#if editMode}}editor{{/if}}"
 		{{#if editMode}}
+			data-operation="edit"
 			data-block-id={{blockId}}
 			data-block-type={{blockType}}
 			data-field-id={{fieldId}}

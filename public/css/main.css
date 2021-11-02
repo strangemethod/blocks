@@ -219,15 +219,16 @@ img {
   background: rgba(0, 0, 0, 0.8);
   left: 0;
   height: 100vh;
+  padding: 40px;
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 9; }
-  /* line 10, src/sass/_dialog.scss */
+  /* line 11, src/sass/_dialog.scss */
   .dialog.hidden {
     display: none;
     pointer-events: none; }
-  /* line 15, src/sass/_dialog.scss */
+  /* line 16, src/sass/_dialog.scss */
   .dialog__grid {
     background: #fff;
     -ms-flex-direction: column;
@@ -236,29 +237,38 @@ img {
         justify-content: flex-start;
     left: 50%;
     margin: 0;
+    padding: 40px;
     position: relative;
     top: 50%;
     transform: translate(-50%, -50%);
     width: calc(100vw - 120px); }
-  /* line 27, src/sass/_dialog.scss */
+  /* line 29, src/sass/_dialog.scss */
   .dialog form {
     margin-top: 40px; }
-  /* line 31, src/sass/_dialog.scss */
-  .dialog input {
+  /* line 33, src/sass/_dialog.scss */
+  .dialog input,
+  .dialog select {
     border: 1px solid #000;
     border-radius: 5px;
     margin: 5px 0 20px;
     padding: 20px;
     width: 100%; }
-  /* line 39, src/sass/_dialog.scss */
+    /* line 41, src/sass/_dialog.scss */
+    .dialog input.error,
+    .dialog select.error {
+      border-color: red; }
+  /* line 46, src/sass/_dialog.scss */
   .dialog button {
     margin: 10px auto;
     padding: 10px;
     width: auto; }
-  /* line 45, src/sass/_dialog.scss */
+  /* line 52, src/sass/_dialog.scss */
   .dialog .close {
     -ms-flex-item-align: end;
         align-self: flex-end;
     cursor: pointer;
     font-weight: bold;
-    font-size: 20px; }
+    font-size: 20px;
+    right: 20px;
+    position: absolute;
+    top: 20px; }

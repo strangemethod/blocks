@@ -19,6 +19,6 @@ gulp.task('watch', function() {
     gulp.watch(path.join(CONFIG_.paths.components, '**/*.hbs'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.components, '**/*.{scss,js}'), ['components']);
     gulp.watch(path.join(CONFIG_.paths.sass, '**/*.scss'), ['sass']);
-    gulp.watch(path.join(CONFIG_.paths.scripts, '**/*.js'), ['scripts']);
+    gulp.watch(path.join(CONFIG_.paths.scripts, '**/*.jsx'), ['scripts']);
   });
 });

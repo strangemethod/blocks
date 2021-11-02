@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Editor from "./editor.js";
+import Editor from "./editor.jsx";
 
 const editors = document.querySelectorAll('.editor');
 

@@ -17,7 +17,7 @@ gulp.task('scripts', () => {
 	const nodeEnv = process.env.NODE_ENV;
 	const webpackMode = nodeEnv === 'development' ? nodeEnv : 'production';
 
-  return gulp.src(path.join(CONFIG_.paths.scripts, 'app.js'))
+  return gulp.src(path.join(CONFIG_.paths.scripts, 'app.jsx'))
     .pipe(webpack(require('../webpack.config.js')))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'))
