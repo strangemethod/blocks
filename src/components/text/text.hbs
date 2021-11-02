@@ -1,10 +1,12 @@
-<h2 class="text {{#if editMode}}editor{{/if}}"
-		{{#if editMode}}
-			data-operation="edit"
-			data-block-id={{blockId}}
-			data-block-type={{blockType}}
-			data-field-id={{fieldId}}
-			data-field-type={{fieldType}}
-		{{/if}}>
+{{#if editMode}}
+	<div class="editor" 
+		data-operation="edit"
+		data-block-id={{blockId}}
+		data-block-type={{blockType}}
+		data-field-id={{fieldId}}
+		data-field-type={{fieldType}}>
+	</div>
+{{/if}}
+<h2 class="text">
 	{{block.text}}
 </h2>

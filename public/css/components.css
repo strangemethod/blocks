@@ -1,8 +1,10 @@
+/* line 2, src/components/text-image/text-image.scss */
+.text-image__text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+
 /* line 1, src/components/text/text.scss */
 .text {
   padding: 20px 0; }
-
-/* line 2, src/components/text-image/text-image.scss */
-.text-image .grid {
-  -ms-flex-align: center;
-      align-items: center; }

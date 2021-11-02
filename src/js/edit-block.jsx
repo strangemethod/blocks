@@ -15,9 +15,9 @@ export default class EditBlock extends React.Component {
     }
 
     return (
-      <div>
+      <React.Fragment>
         {form}
-      </div>
+      </React.Fragment>
     );
   }
 }

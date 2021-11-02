@@ -28,7 +28,7 @@ export default class EditImage extends React.Component {
 
   render() {
     return (
-    	<div>
+    	<React.Fragment>
       	<p>Edit Image</p>
 				<input
             accept="image/png, image/jpeg"
@@ -36,7 +36,7 @@ export default class EditImage extends React.Component {
             onChange={this.setImage}
             type="file" />
         <button class="submit" onClick={this.submitData}>Submit</button>
-      </div>
+      </React.Fragment>
     );
   }
 }

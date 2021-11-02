@@ -8,11 +8,6 @@
 	width: 100vw;
 	z-index: 9;
 
-	&.hidden {
-		display: none;
-		pointer-events: none;
-	}
-
 	&__grid {
 		background: $color-white;
 		flex-direction: column;

@@ -2,19 +2,19 @@
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
 			{{#each blocks}}
-				{{#if ../editMode}}
+{{!-- 				{{#if ../editMode}}
 					{{#if (equal_values @index '0')}}
 						<div>
 							<section class="editor" data-operation="add"></section>
 						</div>
 					{{/if}}
-				{{/if}}
+				{{/if}} --}}
 
 				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
 				
-				{{#if ../editMode}}
+{{!-- 				{{#if ../editMode}}
 					<section class="editor" data-operation="add" data-after-block="{{@key}}"></section>
-				{{/if}}
+				{{/if}} --}}
 			{{/each}}
 		</main>
 	{{/content}}

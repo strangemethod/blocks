@@ -57,15 +57,13 @@ export default class Editor extends React.Component {
 
   render() {
     return (
-      <div>
-        <div class="editor-overlay"
-            onClick={this.showDialog}>
-        </div>
+      <React.Fragment>
+        <div class="editor-trigger" onClick={this.showDialog}></div>
         <Dialog {...this.props}
             modalOpen={this.state.modalOpen}
             closeDialog={this.closeDialog} 
             prepareData={this.prepareData} />
-      </div>
+      </React.Fragment>
     );
   }
 }

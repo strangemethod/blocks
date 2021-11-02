@@ -1,5 +1,6 @@
 .text-image {
-	.grid {
-		align-items: center
+	&__text {
+		display: flex;
+		align-items: center;
 	}
 }

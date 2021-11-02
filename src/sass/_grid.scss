@@ -11,6 +11,7 @@ $grid-img-max-height: 490px;
 }
 
 .grid {
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -21,6 +22,8 @@ $grid-img-max-height: 490px;
   }
 
   &-col {
+    position: relative;
+
     &--1 {
       @include col-width(12);
 
