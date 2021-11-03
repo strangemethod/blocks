@@ -12,6 +12,7 @@ editors.forEach((editor) => {
 		fieldId: editor.dataset.fieldId,
 		fieldType: editor.dataset.fieldType,
 		operation: editor.dataset.operation,
+		value: editor.dataset.value,
 	}
 
 	ReactDOM.render(<Editor {...props} />, editor);

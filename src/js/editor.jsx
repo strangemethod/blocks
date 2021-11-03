@@ -5,7 +5,11 @@ export default class Editor extends React.Component {
   constructor(props) {
     super(props);
 
-    this.endpoint = 'http://localhost:4000/blocks';
+    this.endpoints = {
+      add: 'http://localhost:4000/add-block',
+      edit: 'http://localhost:4000/edit-block',
+    }
+
     this.page = document.getElementById('page');
     this.pageId = page.dataset.page;
 
@@ -22,7 +26,17 @@ export default class Editor extends React.Component {
     this.setState({modalOpen: false});
   }
 
-  prepareData = (data) => {
+  prepareAddData = (data) => {
+    const blockData = {
+      page: this.pageId,
+      blockType: data,
+    }
+
+    this.postData(blockData, 'add')
+  }
+
+
+  prepareEditData = (data) => {
     const blockData = {
       page: this.pageId,
       blockId: this.props.blockId,
@@ -32,11 +46,11 @@ export default class Editor extends React.Component {
       fieldInput: data,
     }
 
-    this.postData(blockData)
+    this.postData(blockData, 'edit')
   }
 
-  postData(data) {
-    fetch(this.endpoint, {
+  postData = (data, operation) => {
+    fetch(this.endpoints[operation], {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -60,9 +74,11 @@ export default class Editor extends React.Component {
       <React.Fragment>
         <div class="editor-trigger" onClick={this.showDialog}></div>
         <Dialog {...this.props}
-            modalOpen={this.state.modalOpen}
             closeDialog={this.closeDialog} 
-            prepareData={this.prepareData} />
+            modalOpen={this.state.modalOpen}
+            prepareAddData={this.prepareAddData}
+            prepareEditData={this.prepareEditData}
+            postData={this.postData} />
       </React.Fragment>
     );
   }

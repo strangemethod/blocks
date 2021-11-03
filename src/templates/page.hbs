@@ -2,20 +2,21 @@
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
 			{{#each blocks}}
-{{!-- 				{{#if ../editMode}}
-					{{#if (equal_values @index '0')}}
-						<div>
-							<section class="editor" data-operation="add"></section>
-						</div>
-					{{/if}}
-				{{/if}} --}}
-
 				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
-				
-{{!-- 				{{#if ../editMode}}
-					<section class="editor" data-operation="add" data-after-block="{{@key}}"></section>
-				{{/if}} --}}
 			{{/each}}
+
+			{{#if ../editMode}}
+				<section class="container" data-block="{{id}}">
+					<div class="grid">
+						<div class="grid-col grid-col--12">
+							<section class="editor" data-operation="add" ></section>
+							<div class="editor-add">
+								<p>Add new block</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			{{/if}}
 		</main>
 	{{/content}}
 {{/extend}}

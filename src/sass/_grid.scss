@@ -22,6 +22,8 @@ $grid-img-max-height: 490px;
   }
 
   &-col {
+    align-items: stretch;
+    display: flex;
     position: relative;
 
     &--1 {
@@ -94,6 +96,20 @@ $grid-img-max-height: 490px;
       @include bp(tablet) {
         @include col-width(9);
       }
+    }
+
+
+    &--10 {
+      @include col-width(12);
+
+      @include bp(tablet) {
+        @include col-width(10);
+      }
+    }
+
+
+    &--12 {
+      @include col-width(12);
     }
   }
 }

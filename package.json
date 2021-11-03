@@ -54,5 +54,6 @@
     "tiny-lr": "^0.2.1",
     "vinyl": "^2.1.0",
     "webpack-stream": "^6.1.2"
-  }
+  },
+  "dependencies": {}
 }

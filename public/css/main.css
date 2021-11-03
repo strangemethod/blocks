@@ -65,106 +65,126 @@ img {
       margin: 0 60px; } }
   /* line 24, src/sass/_grid.scss */
   .grid-col {
+    -ms-flex-align: stretch;
+        align-items: stretch;
+    display: -ms-flexbox;
+    display: flex;
     position: relative; }
-    /* line 27, src/sass/_grid.scss */
+    /* line 29, src/sass/_grid.scss */
     .grid-col--1 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 27, src/sass/_grid.scss */
+        /* line 29, src/sass/_grid.scss */
         .grid-col--1 {
           -ms-flex-preferred-size: calc(8.33333% - 10px);
               flex-basis: calc(8.33333% - 10px);
           width: calc(8.33333% - 10px); } }
-    /* line 35, src/sass/_grid.scss */
+    /* line 37, src/sass/_grid.scss */
     .grid-col--2 {
       -ms-flex-preferred-size: calc(16.66667% - 10px);
           flex-basis: calc(16.66667% - 10px);
       width: calc(16.66667% - 10px); }
       @media (min-width: 768px) {
-        /* line 35, src/sass/_grid.scss */
+        /* line 37, src/sass/_grid.scss */
         .grid-col--2 {
           -ms-flex-preferred-size: calc(16.66667% - 10px);
               flex-basis: calc(16.66667% - 10px);
           width: calc(16.66667% - 10px); } }
-    /* line 43, src/sass/_grid.scss */
+    /* line 45, src/sass/_grid.scss */
     .grid-col--3 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 43, src/sass/_grid.scss */
+        /* line 45, src/sass/_grid.scss */
         .grid-col--3 {
           -ms-flex-preferred-size: calc(25% - 10px);
               flex-basis: calc(25% - 10px);
           width: calc(25% - 10px); } }
-    /* line 51, src/sass/_grid.scss */
+    /* line 53, src/sass/_grid.scss */
     .grid-col--4 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 51, src/sass/_grid.scss */
+        /* line 53, src/sass/_grid.scss */
         .grid-col--4 {
           -ms-flex-preferred-size: calc(33.33333% - 10px);
               flex-basis: calc(33.33333% - 10px);
           width: calc(33.33333% - 10px); } }
-    /* line 59, src/sass/_grid.scss */
+    /* line 61, src/sass/_grid.scss */
     .grid-col--5 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 59, src/sass/_grid.scss */
+        /* line 61, src/sass/_grid.scss */
         .grid-col--5 {
           -ms-flex-preferred-size: calc(41.66667% - 10px);
               flex-basis: calc(41.66667% - 10px);
           width: calc(41.66667% - 10px); } }
-    /* line 67, src/sass/_grid.scss */
+    /* line 69, src/sass/_grid.scss */
     .grid-col--6 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 67, src/sass/_grid.scss */
+        /* line 69, src/sass/_grid.scss */
         .grid-col--6 {
           -ms-flex-preferred-size: calc(50% - 10px);
               flex-basis: calc(50% - 10px);
           width: calc(50% - 10px); } }
-    /* line 75, src/sass/_grid.scss */
+    /* line 77, src/sass/_grid.scss */
     .grid-col--7 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 75, src/sass/_grid.scss */
+        /* line 77, src/sass/_grid.scss */
         .grid-col--7 {
           -ms-flex-preferred-size: calc(58.33333% - 10px);
               flex-basis: calc(58.33333% - 10px);
           width: calc(58.33333% - 10px); } }
-    /* line 83, src/sass/_grid.scss */
+    /* line 85, src/sass/_grid.scss */
     .grid-col--8 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 83, src/sass/_grid.scss */
+        /* line 85, src/sass/_grid.scss */
         .grid-col--8 {
           -ms-flex-preferred-size: calc(66.66667% - 10px);
               flex-basis: calc(66.66667% - 10px);
           width: calc(66.66667% - 10px); } }
-    /* line 91, src/sass/_grid.scss */
+    /* line 93, src/sass/_grid.scss */
     .grid-col--9 {
       -ms-flex-preferred-size: calc(100% - 10px);
           flex-basis: calc(100% - 10px);
       width: calc(100% - 10px); }
       @media (min-width: 768px) {
-        /* line 91, src/sass/_grid.scss */
+        /* line 93, src/sass/_grid.scss */
         .grid-col--9 {
           -ms-flex-preferred-size: calc(75% - 10px);
               flex-basis: calc(75% - 10px);
           width: calc(75% - 10px); } }
+    /* line 102, src/sass/_grid.scss */
+    .grid-col--10 {
+      -ms-flex-preferred-size: calc(100% - 10px);
+          flex-basis: calc(100% - 10px);
+      width: calc(100% - 10px); }
+      @media (min-width: 768px) {
+        /* line 102, src/sass/_grid.scss */
+        .grid-col--10 {
+          -ms-flex-preferred-size: calc(83.33333% - 10px);
+              flex-basis: calc(83.33333% - 10px);
+          width: calc(83.33333% - 10px); } }
+    /* line 111, src/sass/_grid.scss */
+    .grid-col--12 {
+      -ms-flex-preferred-size: calc(100% - 10px);
+          flex-basis: calc(100% - 10px);
+      width: calc(100% - 10px); }
 
 /*
  * @todo: remove Editor styles from dist bundle.
@@ -187,6 +207,13 @@ img {
     .editor-trigger:hover {
       box-shadow: 0 0 0 2px blue;
       cursor: pointer; }
+  /* line 21, src/sass/_editor.scss */
+  .editor-add {
+    background: #efefef;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+    width: 100%; }
 
 /* line 1, src/sass/_dialog.scss */
 .dialog {

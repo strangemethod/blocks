@@ -2,19 +2,30 @@
   "block-1": {
     "type": "two-up-image",
     "text": "This is a block from JSON data..",
-    "image-1": "/img/tetons.png",
-    "image-2": "/img/mountains.png"
+    "image-1": "/img/28tribeca-report-walks-5-superJumbo.jpeg",
+    "image-2": "/img/merlin_196814229_c4136be2-6b23-4264-bcd1-bba57007e313-superJumbo.jpeg"
   },
   "block-2": {
     "type": "three-up-image",
     "text": "This is a block from JSON data..",
-    "image-3": "/img/tetons.png",
-    "image-2": "/img/mountains.png",
-    "image-1": "/img/tetons.png"
+    "image-3": "/img/28tribeca-report-walks-15-superJumbo.jpeg",
+    "image-2": "/img/merlin_196881468_e87e86d3-7c16-4efb-8702-8006ba743e00-superJumbo.jpeg",
+    "image-1": "/img/28tribeca-report-walks-15-superJumbo.jpeg"
   },
   "block-3": {
     "type": "text-image",
-    "text": "Lorem ipsum dolor sit amit, quotidiun dinosis amit set. ",
-    "image": "/img/tetons.png"
+    "text": "foobar",
+    "image": "/img/merlin_196831008_966ca156-2075-4b83-853b-7e766cbbc228-superJumbo.jpeg"
+  },
+  "block-4": {
+    "type": "three-up-image",
+    "image-1": "https://place-hold.it/600x400",
+    "image-2": "https://place-hold.it/600x400",
+    "image-3": "https://place-hold.it/600x400"
+  },
+  "block-5": {
+    "type": "two-up-image",
+    "image-1": "/img/28tribeca-report-walks-grid3-superJumbo.jpeg",
+    "image-2": "https://place-hold.it/600x400"
   }
 }

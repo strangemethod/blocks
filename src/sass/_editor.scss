@@ -17,4 +17,12 @@
 			cursor: pointer;
 		}
 	}
+
+	&-add {
+		background: $color-grey--light;
+		height: 60px;
+		line-height: 30px;
+		text-align: center;
+		width: 100%;
+	}
 }

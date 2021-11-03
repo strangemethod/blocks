@@ -18,7 +18,7 @@ export default class EditImage extends React.Component {
 
   submitData = () => {
     if (this.state.image) {
-      this.props.prepareData(this.state.image);
+      this.props.prepareEditData(this.state.image);
       this.props.closeDialog();
     } else {
       this.setState({error: true});

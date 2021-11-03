@@ -1,5 +1,6 @@
 import React from "react";
 import EditImage from "./edit-image.jsx";
+import EditText from "./edit-text.jsx";
 
 export default class EditBlock extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class EditBlock extends React.Component {
     if (this.props.fieldType === 'image') {
       form = <EditImage {...this.props} />;
     } else {
-      form = 'Edit text';
+      form = <EditText {...this.props} />;
     }
 
     return (
