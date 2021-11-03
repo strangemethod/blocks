@@ -35,7 +35,7 @@ $grid-img-max-height: 490px;
     }
 
     &--2 {
-      @include col-width(2);
+      @include col-width(12);
 
       @include bp(tablet) {
         @include col-width(2);

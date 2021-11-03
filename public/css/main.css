@@ -28,7 +28,8 @@ a:hover {
 
 /* line 5, src/sass/_page.scss */
 body {
-  background: #fff; }
+  background: #fff;
+  padding: 0 20px; }
   /* line 8, src/sass/_page.scss */
   body.edit {
     padding-top: 70px; }
@@ -83,9 +84,9 @@ img {
           width: calc(8.33333% - 10px); } }
     /* line 37, src/sass/_grid.scss */
     .grid-col--2 {
-      -ms-flex-preferred-size: calc(16.66667% - 10px);
-          flex-basis: calc(16.66667% - 10px);
-      width: calc(16.66667% - 10px); }
+      -ms-flex-preferred-size: calc(100% - 10px);
+          flex-basis: calc(100% - 10px);
+      width: calc(100% - 10px); }
       @media (min-width: 768px) {
         /* line 37, src/sass/_grid.scss */
         .grid-col--2 {
@@ -256,10 +257,16 @@ img {
       border-color: red; }
   /* line 41, src/sass/_dialog.scss */
   .dialog button {
+    cursor: pointer;
     margin: 10px auto;
     padding: 10px;
     width: auto; }
-  /* line 47, src/sass/_dialog.scss */
+    /* line 47, src/sass/_dialog.scss */
+    .dialog button.alert-button {
+      background: red;
+      border: none;
+      color: white; }
+  /* line 54, src/sass/_dialog.scss */
   .dialog .close {
     -ms-flex-item-align: end;
         align-self: flex-end;

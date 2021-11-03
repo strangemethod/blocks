@@ -5,7 +5,7 @@ export default class AddBlock extends React.Component {
     super(props);
 
     this.state = {
-      blockTYpe: null,
+      blockType: null,
       error: false,
     };
   }
@@ -16,7 +16,7 @@ export default class AddBlock extends React.Component {
 
   submitData = () => {
     if (this.state.blockType) {
-      this.props.prepareAddData(this.state.blockType);
+      this.props.addData(this.state.blockType);
       this.props.closeDialog();
     } else {
       this.setState({error: true});
@@ -29,6 +29,7 @@ export default class AddBlock extends React.Component {
 				<label>Block Type</label>
 				<select className={`${this.state.error ? "error" : ""}`}  
             onChange={this.setBlockType}>
+          <option value="centered-image">Centered Image</option>
 					<option value="text-image">Text and Image</option>
 					<option value="three-up-image">Three-up Image</option>
 					<option value="two-up-image">Two-Up Image</option>

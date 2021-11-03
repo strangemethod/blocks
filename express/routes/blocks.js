@@ -20,6 +20,7 @@ router.post('/add-block', (req, res) => {
   const blockModel = Models[req.body.blockType];
   const newId = `block-${blockCount + 1}`;
 
+  // @todo: ensure block ID doens't exist.
   pageData[newId] = blockModel;
 
   // Write JSON to file.
@@ -31,7 +32,7 @@ router.post('/add-block', (req, res) => {
 });
 
 
-// Edit blocks.
+// Edit block.
 router.post('/edit-block', (req, res) => {
 	const pageDataPath = `${dataPath}${req.body.page}.json`;
 
@@ -56,6 +57,23 @@ router.post('/edit-block', (req, res) => {
   res.send('success');
 });
 
+// Delete block.
+router.post('/delete-block', (req, res) => {
+  const pageDataPath = `${dataPath}${req.body.page}.json`;
+
+  // Get existing page data.
+  const pageJson = fs.existsSync(pageDataPath) ? fs.readFileSync(pageDataPath) : null;
+  const pageData = pageJson ? JSON.parse(pageJson) : {};
+
+  delete pageData[req.body.blockId];
+
+  // // Write JSON to file.
+  jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+
+  res.send('success');
+});
 
 
 module.exports = router;

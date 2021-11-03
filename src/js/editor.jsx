@@ -6,8 +6,9 @@ export default class Editor extends React.Component {
     super(props);
 
     this.endpoints = {
-      add: 'http://localhost:4000/add-block',
-      edit: 'http://localhost:4000/edit-block',
+      'add': 'http://localhost:4000/add-block',
+      'delete': 'http://localhost:4000/delete-block',
+      'edit': 'http://localhost:4000/edit-block',
     }
 
     this.page = document.getElementById('page');
@@ -26,7 +27,7 @@ export default class Editor extends React.Component {
     this.setState({modalOpen: false});
   }
 
-  prepareAddData = (data) => {
+  addData = (data) => {
     const blockData = {
       page: this.pageId,
       blockType: data,
@@ -35,8 +36,16 @@ export default class Editor extends React.Component {
     this.postData(blockData, 'add')
   }
 
+  deleteData = (data) => {
+    const blockData = {
+      page: this.pageId,
+      blockId: data,
+    }
 
-  prepareEditData = (data) => {
+    this.postData(blockData, 'delete')
+  }
+
+  editData = (data) => {
     const blockData = {
       page: this.pageId,
       blockId: this.props.blockId,
@@ -47,6 +56,10 @@ export default class Editor extends React.Component {
     }
 
     this.postData(blockData, 'edit')
+  }
+
+  deletBlock = (blockId) => {
+    console.log(blockId);
   }
 
   postData = (data, operation) => {
@@ -76,8 +89,9 @@ export default class Editor extends React.Component {
         <Dialog {...this.props}
             closeDialog={this.closeDialog} 
             modalOpen={this.state.modalOpen}
-            prepareAddData={this.prepareAddData}
-            prepareEditData={this.prepareEditData}
+            addData={this.addData}
+            deleteData={this.deleteData}
+            editData={this.editData}
             postData={this.postData} />
       </React.Fragment>
     );

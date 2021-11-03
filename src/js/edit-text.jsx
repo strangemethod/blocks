@@ -10,20 +10,22 @@ export default class EditText extends React.Component {
     };
   }
 
-
   setText = () => {
     this.setState({text: event.target.value});
   }  
 
   submitData = () => {
     if (this.state.text) {
-      this.props.prepareEditData(this.state.text);
+      this.props.editData(this.state.text);
       this.props.closeDialog();
     } else {
       this.setState({error: true});
     }
   }  
 
+  deleteBlock = () => {
+    this.props.deleteData(this.props.blockId);
+  }  
 
   render() {
     return (
@@ -33,7 +35,9 @@ export default class EditText extends React.Component {
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setText}
             />
-        <button class="submit" onClick={this.submitData}>Submit</button>
+        <button onClick={this.submitData}>Submit</button>
+        <button class="alert-button"
+            onClick={this.deleteBlock}>Delete Block</button>
       </React.Fragment>
     );
   }

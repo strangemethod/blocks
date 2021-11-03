@@ -1,4 +1,8 @@
 const Models = {
+  "centered-image": {
+    "type": "centered-image",
+    "image": "https://place-hold.it/600x400",
+  },
   "text-image": {
     "type": "text-image",
     "text": "Lorem ipsum dolor sit.",

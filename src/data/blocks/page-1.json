@@ -20,12 +20,11 @@
   "block-4": {
     "type": "three-up-image",
     "image-1": "https://place-hold.it/600x400",
-    "image-2": "https://place-hold.it/600x400",
+    "image-2": "/img/merlin_196831008_966ca156-2075-4b83-853b-7e766cbbc228-superJumbo.jpeg",
     "image-3": "https://place-hold.it/600x400"
   },
   "block-5": {
-    "type": "two-up-image",
-    "image-1": "/img/28tribeca-report-walks-grid3-superJumbo.jpeg",
-    "image-2": "https://place-hold.it/600x400"
+    "type": "centered-image",
+    "image": "/img/28tribeca-report-walks-grid3-superJumbo.jpeg"
   }
 }

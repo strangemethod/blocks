@@ -18,13 +18,16 @@ export default class EditImage extends React.Component {
 
   submitData = () => {
     if (this.state.image) {
-      this.props.prepareEditData(this.state.image);
+      this.props.editData(this.state.image);
       this.props.closeDialog();
     } else {
       this.setState({error: true});
     }
   }  
 
+  deleteBlock = () => {
+    this.props.deleteData(this.props.blockId);
+  }  
 
   render() {
     return (
@@ -35,7 +38,9 @@ export default class EditImage extends React.Component {
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setImage}
             type="file" />
-        <button class="submit" onClick={this.submitData}>Submit</button>
+        <button onClick={this.submitData}>Submit</button>
+        <button class="alert-button"
+            onClick={this.deleteBlock}>Delete Block</button>
       </React.Fragment>
     );
   }

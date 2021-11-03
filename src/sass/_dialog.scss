@@ -39,9 +39,16 @@
 	}
 
 	button {
+		cursor: pointer;
 		margin: 10px auto;
 		padding: 10px;
 		width: auto;
+
+		&.alert-button {
+			background: red;
+			border: none;
+			color: white;
+		}
 	}
 
 	.close {
