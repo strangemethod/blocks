@@ -6,7 +6,7 @@ export default class EditText extends React.Component {
 
     this.state = {
       error: false,
-      text: null,
+      text: unescape(this.props.value),
     };
   }
 
@@ -32,6 +32,7 @@ export default class EditText extends React.Component {
     	<React.Fragment>
       	<p>Edit Text</p>
         <input type="text" 
+            value={this.state.text}
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setText}
             />

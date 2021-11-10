@@ -59,7 +59,10 @@ gulp.task('handlebars', () => {
           },
           equal_values: function(a, b) {
             return a == b;
-          }
+          },
+          escape_html: function(input) {
+            return escape(input);
+          },
         })
         .helpers(layouts);
 
