@@ -5,7 +5,7 @@ export default class AddBlock extends React.Component {
     super(props);
 
     this.state = {
-      blockType: null,
+      blockType: 'centered-image',
       error: false,
     };
   }
@@ -29,7 +29,9 @@ export default class AddBlock extends React.Component {
 				<label>Block Type</label>
 				<select className={`${this.state.error ? "error" : ""}`}  
             onChange={this.setBlockType}>
-          <option value="centered-image">Centered Image</option>
+          <option value="centered-image" selected>Centered Image</option>
+          <option value="centered-text">Centered Text</option>
+          <option value="hero">Hero</option>
 					<option value="text-image">Text and Image</option>
 					<option value="three-up-image">Three-up Image</option>
 					<option value="two-up-image">Two-Up Image</option>

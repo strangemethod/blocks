@@ -1,0 +1,26 @@
+.hero {
+	max-width: 1600px;
+	position: relative;
+
+	&-overlay {
+		background: rgba(0,0,0,.3);
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.text {
+    color: #fff;
+    font-color: white;
+		left: 50%;
+		position: absolute;
+		text-align: center;
+		text-shadow: 3px 3px rgba(0,0,0,.6);
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 70%;
+	}
+}
