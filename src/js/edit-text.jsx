@@ -37,8 +37,6 @@ export default class EditText extends React.Component {
             onChange={this.setText}
             />
         <button onClick={this.submitData}>Submit</button>
-        <button class="alert-button"
-            onClick={this.deleteBlock}>Delete Block</button>
       </React.Fragment>
     );
   }

@@ -235,8 +235,23 @@ img {
   width: 100vw;
   z-index: 9; }
   /* line 11, src/sass/_dialog.scss */
-  .dialog__grid {
-    background: #fff;
+  .dialog__banner {
+    background: #efefef;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%; }
+    /* line 18, src/sass/_dialog.scss */
+    .dialog__banner .container {
+      margin: 10px auto;
+      padding: 0 20px;
+      text-align: right; }
+    /* line 24, src/sass/_dialog.scss */
+    .dialog__banner button {
+      margin: 0 10px; }
+  /* line 29, src/sass/_dialog.scss */
+  .dialog__form {
+    background: #efefef;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-pack: start;
@@ -248,39 +263,41 @@ img {
     top: 50%;
     transform: translate(-50%, -50%);
     width: calc(100vw - 120px); }
-  /* line 24, src/sass/_dialog.scss */
-  .dialog form {
-    margin-top: 40px; }
-  /* line 28, src/sass/_dialog.scss */
-  .dialog input,
-  .dialog select {
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin: 5px 0 20px;
-    padding: 20px;
-    width: 100%; }
-    /* line 36, src/sass/_dialog.scss */
-    .dialog input.error,
-    .dialog select.error {
-      border-color: red; }
-  /* line 41, src/sass/_dialog.scss */
+    /* line 41, src/sass/_dialog.scss */
+    .dialog__form form {
+      margin-top: 40px; }
+    /* line 45, src/sass/_dialog.scss */
+    .dialog__form input,
+    .dialog__form select {
+      border: 1px solid #000;
+      border-radius: 5px;
+      margin: 5px 0 20px;
+      padding: 20px;
+      width: 100%; }
+      /* line 53, src/sass/_dialog.scss */
+      .dialog__form input.error,
+      .dialog__form select.error {
+        border-color: red; }
+    /* line 58, src/sass/_dialog.scss */
+    .dialog__form button {
+      margin: 10px auto; }
+    /* line 62, src/sass/_dialog.scss */
+    .dialog__form .close {
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 20px;
+      right: 20px;
+      position: absolute;
+      top: 20px; }
+  /* line 73, src/sass/_dialog.scss */
   .dialog button {
     cursor: pointer;
-    margin: 10px auto;
     padding: 10px;
     width: auto; }
-    /* line 47, src/sass/_dialog.scss */
+    /* line 78, src/sass/_dialog.scss */
     .dialog button.alert-button {
       background: red;
       border: none;
       color: white; }
-  /* line 54, src/sass/_dialog.scss */
-  .dialog .close {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    right: 20px;
-    position: absolute;
-    top: 20px; }

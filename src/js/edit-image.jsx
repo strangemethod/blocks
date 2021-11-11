@@ -23,11 +23,7 @@ export default class EditImage extends React.Component {
     } else {
       this.setState({error: true});
     }
-  }  
-
-  deleteBlock = () => {
-    this.props.deleteData(this.props.blockId);
-  }  
+  }
 
   render() {
     return (
@@ -39,8 +35,6 @@ export default class EditImage extends React.Component {
             onChange={this.setImage}
             type="file" />
         <button onClick={this.submitData}>Submit</button>
-        <button class="alert-button"
-            onClick={this.deleteBlock}>Delete Block</button>
       </React.Fragment>
     );
   }

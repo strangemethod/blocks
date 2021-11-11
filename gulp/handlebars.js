@@ -40,7 +40,7 @@ gulp.task('handlebars', () => {
     const destPath = isIndex ? '' : `${pageKey}/`;
     let blocksData = {};
 
-    if (!isIndex){
+    if (!isIndex) {
       const blocksDataPath = path.join(CONFIG_.paths.data, 'blocks', `${pageKey}.json`);
       const rawBlocksData = fs.readFileSync(blocksDataPath);
       blocksData = JSON.parse(rawBlocksData);

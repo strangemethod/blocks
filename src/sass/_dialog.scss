@@ -8,8 +8,26 @@
 	width: 100vw;
 	z-index: 9;
 
-	&__grid {
-		background: $color-white;
+	&__banner {
+		background: $color-grey--light;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+
+		.container {
+			margin: 10px auto;
+			padding: 0 20px;
+			text-align: right;
+		}
+
+		button {
+			margin: 0 10px;
+		}
+	}
+
+	&__form {
+		background: $color-grey--light;
 		flex-direction: column;
 		justify-content: flex-start;
 		left: 50%;
@@ -19,28 +37,41 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		width: calc(100vw - 120px);
-	}
 
-	form {
-		margin-top: 40px;
-	}
+		form {
+			margin-top: 40px;
+		}
 
-	input,
-	select {
-		border: 1px solid $color-black;
-		border-radius: 5px;
-		margin: 5px 0 20px;
-		padding: 20px;
-		width: 100%;
+		input,
+		select {
+			border: 1px solid $color-black;
+			border-radius: 5px;
+			margin: 5px 0 20px;
+			padding: 20px;
+			width: 100%;
 
-		&.error {
-			border-color: red;
+			&.error {
+				border-color: red;
+			}
+		}
+
+		button {
+			margin: 10px auto;
+		}
+
+		.close {
+			align-self: flex-end;
+			cursor: pointer;
+			font-weight: bold;
+			font-size: 20px;
+			right: 20px;
+			position: absolute;
+			top: 20px;
 		}
 	}
 
 	button {
 		cursor: pointer;
-		margin: 10px auto;
 		padding: 10px;
 		width: auto;
 
@@ -49,15 +80,5 @@
 			border: none;
 			color: white;
 		}
-	}
-
-	.close {
-		align-self: flex-end;
-		cursor: pointer;
-		font-weight: bold;
-		font-size: 20px;
-		right: 20px;
-		position: absolute;
-		top: 20px;
 	}
 }
