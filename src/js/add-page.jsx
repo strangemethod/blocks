@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class EditText extends React.Component {
+export default class AddPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,17 +10,12 @@ export default class EditText extends React.Component {
     };
   }
 
-  setText = () => {
-    this.setState({text: event.target.value});
+  addPage = () => {
+    this.props.addPage(this.state.text);
   }  
 
-  submitData = () => {
-    if (this.state.text) {
-      this.props.editBlock(this.state.text);
-      this.props.closeDialog();
-    } else {
-      this.setState({error: true});
-    }
+  setText = () => {
+    this.setState({text: event.target.value});
   }  
 
   deleteBlock = () => {
@@ -29,14 +24,14 @@ export default class EditText extends React.Component {
 
   render() {
     return (
-    	<React.Fragment>
-        <h3>Edit Text</h3>
+      <React.Fragment>
+        <h3>Add a new page</h3>
+        <p>Page Title</p>
         <input type="text" 
-            value={this.state.text}
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setText}
             />
-        <button onClick={this.submitData}>Submit</button>
+        <button onClick={this.addPage}>Add Page</button>
       </React.Fragment>
     );
   }

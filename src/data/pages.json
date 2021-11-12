@@ -1,6 +1,5 @@
 {
-  "page-1": {
-    "title": "Page 1",
-    "text": "This is a page."
+  "demo-page": {
+    "title": "Demo%20Page"
   }
 }

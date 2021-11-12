@@ -1,14 +1,23 @@
 import React from "react";
 import AddBlock from "./add-block.jsx";
+import AddPage from "./add-page.jsx";
 import EditBlock from "./edit-block.jsx";
 
 export default class Dialog extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      operation: this.props.operation
+    };
   }
 
   deleteBlock = () => {
     this.props.deleteData(this.props.blockId);
+  }
+
+  openPageDialog = () => {
+    this.setState({'operation': 'add-page'});
   }
 
   render() {
@@ -17,10 +26,12 @@ export default class Dialog extends React.Component {
     }
 
     let form;
-    if (this.props.operation === 'add') {
+    if (this.state.operation === 'add') {
       form = <AddBlock {...this.props} />;
-    } else if (this.props.operation === 'edit') {
+    } else if (this.state.operation === 'edit') {
       form = <EditBlock {...this.props} />;
+    } else if (this.state.operation === 'add-page') {
+      form = <AddPage {...this.props} />;
     }
 
     return (
@@ -29,7 +40,7 @@ export default class Dialog extends React.Component {
           <div class="container">
             <button class="alert-button"
                 onClick={this.deleteBlock}>Delete Block</button>
-            <button class="add-page" onClick={this.props.closeDialog}>Add Page</button>
+            <button class="add-page" onClick={this.openPageDialog}>Add Page</button>
           </div>
         </div>
         <div class="dialog__form grid container">

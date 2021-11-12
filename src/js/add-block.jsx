@@ -16,7 +16,7 @@ export default class AddBlock extends React.Component {
 
   submitData = () => {
     if (this.state.blockType) {
-      this.props.addData(this.state.blockType);
+      this.props.addBlock(this.state.blockType);
       this.props.closeDialog();
     } else {
       this.setState({error: true});

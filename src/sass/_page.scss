@@ -9,8 +9,21 @@ body {
 .container {
 	margin: 40px auto;
 	max-width: $container-width;
-	padding: 0;
+	padding: 0 40px;
 	width: 100%;
+}
+
+.page-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		font-size: 18px;
+		line-height: 24px;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 img {

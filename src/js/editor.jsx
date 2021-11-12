@@ -7,6 +7,7 @@ export default class Editor extends React.Component {
 
     this.endpoints = {
       'add': 'http://localhost:4000/add-block',
+      'addPage': 'http://localhost:4000/add-page',
       'delete': 'http://localhost:4000/delete-block',
       'edit': 'http://localhost:4000/edit-block',
     }
@@ -19,21 +20,47 @@ export default class Editor extends React.Component {
     };
   }
 
-  showDialog = () => {
-    this.setState({modalOpen: true});
-  }
-
-  closeDialog = () => {
-    this.setState({modalOpen: false});
-  }
-
-  addData = (data) => {
+  addBlock = (data) => {
     const blockData = {
       page: this.pageId,
       blockType: data,
     }
 
     this.postData(blockData, 'add')
+  }
+
+  addPage = (title) => {
+    const slug = this.cleanUrlSlug(title);
+
+    // Post page.
+    const pageData = {
+      id: slug,
+      title: escape(title),
+    }
+
+    this.postData(pageData, 'addPage')
+      console.log(slug);
+
+    // Redirect to new page.
+    setTimeout(() => {
+      window.location.assign('/' + slug + '/');
+    }, 1000);
+
+  }
+
+  cleanUrlSlug = (input) => {
+    const reservedChars = [':', '/', '#', '?', '&', '@', '%', '+', '~', '"', '\''];
+    let slug = input.toLowerCase().replaceAll(' ', '-');
+
+    reservedChars.forEach((char) => {
+      slug.replaceAll(char, '');
+    });
+
+    return slug;
+  }
+
+  closeDialog = () => {
+    this.setState({modalOpen: false});
   }
 
   deleteData = (data) => {
@@ -45,7 +72,7 @@ export default class Editor extends React.Component {
     this.postData(blockData, 'delete')
   }
 
-  editData = (data) => {
+  editBlock = (data) => {
     const blockData = {
       page: this.pageId,
       blockId: this.props.blockId,
@@ -56,10 +83,6 @@ export default class Editor extends React.Component {
     }
 
     this.postData(blockData, 'edit')
-  }
-
-  deletBlock = (blockId) => {
-    console.log(blockId);
   }
 
   postData = (data, operation) => {
@@ -81,6 +104,9 @@ export default class Editor extends React.Component {
     })
   }
 
+  showDialog = () => {
+    this.setState({modalOpen: true});
+  }
 
   render() {
     return (
@@ -89,9 +115,10 @@ export default class Editor extends React.Component {
         <Dialog {...this.props}
             closeDialog={this.closeDialog} 
             modalOpen={this.state.modalOpen}
-            addData={this.addData}
+            addBlock={this.addBlock}
+            addPage={this.addPage}
             deleteData={this.deleteData}
-            editData={this.editData}
+            editBlock={this.editBlock}
             postData={this.postData} />
       </React.Fragment>
     );

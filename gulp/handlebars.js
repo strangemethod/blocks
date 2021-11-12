@@ -63,6 +63,9 @@ gulp.task('handlebars', () => {
           escape_html: function(input) {
             return escape(input);
           },
+          unescape_html: function(input) {
+            return unescape(input);
+          },
         })
         .helpers(layouts);
 

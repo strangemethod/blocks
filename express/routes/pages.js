@@ -3,10 +3,12 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const jsonfile = require('jsonfile');
 const fs = require('fs');
+const Models = require('../models/models.js');
 const pagesDataPath = './src/data/pages.json';
+const blocksPath = './src/data/blocks/';
 
 // Post pages.
-router.post('/pages', (req, res) => {
+router.post('/add-page', (req, res) => {
 	// Get existing blocks data.
   const pagesJson = fs.existsSync(pagesDataPath) ? fs.readFileSync(pagesDataPath) : null;
   let pagesData = pagesJson ? JSON.parse(pagesJson) : [];
@@ -21,12 +23,23 @@ router.post('/pages', (req, res) => {
   // Add data for new block.
 	const pageData = {
 		'title': req.body.title,
-		'text': req.body.text
 	}
 	pagesData[pageId] = pageData;
 
-	// Write JSON to file.
+	// Write to pages.json.
   jsonfile.writeFile(pagesDataPath, pagesData, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+
+  // Create JSON file for page blocks.
+  const blocksFilePath = blocksPath + pageId + '.json';
+  const initialBlocks = {};
+  const initialBlock = Models.hero;
+
+  initialBlock.text = req.body.title;
+  initialBlocks['block-1'] = initialBlock;
+  
+  jsonfile.writeFile(blocksFilePath, initialBlocks, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 

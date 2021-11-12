@@ -5,9 +5,9 @@
 		data-block-type={{blockType}}
 		data-field-id={{fieldId}}
 		data-field-type={{fieldType}}
-		data-value={{escape_html block.text}}>
+		data-value={{escape_html text}}>
 	</div>
 {{/if}}
 <{{element}} class="text">
-	{{block.text}}
+	{{unescape_html text}}
 </{{element}}>

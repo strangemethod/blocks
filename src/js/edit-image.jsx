@@ -18,7 +18,7 @@ export default class EditImage extends React.Component {
 
   submitData = () => {
     if (this.state.image) {
-      this.props.editData(this.state.image);
+      this.props.editBlock(this.state.image);
       this.props.closeDialog();
     } else {
       this.setState({error: true});
@@ -28,7 +28,7 @@ export default class EditImage extends React.Component {
   render() {
     return (
     	<React.Fragment>
-      	<p>Edit Image</p>
+      	<h3>Edit Image</h3>
 				<input
             accept="image/png, image/jpeg"
             className={`${this.state.error ? "error" : ""}`}

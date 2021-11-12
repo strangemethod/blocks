@@ -1,19 +1,23 @@
 {{#extend "layout"}}
   {{#content "content"}}
     <main id="page" data-page="index">
-      <section class="container">
-        <h1>
-          <a href="/">{{page.title}}</a>
-        </h1>
-        <h2>{{page.text}}</h2>
+      <section class="block hero" data-block="{{id}}">
+        {{> image/image
+            imageSrc="https://picsum.photos/1920/1080"}}
+        <div class="hero-overlay">
+          {{> text/text
+              element="h1"
+              text="BLOCKS"}}
+        </div>
       </section>
 
       <section class="container">
         {{#if pages}}
-          <ul>
+          <h2>Pages</h2>
+          <ul class="page-menu">
             {{#each pages}}
               <li>
-                <a href="/{{@key}}">{{this.title}}</a>
+                <a href="/{{@key}}">{{unescape_html this.title}}</a>
               </li>
             {{/each}}
           </ul>
