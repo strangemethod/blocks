@@ -71,27 +71,12 @@ export default class Editor extends React.Component {
     this.postData(blockData, 'delete')
   }
 
-  editBlock = (data) => {
+  editBlock = (input, fieldId) => {
     const blockData = {
       page: this.pageId,
       blockId: this.props.blockId,
-      blockType: this.props.blockType,
-      fieldId: this.props.fieldId,
-      fieldType: this.props.fieldType,
-      fieldInput: data,
-    }
-
-    this.postData(blockData, 'edit')
-  }
-
-  editSiblingImage = (data) => {
-    const blockData = {
-      page: this.pageId,
-      blockId: this.props.blockId,
-      blockType: this.props.blockType,
-      fieldId: "image",
-      fieldType: "image",
-      fieldInput: data,
+      fieldId: fieldId || this.props.fieldId,
+      fieldInput: input,
     }
 
     this.postData(blockData, 'edit')
@@ -114,7 +99,7 @@ export default class Editor extends React.Component {
     .catch((res) => {
       console.log(res)
     })
-  }
+  }  
 
   showDialog = () => {
     this.setState({modalOpen: true});
@@ -131,7 +116,6 @@ export default class Editor extends React.Component {
             addPage={this.addPage}
             deleteData={this.deleteData}
             editBlock={this.editBlock}
-            editSiblingImage={this.editSiblingImage}
             postData={this.postData} />
       </React.Fragment>
     );

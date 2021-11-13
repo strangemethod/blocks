@@ -22,7 +22,7 @@ export default class EditHero extends React.Component {
 
   submitData = () => {
     this.props.editBlock(this.state.text);
-    this.props.editSiblingImage(this.state.image);
+    this.props.editBlock(this.state.image, "image");
     this.props.closeDialog();
   }  
 
