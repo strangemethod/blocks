@@ -10,7 +10,7 @@ var CONFIG_ = require('../config');
 gulp.task('connect', function() {
   connect.server({
     port: 3000,
-    root: ['public'],
+    root: ['dist'],
     livereload: true
   });
 });

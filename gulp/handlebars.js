@@ -73,7 +73,7 @@ gulp.task('handlebars', () => {
         .src(path.join(CONFIG_.paths.templates, pageTemplate))
         .pipe(pagesStream)
         .pipe(rename(`${destPath}index.html`))
-        .pipe(gulp.dest('./public'))
+        .pipe(gulp.dest('./dist'))
         .pipe(livereload(server));
   });     
 });

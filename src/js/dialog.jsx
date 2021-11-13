@@ -45,7 +45,7 @@ export default class Dialog extends React.Component {
         </div>
         <div class="dialog__form grid container">
           <div class="close" onClick={this.props.closeDialog}>
-            <img src="/img/icon-cancel.svg" />
+            <img src="/assets/icon-cancel.svg" />
           </div>
           {form}
         </div>

@@ -9,4 +9,4 @@ process.env.NODE_ENV = 'production';
 
 console.log('Running gulp in prod mode.');
 
-gulp.task('default', ['handlebars', 'components', 'sass', 'scripts', 'connect', 'watch'], function() {});
+gulp.task('default', ['handlebars', 'components', 'sass', 'scripts', 'assets', 'connect', 'watch'], function() {});

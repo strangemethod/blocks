@@ -17,6 +17,6 @@ gulp.task('sass', function() {
   return gulp.src(path.join(CONFIG_.paths.sass, '*.scss'))
     .pipe(sass({ style: 'expanded', sourceComments: 'map', errLogToConsole: true}))
     .pipe(autoprefixer('last 2 version', "> 1%", 'ie 8', 'ie 9'))
-    .pipe(gulp.dest('./public/css'))
+    .pipe(gulp.dest('./dist/css'))
     .pipe(livereload(server));
 });

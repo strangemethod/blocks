@@ -20,6 +20,6 @@ gulp.task('scripts', () => {
   return gulp.src(path.join(CONFIG_.paths.scripts, 'app.jsx'))
     .pipe(webpack(require('../webpack.config.js')))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/js'))
+    .pipe(gulp.dest('./dist/js'))
   .pipe(livereload(server));
 });

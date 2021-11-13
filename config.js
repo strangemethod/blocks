@@ -1,4 +1,5 @@
 const paths = {
+  assets: './src/assets/img/',
   components: './src/components/',
   data: './src/data/',
   editor: './src/editor/',

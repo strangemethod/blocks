@@ -12,6 +12,7 @@ var CONFIG_ = require('../config');
 gulp.task('watch', function() {
   server.listen(35729, function (err) {
     if (err) return console.error(err);
+    gulp.watch(path.join(CONFIG_.paths.assets, '*'), ['assets']);
     gulp.watch(path.join(CONFIG_.paths.data, '**/*.json'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.partials, '**/*.hbs'), ['handlebars']);
     gulp.watch(path.join(CONFIG_.paths.templates, '**/*.hbs'), ['handlebars']);
@@ -20,5 +21,6 @@ gulp.task('watch', function() {
     gulp.watch(path.join(CONFIG_.paths.components, '**/*.{scss,js}'), ['components']);
     gulp.watch(path.join(CONFIG_.paths.sass, '**/*.scss'), ['sass']);
     gulp.watch(path.join(CONFIG_.paths.scripts, '**/*.jsx'), ['scripts']);
+
   });
 });
