@@ -1,12 +1,12 @@
 import React from "react";
 
-export default class EditImage extends React.Component {
+export default class EditHero extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      error: false,
       image: this.props.imageSrc,
+      text: unescape(this.props.value),
     };
   }
 
@@ -16,14 +16,19 @@ export default class EditImage extends React.Component {
     this.setState({image: pathedInput});
   }  
 
+  setText = () => {
+    this.setState({text: event.target.value});
+  }  
+
   submitData = () => {
-    if (this.state.image) {
-      this.props.editBlock(this.state.image);
-      this.props.closeDialog();
-    } else {
-      this.setState({error: true});
-    }
-  }
+    this.props.editBlock(this.state.text);
+    this.props.editSiblingImage(this.state.image);
+    this.props.closeDialog();
+  }  
+
+  deleteBlock = () => {
+    this.props.deleteData(this.props.blockId);
+  }  
 
   render() {
     let currentImg = '';
@@ -32,11 +37,14 @@ export default class EditImage extends React.Component {
     }
 
     return (
-    	<React.Fragment>
-      	<h3>Edit Image</h3>
-				<input
+      <React.Fragment>
+        <h3>Edit Hero</h3>
+        <input type="text" 
+            value={this.state.text}
+            onChange={this.setText}
+            />
+        <input
             accept="image/png, image/jpeg"
-            className={`${this.state.error ? "error" : ""}`}
             onChange={this.setImage}
             type="file" />
         <p>{currentImg}</p>

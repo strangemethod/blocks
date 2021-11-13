@@ -1,8 +1,8 @@
 {
   "block-1": {
     "type": "hero",
-    "text": "Demo%20Page",
-    "image": "https://picsum.photos/1920/1080"
+    "text": "Watson",
+    "image": "/img/IMG-2517.JPG"
   },
   "block-2": {
     "type": "centered-text",
@@ -12,7 +12,7 @@
     "type": "three-up-image",
     "image-1": "https://picsum.photos/1920/1080",
     "image-2": "https://picsum.photos/1920/1080",
-    "image-3": "https://picsum.photos/1920/1080"
+    "image-3": "/img/IMG-2517.JPG"
   },
   "block-4": {
     "type": "centered-image",

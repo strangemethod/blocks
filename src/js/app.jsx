@@ -10,6 +10,7 @@ editors.forEach((editor) => {
 		blockType: editor.dataset.blockType,
 		fieldId: editor.dataset.fieldId,
 		fieldType: editor.dataset.fieldType,
+		imageSrc: editor.dataset.imageSrc,
 		operation: editor.dataset.operation,
 		value: editor.dataset.value,
 	}

@@ -222,13 +222,14 @@ img {
   .editor-trigger {
     display: block;
     height: 100%;
+    position: relative;
     width: 100%;
     z-index: 1; }
-    /* line 15, src/sass/_editor.scss */
+    /* line 16, src/sass/_editor.scss */
     .editor-trigger:hover {
       box-shadow: 0 0 0 2px blue;
       cursor: pointer; }
-  /* line 21, src/sass/_editor.scss */
+  /* line 22, src/sass/_editor.scss */
   .editor-add {
     background: #efefef;
     height: 60px;

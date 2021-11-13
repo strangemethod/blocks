@@ -39,7 +39,6 @@ export default class Editor extends React.Component {
     }
 
     this.postData(pageData, 'addPage')
-      console.log(slug);
 
     // Redirect to new page.
     setTimeout(() => {
@@ -85,6 +84,19 @@ export default class Editor extends React.Component {
     this.postData(blockData, 'edit')
   }
 
+  editSiblingImage = (data) => {
+    const blockData = {
+      page: this.pageId,
+      blockId: this.props.blockId,
+      blockType: this.props.blockType,
+      fieldId: "image",
+      fieldType: "image",
+      fieldInput: data,
+    }
+
+    this.postData(blockData, 'edit')
+  }
+
   postData = (data, operation) => {
     fetch(this.endpoints[operation], {
       headers: {
@@ -119,6 +131,7 @@ export default class Editor extends React.Component {
             addPage={this.addPage}
             deleteData={this.deleteData}
             editBlock={this.editBlock}
+            editSiblingImage={this.editSiblingImage}
             postData={this.postData} />
       </React.Fragment>
     );
