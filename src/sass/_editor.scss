@@ -1,47 +1,76 @@
-.editor {
-	background: transparent;
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
+$icon-size: 50px;
 
-	&-trigger {
-		display: block;
+.editor {
+	position: relative;
+
+	.edit-block {
+		background: transparent;
 		height: 100%;
-		position: relative;
+		left: 0;
+		position: absolute;
+		top: 0;
 		width: 100%;
-		z-index: 1;
 
 		&:hover {
 			box-shadow: 0 0 0 2px blue;
 			cursor: pointer;
 		}
+
+		&__trigger {
+			display: block;
+			height: 100%;
+			position: relative;
+			width: 100%;
+			z-index: 1;
+		}
 	}
 
-	&-add {
-		background: $color-grey--light;
-		height: 60px;
-		line-height: 30px;
-		text-align: center;
-		width: 100%;
+	// Floating icons.
+	&__icons {
+		display: none;
+		position: absolute;
+
+		&--right {
+			flex-direction: column;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
-}
 
-.add-block,
-.delete-block,
-.block-up,
-.block-down {
-	display: none;
-}
+	&__icon {
+		background: $color-white;
+		border: none;
+		border-radius: $icon-size;
+		cursor: pointer;
+		font-size: 0;
+		line-height: 0;
+		margin: 5px 0;
+		padding: 0;
 
-.block:hover {
-	background: #FFFFE0;
+		&--down,
+		&--up {
+			img {
+				height: $icon-size;
+				width: $icon-size;
+			}
+		}
 
-	.add-block,
-	.delete-block,
-	.block-up,
-	.block-down {
-		display: block;
+		&--delete {
+			background: $color-red;
+			height: $icon-size;
+			width: $icon-size;
+
+			img {
+				width: 20px;
+			}
+		}
+
+	}
+
+	&:hover {
+		.editor__icons {
+			display: flex;
+		}
 	}
 }

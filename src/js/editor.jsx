@@ -108,7 +108,7 @@ export default class Editor extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div class="editor-trigger" onClick={this.showDialog}></div>
+        <div class="edit-block__trigger" onClick={this.showDialog}></div>
         <Dialog {...this.props}
             closeDialog={this.closeDialog} 
             modalOpen={this.state.modalOpen}

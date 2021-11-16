@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Editor from "./editor.jsx";
 
-const editors = document.querySelectorAll('.editor');
+const editors = document.querySelectorAll('.edit-block');
 
 editors.forEach((editor) => {
 	const props = {
