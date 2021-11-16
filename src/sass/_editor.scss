@@ -27,3 +27,21 @@
 		width: 100%;
 	}
 }
+
+.add-block,
+.delete-block,
+.block-up,
+.block-down {
+	display: none;
+}
+
+.block:hover {
+	background: #FFFFE0;
+
+	.add-block,
+	.delete-block,
+	.block-up,
+	.block-down {
+		display: block;
+	}
+}

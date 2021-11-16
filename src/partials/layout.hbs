@@ -10,10 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Fjalla+One&display=swap" rel="stylesheet">
-
-    {{#if editMode}}
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-		{{/if}}		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
 		<link rel="stylesheet" href="/vendor/css/normalize.css">
 		<link rel="stylesheet" href="/css/main.css">
@@ -21,20 +18,10 @@
 
 
 	</head>
-	<body {{#if editMode}}class="edit-mode" id="editor"{{/if}}>
+	<body>
 		<!--[if lte IE 9]>
 				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
-		
-    {{#if editMode}}
-			{{!--       
-			{{> dialogs/blocks-dialog}}
-      {{> dialogs/image-dialog}}
-      {{> dialogs/text-dialog}}
-      {{> dialogs/pages-dialog}}
-      {{> banner}}
-      --}}
-    {{/if}}
 
 		{{#block "content"}}{{/block}}
 

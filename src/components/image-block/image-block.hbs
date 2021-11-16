@@ -1,14 +1,13 @@
-{{#if editMode}}
-	<div class="editor"
-		data-operation="edit"
-		data-block-id={{blockId}}
-		data-block-type={{blockType}}
-		data-caption={{escape_html caption}}
-		data-field-id={{fieldId}}
-		data-field-type={{fieldType}}
-		data-image-src={{imageSrc}}>
-	</div>
-{{/if}}
+<div class="editor"
+	data-operation="edit"
+	data-block-id={{blockId}}
+	data-block-type={{blockType}}
+	data-caption={{escape_html caption}}
+	data-field-id={{fieldId}}
+	data-field-type={{fieldType}}
+	data-image-src={{imageSrc}}>
+</div>
+
 <div class="image {{#unless imageSrc}}placeholder{{/unless}}">
 	<img src="{{#if imageSrc}}{{imageSrc}}{{else}}/assets/placeholder.png{{/if}}" />
 	{{#if caption}}

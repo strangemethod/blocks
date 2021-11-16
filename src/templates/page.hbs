@@ -1,26 +1,26 @@
 {{#extend "layout"}}
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
-			{{> (get_partial "hero") title=page.title image=page.cover editMode=../editMode}}
+			{{> (get_partial "hero") title=page.title image=page.cover}}
 
 			{{#each blocks}}
 				{{#if (get_component this)}}
-					{{> (get_partial (get_component this)) block=this id=@key editMode=../editMode}}
+					<div class="edit-block-wrapper">
+						{{> (get_partial (get_component this)) block=this id=@key}}
+					</div>
 				{{/if}}
 			{{/each}}
 
-			{{#if ../editMode}}
-				<section class="container" data-block="{{id}}">
-					<div class="grid">
-						<div class="grid-col grid-col--12">
-							<section class="editor" data-operation="add" ></section>
-							<div class="editor-add">
-								<p>Add new block</p>
-							</div>
+			<section class="container" data-block="{{id}}">
+				<div class="grid">
+					<div class="grid-col grid-col--12">
+						<section class="editor" data-operation="add" ></section>
+						<div class="editor-add">
+							<p>Add new block</p>
 						</div>
 					</div>
-				</section>
-			{{/if}}
+				</div>
+			</section>
 		</main>
 	{{/content}}
 {{/extend}}
