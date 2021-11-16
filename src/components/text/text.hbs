@@ -1,14 +1,17 @@
-{{#if editMode}}
-	<div class="editor" 
-		data-operation="edit"
-		data-block-id={{blockId}}
-		data-block-type={{blockType}}
-		data-field-id={{fieldId}}
-		data-field-type={{fieldType}}
-		data-value={{escape_html text}}
-		data-image-src={{image}}>
+<section class="block centered-text container" data-block="{{id}}">
+	<div class="grid">
+		<div class="grid-col grid-col--2"></div>
+		<div class="grid-col grid-col--8">
+			{{> text-block/text-block
+	  			blockId=id
+	  			blockType="text-image"
+					editMode=editMode
+					element="h2"
+	  			fieldId="text"
+	  			fieldType="text"
+	  			text=text
+	  	}}
+		</div>
+		<div class="grid-col grid-col--2"></div>
 	</div>
-{{/if}}
-<{{element}} class="text">
-	{{unescape_html text}}
-</{{element}}>
+</section>

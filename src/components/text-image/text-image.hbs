@@ -1,25 +1,23 @@
-<section class="block text-image container" data-block="{{id}}">
+<section class="block text-image container" data-index="{{id}}">
 	<div class="grid">
 		<div class="grid-col grid-col--6">
-	  	{{> image/image
-	  			blockId=id
-	  			blockType="text-image"
+	  	{{> image-block/image-block
+	  			blockIndex=id
 	  			editMode=editMode
-	  			fieldId="image"
+	  			fieldIndex="0"
 	  			fieldType="image"
-	  			imageSrc=image
+	  			imageSrc=block[0].src
 				}}
 		</div>
 		<div class="grid-col grid-col--1"></div>
 		<div class="grid-col grid-col--5 text-image__text">
-			{{> text/text					
-	  			blockId=id
-	  			blockType="text-image"
+			{{> text-block/text-block
+	  			blockIndex=id
 					editMode=editMode
 					element="p"
-	  			fieldId="text"
+	  			fieldIndex="1"
 	  			fieldType="text"
-	  			text=text
+	  			text=block[0].text
 	  	}}
 		</div>
 	</div>

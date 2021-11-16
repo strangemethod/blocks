@@ -2,7 +2,7 @@
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
 			{{#each blocks}}
-				{{> (get_partial this.type) block=this id=@key editMode=../editMode}}
+				{{> (get_partial (get_component this)) block=this id=@key editMode=../editMode}}
 			{{/each}}
 
 			{{#if ../editMode}}

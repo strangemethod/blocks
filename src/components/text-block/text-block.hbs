@@ -1,0 +1,14 @@
+{{#if editMode}}
+	<div class="editor" 
+		data-operation="edit"
+		data-block-id={{blockId}}
+		data-block-type={{blockType}}
+		data-field-id={{fieldId}}
+		data-field-type={{fieldType}}
+		data-value={{escape_html text}}
+		data-image-src={{image}}>
+	</div>
+{{/if}}
+<{{element}} class="text">
+	{{unescape_html text}}
+</{{element}}>

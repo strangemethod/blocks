@@ -54,6 +54,13 @@ gulp.task('handlebars', () => {
         .data({'id': pageKey, 'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})
         .helpers({
+          get_component: function(blockArray) {
+            const blockTypes = blockArray.map((block) => {
+              return block.type;
+            });
+            const component = blockArray.length ? blockTypes.join('-') : null;
+            return component;
+          },
           equal_values: function(a, b) {
             return a == b;
           },
@@ -62,7 +69,7 @@ gulp.task('handlebars', () => {
           },
           get_partial: function(input) {
             return input + '/' + input;
-          },        
+          },
           unescape_html: function(input) {
             return unescape(input);
           },
@@ -75,5 +82,5 @@ gulp.task('handlebars', () => {
         .pipe(rename(`${destPath}index.html`))
         .pipe(gulp.dest('./dist'))
         .pipe(livereload(server));
-  });     
+  });
 });

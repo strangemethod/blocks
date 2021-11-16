@@ -1,7 +1,49 @@
-{
-  "block-1": {
-    "type": "hero",
-    "text": "Demo Page",
-    "image": "https://picsum.photos/1920/1080"
-  }
-}
+[
+  [
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    },
+    {
+      "text": "Lorem Ipsum dolor sit.",
+      "type": "text"
+    }
+  ],
+  [
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    },
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    },
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    },
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    }
+  ]
+]
