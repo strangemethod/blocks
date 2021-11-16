@@ -12,7 +12,7 @@ export default class EditHero extends React.Component {
 
   setImage = () => {
     const fieldInput = event.target.value;
-    const pathedInput = fieldInput.replace("C:\\fakepath\\", "/img/");
+    const pathedInput = fieldInput.replace("C:\\fakepath\\", "/assets/");
     this.setState({image: pathedInput});
   }  
 

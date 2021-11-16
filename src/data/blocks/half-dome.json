@@ -1,0 +1,55 @@
+{
+  "block-1": {
+    "type": "hero",
+    "text": "Half%20Dome",
+    "image": "/assets/DSCF2939.jpg"
+  },
+  "block-2": {
+    "type": "centered-text",
+    "text": "Yosemite's Half Dome hike is just about the most difficult thing you can do in a National Park without any form of protection."
+  },
+  "block-3": {
+    "caption": "Sunrise on El Capitan.",
+    "image": "/assets/DSCF2780.jpg",
+    "type": "centered-image"
+  },
+  "block-4": {
+    "caption-1": "Getting started bright and early.",
+    "caption-2": "Vernal Falls Bridge.",
+    "image-1": "/assets/DSCF2801.jpg",
+    "image-2": "/assets/DSCF2807.jpg",
+    "type": "two-up-image"
+  },
+  "block-5": {
+    "caption-1": "The mist trail through Vernal Falls.",
+    "caption-2": "Looking down on Vernal Falls, mysterious rainbows appear through the canopy.",
+    "image-1": "/assets/DSCF2825.jpg",
+    "image-2": "/assets/DSCF2849.jpg",
+    "type": "two-up-image"
+  },
+  "block-6": {
+    "caption-1": "The daunting view from Sub-Dome.",
+    "caption-2": "Beginning the final ascent up the cables.",
+    "caption-3": "The cable-assisted section has a grade of about 45 degrees, but it feels nearly vertical when you're on it.",
+    "image-1": "/assets/DSCF2927.jpg",
+    "image-2": "/assets/DSCF2933.jpg",
+    "image-3": "/assets/DSCF2939.jpg",
+    "type": "three-up-image"
+  },
+  "block-7": {
+    "caption": "",
+    "image": "/assets/DSCF2942.jpg",
+    "text": "The cable ascent is terrifyingly steep. To any rock climber, it seems almost insane that inexperienced tourists are allowed to ascend (and descend!) without any form of protection. The general consensus is that the amount of traffic on the cables would cause gear to get tangled, but I wouldn't hesitate to wear a harness if I made the hike again.",
+    "type": "text-image"
+  },
+  "block-8": {
+    "caption": "Reaching the top of the cables.",
+    "image": "/assets/DSCF2960.jpg",
+    "type": "centered-image"
+  },
+  "block-9": {
+    "caption": "A well-earned snack with a view.",
+    "image": "/assets/DSCF2975.jpg",
+    "type": "centered-image"
+  }
+}

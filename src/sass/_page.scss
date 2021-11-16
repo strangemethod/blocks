@@ -27,7 +27,11 @@ body {
 	}
 }
 
-img {
-	height: auto;
+.image {
 	width: 100%;
+
+	img {
+		height: auto;
+		width: 100%;
+	}
 }
