@@ -54,15 +54,15 @@ gulp.task('handlebars', () => {
         .data({'id': pageKey, 'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})
         .helpers({
-          get_partial: function(input) {
-            return input + '/' + input;
-          },
           equal_values: function(a, b) {
             return a == b;
           },
           escape_html: function(input) {
             return escape(input);
           },
+          get_partial: function(input) {
+            return input + '/' + input;
+          },        
           unescape_html: function(input) {
             return unescape(input);
           },

@@ -8,6 +8,7 @@ editors.forEach((editor) => {
 	const props = {
 		blockId: editor.dataset.blockId,
 		blockType: editor.dataset.blockType,
+		caption: editor.dataset.caption,
 		fieldId: editor.dataset.fieldId,
 		fieldType: editor.dataset.fieldType,
 		imageSrc: editor.dataset.imageSrc,

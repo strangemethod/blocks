@@ -2,30 +2,36 @@
 	<div class="grid">
 		<div class="grid-col grid-col--4">
 	  	{{> image/image
-	  			imageSrc=image-1
-	  			editMode=editMode
 	  			blockId=id
 	  			blockType="three-up-image"
+	  			caption=caption-1
+	  			editMode=editMode
 	  			fieldId="image-1"
-	  			fieldType="image"}}
-		</div>
-		<div class="grid-col grid-col--4 ">
-	  	{{> image/image
-	  			imageSrc=image-2
-	  			editMode=editMode
-	  			blockId=id
-	  			blockType="three-up-image"
-	  			fieldId="image-2"
-	  			fieldType="image"}}
+	  			fieldType="image"
+	  			imageSrc=image-1
+	  	}}
 		</div>
 		<div class="grid-col grid-col--4">
 	  	{{> image/image
-	  			imageSrc=image-3
-	  			editMode=editMode
 	  			blockId=id
 	  			blockType="three-up-image"
+	  			caption=caption-2
+	  			editMode=editMode
+	  			fieldId="image-2"
+	  			fieldType="image"
+	  			imageSrc=image-2
+	  	}}
+		</div>
+		<div class="grid-col grid-col--4">
+	  	{{> image/image
+	  			blockId=id
+	  			blockType="three-up-image"
+	  			caption=caption-3
+	  			editMode=editMode
 	  			fieldId="image-3"
-	  			fieldType="image"}}
+	  			fieldType="image"
+	  			imageSrc=image-3
+	  	}}
 		</div>
 	</div>
 </section>

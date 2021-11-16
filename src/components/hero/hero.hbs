@@ -1,11 +1,12 @@
 <section class="block hero" data-block="{{id}}">
 	{{> image/image
-			imageSrc=image
-			editMode=editMode
 			blockId=id
 			blockType="hero"
+			editMode=editMode
 			fieldId="image"
-			fieldType="image"}}
+			fieldType="image"
+			imageSrc=image
+	}}
 	<div class="hero-overlay">
 		{{> text/text
   			blockId=id
@@ -15,6 +16,7 @@
   			fieldId="text"
   			fieldType="hero"
 				imageSrc=image
-  			text=text}}
+  			text=text
+  	}}
 	</div>
 </section>

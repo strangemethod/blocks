@@ -2,12 +2,13 @@
 	<div class="grid">
 		<div class="grid-col grid-col--5">
 	  	{{> image/image
-	  			imageSrc=image
-	  			editMode=editMode
 	  			blockId=id
 	  			blockType="text-image"
+	  			editMode=editMode
 	  			fieldId="image"
-	  			fieldType="image"}}
+	  			fieldType="image"
+	  			imageSrc=image
+				}}
 		</div>
 		<div class="grid-col grid-col--1"></div>
 		<div class="grid-col grid-col--6 text-image__text">
@@ -18,7 +19,8 @@
 					element="p"
 	  			fieldId="text"
 	  			fieldType="text"
-	  			text=text}}
+	  			text=text
+	  	}}
 		</div>
 	</div>
 </section>

@@ -1,7 +1,8 @@
 const Models = {
   "centered-image": {
-    "type": "centered-image",
+    "caption": "lorem ipsum",
     "image": "https://picsum.photos/1920/1080",
+    "type": "centered-image",
   },
   "centered-text": {
     "type": "centered-text",
@@ -13,20 +14,26 @@ const Models = {
     "image": "https://picsum.photos/1920/1080",
   },
   "text-image": {
-    "type": "text-image",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "caption": "lorem ipsum",
     "image": "https://picsum.photos/1920/1080",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "type": "text-image",
   },
   "two-up-image": {
-    "type": "two-up-image",
+    "caption-1": "lorem ipsum",
+    "caption-2": "lorem ipsum",
     "image-1": "https://picsum.photos/1920/1080",
     "image-2": "https://picsum.photos/1920/1080",
+    "type": "two-up-image",
   },
   "three-up-image": {
-    "type": "three-up-image",
+    "caption-1": "lorem ipsum",
+    "caption-2": "lorem ipsum",
+    "caption-3": "lorem ipsum",
     "image-1": "https://picsum.photos/1920/1080",
     "image-2": "https://picsum.photos/1920/1080",
     "image-3": "https://picsum.photos/1920/1080",
+    "type": "three-up-image",
   },
 }
 

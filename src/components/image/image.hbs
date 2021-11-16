@@ -3,9 +3,15 @@
 		data-operation="edit"
 		data-block-id={{blockId}}
 		data-block-type={{blockType}}
+		data-caption={{escape_html caption}}
 		data-field-id={{fieldId}}
 		data-field-type={{fieldType}}
 		data-image-src={{imageSrc}}>
 	</div>
 {{/if}}
-<img src="{{#if imageSrc}}{{imageSrc}}{{else}}http://placehold.it/600x400{{/if}}" />
+<div class="image">
+	<img src="{{#if imageSrc}}{{imageSrc}}{{else}}http://placehold.it/600x400{{/if}}" />
+	{{#if caption}}
+		<p class="caption">{{unescape_html caption}}</p>
+	{{/if}}
+</div>
