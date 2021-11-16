@@ -1,4 +1,4 @@
-$icon-size: 50px;
+$icon-size: 40px;
 
 .editor {
 	position: relative;
@@ -30,6 +30,13 @@ $icon-size: 50px;
 		display: none;
 		position: absolute;
 
+		&--bottom {
+			flex-direction: row;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
 		&--right {
 			flex-direction: column;
 			right: 10px;
@@ -44,33 +51,30 @@ $icon-size: 50px;
 		border-radius: $icon-size;
 		cursor: pointer;
 		font-size: 0;
+		height: $icon-size;
+		width: $icon-size;		
 		line-height: 0;
-		margin: 5px 0;
+		margin: 5px;
 		padding: 0;
 
-		&--down,
-		&--up {
+		img {
+			width: 16px;
+		}
+
+		&--bg {
 			img {
 				height: $icon-size;
 				width: $icon-size;
 			}
 		}
-
+		
 		&--delete {
 			background: $color-red;
-			height: $icon-size;
-			width: $icon-size;
-
-			img {
-				width: 20px;
-			}
 		}
-
 	}
 
-	&:hover {
-		.editor__icons {
-			display: flex;
-		}
+	&:hover .editor__icons--right, 
+	.edit-block:hover .editor__icons--bottom {
+		display: flex;
 	}
 }

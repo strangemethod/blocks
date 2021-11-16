@@ -105,10 +105,24 @@ export default class Editor extends React.Component {
     this.setState({modalOpen: true});
   }
 
+  test = (e) => {
+    e.stopPropagation();
+    console.log('test');
+  }
+
   render() {
     return (
       <React.Fragment>
-        <div class="edit-block__trigger" onClick={this.showDialog}></div>
+        <div class="edit-block__trigger" onClick={this.showDialog}>
+          <div class="editor__icons editor__icons--bottom">
+            <button class="editor__icon editor__icon--edit" onClick={this.test}>
+              <img src="/assets/icon-edit.svg" />
+            </button>
+            <button class="editor__icon editor__icon--delete" onClick={this.test}>
+              <img src="/assets/icon-archive.svg" />
+            </button>
+          </div>
+        </div>
         <Dialog {...this.props}
             closeDialog={this.closeDialog} 
             modalOpen={this.state.modalOpen}
