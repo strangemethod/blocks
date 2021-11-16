@@ -6,17 +6,17 @@ export default class EditImage extends React.Component {
 
     this.state = {
       caption: unescape(this.props.caption),
-      captionKey: this.getCaptionKey(),
-      error: false,
+      // captionKey: this.getCaptionKey(),
+      // error: false,
       image: this.props.imageSrc,
     };
   }
 
-  getCaptionKey = () => {
-    const fieldIndex = this.props.fieldId.split('-')[1];
-    const captionKey = fieldIndex ? `caption-${fieldIndex}` : 'caption';
-    return captionKey;
-  }
+  // getCaptionKey = () => {
+  //   const fieldIndex = this.props.fieldId.split('-')[1];
+  //   const captionKey = fieldIndex ? `caption-${fieldIndex}` : 'caption';
+  //   return captionKey;
+  // }
 
   setCaption = () => {
     this.setState({caption: event.target.value});
@@ -46,17 +46,20 @@ export default class EditImage extends React.Component {
 
     return (
     	<React.Fragment>
-      	<h3>Edit Image</h3>
+        <button onClick={() => {this.props.setFieldType(null)}}>Back</button>
+      	<h2>Image</h2>
+        <h3>Select an image</h3>
 				<input
             accept="image/png, image/jpeg"
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setImage}
             type="file" />
         <p>{currentImg}</p>
+        <h3>Image caption</h3>
         <input type="text" 
             value={this.state.caption}
             onChange={this.setCaption} />
-        <button onClick={this.submitData}>Submit</button>
+        <button class="submit-button" onClick={this.submitData}>Submit</button>
       </React.Fragment>
     );
   }

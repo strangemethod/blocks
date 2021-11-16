@@ -1,18 +1,21 @@
 import React from "react";
+import AddMenu from "./add-menu.jsx";
+import EditImage from "./edit-image.jsx";
+import EditText from "./edit-text.jsx";
 
 export default class AddBlock extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      blockType: 'centered-image',
-      error: false,
+      blockType: null,
+      // error: false,
     };
   }
 
-  setBlockType = () => {
-    this.setState({blockType: event.target.value});
-  }  
+  setFieldType = (type) => {
+    this.setState({fieldType: type});
+  }
 
   submitData = () => {
     if (this.state.blockType) {
@@ -21,22 +24,23 @@ export default class AddBlock extends React.Component {
     } else {
       this.setState({error: true});
     }
-  }  
+  }
+
   render() {
+    let form;
+    let menu;
+    if (this.state.fieldType === 'image') {
+      form = <EditImage {...this.props} setFieldType={this.setFieldType} />;
+    } else if (this.state.fieldType === 'text'){
+      form = <EditText {...this.props} setFieldType={this.setFieldType} />;
+    } else {
+      menu = <AddMenu setFieldType={this.setFieldType} />
+    }
+
     return (
       <React.Fragment>
-				<h2>Add a new Block</h2>
-				<label>Block Type</label>
-				<select className={`${this.state.error ? "error" : ""}`}  
-            onChange={this.setBlockType}>
-          <option value="centered-image" selected>Centered Image</option>
-          <option value="centered-text">Centered Text</option>
-          <option value="hero">Hero</option>
-					<option value="text-image">Text and Image</option>
-					<option value="three-up-image">Three-up Image</option>
-					<option value="two-up-image">Two-Up Image</option>
-				</select>
-        <button class="submit" onClick={this.submitData}>Submit</button>
+        {menu}
+        {form}
       </React.Fragment>
     );
   }

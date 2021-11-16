@@ -30,13 +30,14 @@ export default class EditText extends React.Component {
   render() {
     return (
     	<React.Fragment>
-        <h3>Edit Text</h3>
+        <button onClick={() => {this.props.setFieldType(null)}}>Back</button>
+        <h2>Text Block</h2>
         <input type="text" 
             value={this.state.text}
             className={`${this.state.error ? "error" : ""}`}
             onChange={this.setText}
             />
-        <button onClick={this.submitData}>Submit</button>
+        <button class="submit-button" onClick={this.submitData}>Submit</button>
       </React.Fragment>
     );
   }
