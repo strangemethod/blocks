@@ -9,7 +9,6 @@ export default class AddBlock extends React.Component {
 
     this.state = {
       blockType: null,
-      // error: false,
     };
   }
 
@@ -20,7 +19,7 @@ export default class AddBlock extends React.Component {
   submitData = () => {
     if (this.state.blockType) {
       this.props.addBlock(this.state.blockType);
-      this.props.closeDialog();
+      this.props.closeModal();
     } else {
       this.setState({error: true});
     }
@@ -34,13 +33,13 @@ export default class AddBlock extends React.Component {
     } else if (this.state.fieldType === 'text'){
       form = <EditText {...this.props} setFieldType={this.setFieldType} />;
     } else {
-      menu = <AddMenu setFieldType={this.setFieldType} />
+      menu =  <AddMenu setFieldType={this.setFieldType} />;
     }
 
     return (
       <React.Fragment>
-        {menu}
-        {form}
+      {menu}
+      {form}
       </React.Fragment>
     );
   }

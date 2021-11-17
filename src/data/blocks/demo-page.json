@@ -45,5 +45,26 @@
       "src": "/assets/placeholder.png",
       "type": "image"
     }
+  ],
+  [
+    {
+      "caption": "Lorem ipsum",
+      "src": "https://picsum.photos/1920/1080",
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "caption": "Lorem ipsum",
+      "src": "https://picsum.photos/1920/1080",
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "caption": "Lorem ipsum",
+      "src": "https://picsum.photos/1920/1080",
+      "type": "image"
+    }
   ]
 ]

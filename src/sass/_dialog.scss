@@ -1,4 +1,4 @@
-.dialog {
+.modal {
 	background: $color-overlay;
 	left: 0;
 	height: 100vh;
@@ -7,24 +7,6 @@
 	top: 0;
 	width: 100vw;
 	z-index: 9;
-
-	&__banner {
-		background: $color-grey--light;
-		left: 0;
-		position: fixed;
-		top: 0;
-		width: 100%;
-
-		.container {
-			margin: 10px auto;
-			padding: 0 20px;
-			text-align: right;
-		}
-
-		button {
-			margin: 0 10px;
-		}
-	}
 
 	&__form {
 		background: $color-grey--light;
@@ -66,16 +48,6 @@
 		}
 	}
 
-	.button-list {
-		list-style: none;
-
-		li {
-			display: inline-block;
-			padding: 20px;
-			width: 50%;
-		}
-	}
-
 	button {
 		align-self: flex-start;
 		background: $color-blue;
@@ -83,6 +55,7 @@
 		border-radius: 5px;
 		color: $color-white;
 		cursor: pointer;
+		margin: 20px 0;
 		padding: 10px;
 		width: auto;
 
@@ -90,17 +63,6 @@
 			background: red;
 			border: none;
 			color: $color-white
-		}
-
-		&.block-button {
-			display: inline-block;
-			font-size: 24px;
-			height: 120px;
-			width: 100%;
-
-			&:hover {
-				background: $color-blue--dark;
-			}
 		}
 
 		&.submit-button {

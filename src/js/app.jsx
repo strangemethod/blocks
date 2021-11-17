@@ -1,20 +1,37 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Editor from "./editor.jsx";
+import BlockEditor from "./block-editor.jsx";
+import SectionEditor from "./section-editor.jsx";
+import PostData from "./functions/post-data.jsx";
 
-const editors = document.querySelectorAll('.edit-block');
+// DOM hooks.
+const addSections = document.querySelectorAll('.add-section');
+const blockEditors = document.querySelectorAll('.edit-block');
+const sectionEditors = document.querySelectorAll('.edit-section');
 
-editors.forEach((editor) => {
-	const props = {
-		blockId: editor.dataset.blockId,
-		blockType: editor.dataset.blockType,
-		caption: editor.dataset.caption,
-		fieldId: editor.dataset.fieldId,
-		fieldType: editor.dataset.fieldType,
-		imageSrc: editor.dataset.imageSrc,
-		operation: editor.dataset.operation,
-		value: editor.dataset.value,
-	}
+// Global props.
+const props = {
+	pageId: document.getElementById('page').dataset.page,
+	postData: PostData,
+}
 
-	ReactDOM.render(<Editor {...props} />, editor);
+// Add sections.
+addSections.forEach((editor) => {
+	ReactDOM.render(
+		<SectionEditor {...editor.dataset} {...props} view="footer" />, 
+		editor);
 });
+
+// Edit Sections.
+sectionEditors.forEach((editor) => {
+	ReactDOM.render(
+		<SectionEditor {...editor.dataset} {...props} view="sidebar" />, 
+		editor);
+});
+
+// Edit Blocks.
+// blockEditors.forEach((editor) => {
+// 	ReactDOM.render(
+//		<BlockEditor {...editor.dataset} pageId={pageId} />, 
+//			editor);
+// });

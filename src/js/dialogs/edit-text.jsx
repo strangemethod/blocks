@@ -17,7 +17,7 @@ export default class EditText extends React.Component {
   submitData = () => {
     if (this.state.text) {
       this.props.editBlock(this.state.text);
-      this.props.closeDialog();
+      this.props.closeModal();
     } else {
       this.setState({error: true});
     }

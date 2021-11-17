@@ -7,6 +7,27 @@ const dataPath = './src/data/blocks/';
 const Models = require('../models/models.js');
 
 
+// Add section
+router.post('/add-section', (req, res) => {
+  const pageDataPath = `${dataPath}${req.body.page}.json`;
+
+  // Get existing page data.
+  const pageJson = fs.existsSync(pageDataPath) ? fs.readFileSync(pageDataPath) : null;
+  const pageData = pageJson ? JSON.parse(pageJson) : [];
+
+  // Get section model.
+  const sectionModel = [Models.image];
+
+  pageData.push(sectionModel);
+
+  // Write JSON to file.
+  jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+
+  res.send('success');
+});
+
 // Add block.
 router.post('/add-block', (req, res) => {
   const pageDataPath = `${dataPath}${req.body.page}.json`;

@@ -10,19 +10,6 @@ $icon-size: 40px;
 		position: absolute;
 		top: 0;
 		width: 100%;
-
-		&:hover {
-			box-shadow: 0 0 0 2px blue;
-			cursor: pointer;
-		}
-
-		&__trigger {
-			display: block;
-			height: 100%;
-			position: relative;
-			width: 100%;
-			z-index: 1;
-		}
 	}
 
 	// Floating icons.
@@ -76,5 +63,9 @@ $icon-size: 40px;
 	&:hover .editor__icons--right, 
 	.edit-block:hover .editor__icons--bottom {
 		display: flex;
+	}
+
+	.add-section .editor__icon {
+		margin: 20px auto;
 	}
 }

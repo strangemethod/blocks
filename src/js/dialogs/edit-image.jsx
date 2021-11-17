@@ -32,7 +32,7 @@ export default class EditImage extends React.Component {
     if (this.state.image) {
       this.props.editBlock(this.state.image, this.props.fieldId);
       this.props.editBlock(this.state.caption, this.state.captionKey);
-      this.props.closeDialog();
+      this.props.closeModal();
     } else {
       this.setState({error: true});
     }

@@ -1,7 +1,7 @@
 import React from "react";
-import EditHero from "./edit-hero.jsx";
-import EditImage from "./edit-image.jsx";
-import EditText from "./edit-text.jsx";
+import EditHero from "./dialogs/edit-hero.jsx";
+import EditImage from "./dialogs/edit-image.jsx";
+import EditText from "./dialogs/edit-text.jsx";
 
 export default class EditBlock extends React.Component {
   constructor(props) {
