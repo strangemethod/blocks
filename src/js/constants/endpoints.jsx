@@ -7,6 +7,7 @@ const Endpoints = {
   'delete-block': `${serverUrl}/delete-block`,
   'delete-section': `${serverUrl}/delete-section`,
   'edit-block': `${serverUrl}/edit-block`,
+  'order-section': `${serverUrl}/order-section`,
 }
 
 export default Endpoints;

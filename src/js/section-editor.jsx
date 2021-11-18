@@ -71,7 +71,7 @@ export default class SectionEditor extends React.Component {
   //   this.postData(blockData, 'delete')
   // }
 
-  deleteSection = (index) => {
+  deleteSection = (index, order) => {
     const data = {
       index: index,
       page: this.props.pageId,
@@ -91,8 +91,14 @@ export default class SectionEditor extends React.Component {
   //   this.postData(blockData, 'edit')
   // }
 
-  orderBlock = (value) => {
-    console.log(value);
+  orderBlock = (index, order) => {
+    const data = {
+      index: index,
+      order: order,
+      page: this.props.pageId,
+    }
+
+    this.props.postData(data, 'order-section')
   }
 
   // postData = (data, operation) => {
@@ -123,6 +129,7 @@ export default class SectionEditor extends React.Component {
       addSection: this.addSection,
       closeModal: this.closeModal,
       deleteSection: this.deleteSection,
+      orderBlock: this.orderBlock,
       showModal: this.showModal,
       ...this.props
     }

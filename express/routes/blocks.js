@@ -39,6 +39,22 @@ router.post('/delete-section', (req, res) => {
   res.send('success');
 });
 
+// Reorder section
+router.post('/order-section', (req, res) => {
+  const pageDataPath = `${dataPath}${req.body.page}.json`;
+  const pageData = getPageData(pageDataPath);
+  const section = pageData.splice(req.body.index, 1);
+  if (req.body.order == '1') {
+    req.body.index++;
+  } else {
+    req.body.index--;
+  }
+
+  pageData.splice(req.body.index, 0, section[0]);
+  writeFile(pageDataPath, pageData);
+  res.send('success');
+});
+
 
 // Add block.
 // router.post('/add-block', (req, res) => {
