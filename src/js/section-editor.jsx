@@ -124,15 +124,16 @@ export default class SectionEditor extends React.Component {
       closeModal: this.closeModal,
       deleteSection: this.deleteSection,
       showModal: this.showModal,
+      ...this.props
     }
 
     let triggers;
     switch (this.state.view) {
       case 'footer':
-        triggers = <SectionFooter {...this.props} />
+        triggers = <SectionFooter {...props} />
         break;
       case 'sidebar':
-        triggers = <SectionSidebar {...this.props} {...props} />
+        triggers = <SectionSidebar {...props} />
         break;
     }
 

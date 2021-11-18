@@ -12,6 +12,11 @@ getPageData = (pageDataPath) => {
   return pageData;
 }
 
+writeFile = (path, data) => {
+  jsonfile.writeFile(path, data, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+}
 
 // Add section
 router.post('/add-section', (req, res) => {
@@ -20,12 +25,7 @@ router.post('/add-section', (req, res) => {
   const sectionModel = [Models.image];
 
   pageData.push(sectionModel);
-
-  // Write JSON to file.
-  jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
-    if (err) console.error(err)
-  });
-
+  writeFile(pageDataPath, pageData);
   res.send('success');
 });
 
@@ -35,12 +35,7 @@ router.post('/delete-section', (req, res) => {
   const pageData = getPageData(pageDataPath);
 
   pageData.splice(req.body.index, 1);
-
-  // Write JSON to file.
-  jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
-    if (err) console.error(err)
-  });
-
+  writeFile(pageDataPath, pageData);
   res.send('success');
 });
 
