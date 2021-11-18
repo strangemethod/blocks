@@ -9,7 +9,7 @@
 						{{> (get_partial (get_component this)) block=this id=@key}}
 
 						{{!-- Section Editor buttons --}}
-						<div class="edit-section editor__icons editor__icons--right"></div>
+						<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>
 					</div>
 				{{/if}}
 			{{/each}}

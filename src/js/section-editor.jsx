@@ -71,6 +71,15 @@ export default class SectionEditor extends React.Component {
   //   this.postData(blockData, 'delete')
   // }
 
+  deleteSection = (index) => {
+    const data = {
+      index: index,
+      page: this.props.pageId,
+    }
+
+    this.props.postData(data, 'delete-section')
+  }
+
   // editBlock = (input, fieldId) => {
   //   const blockData = {
   //     page: this.pageId,
@@ -109,25 +118,21 @@ export default class SectionEditor extends React.Component {
     this.setState({modalOpen: true});
   }
 
-  test = (e) => {
-    e.stopPropagation();
-    console.log('test');
-  }
-
   render() {
     const props = {
       addSection: this.addSection,
       closeModal: this.closeModal,
+      deleteSection: this.deleteSection,
       showModal: this.showModal,
     }
 
     let triggers;
     switch (this.state.view) {
       case 'footer':
-        triggers = <SectionFooter {...props} />
+        triggers = <SectionFooter {...this.props} />
         break;
       case 'sidebar':
-        triggers = <SectionSidebar {...props} />
+        triggers = <SectionSidebar {...this.props} {...props} />
         break;
     }
 

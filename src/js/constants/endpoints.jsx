@@ -1,9 +1,12 @@
+const serverUrl = 'http://localhost:4000';
+
 const Endpoints = {
-  'add': 'http://localhost:4000/add-block',
-  'add-section': 'http://localhost:4000/add-section',
-  'addPage': 'http://localhost:4000/add-page',
-  'delete': 'http://localhost:4000/delete-block',
-  'edit': 'http://localhost:4000/edit-block',
+  'add-block': `${serverUrl}/add-block`,
+  'add-section': `${serverUrl}/add-section`,
+  'add-page': `${serverUrl}/add-page`,
+  'delete-block': `${serverUrl}/delete-block`,
+  'delete-section': `${serverUrl}/delete-section`,
+  'edit-block': `${serverUrl}/edit-block`,
 }
 
 export default Endpoints;

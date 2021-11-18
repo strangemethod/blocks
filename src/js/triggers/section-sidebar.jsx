@@ -16,7 +16,8 @@ export default class SectionSidebar extends React.Component {
         <button class="editor__icon editor__icon--bg editor__icon--add">
           <img src="/assets/icon-plus-circle.svg" />
         </button>
-        <button class="editor__icon editor__icon--delete">
+        <button class="editor__icon editor__icon--delete"
+            onClick={() => {this.props.deleteSection(this.props.index, 'delete-section')}}>
           <img src="/assets/icon-archive.svg" />
         </button>
         <button
