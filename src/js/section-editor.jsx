@@ -12,6 +12,15 @@ export default class SectionEditor extends React.Component {
     };
   }
 
+  addBlock = (type) => {
+    console.log(type);
+    // const data = {
+    //   page: this.props.pageId,
+    // }
+
+    // this.props.postData(data, 'add-block')
+  }
+
   addSection = () => {
     const data = {
       page: this.props.pageId,
@@ -41,6 +50,7 @@ export default class SectionEditor extends React.Component {
 
   render() {
     const props = {
+      addBlock: this.addBlock,
       addSection: this.addSection,
       closeModal: this.closeModal,
       deleteSection: this.deleteSection,

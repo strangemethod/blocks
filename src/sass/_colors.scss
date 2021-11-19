@@ -1,10 +1,12 @@
-$color-white: #fff;
 $color-black: #000;
-$color-grey--dark: #999;
-$color-grey--light: #efefef;
-$color-overlay: rgba(0,0,0, .8);
-
-$color-yellow: #ff0;
 $color-blue: #007bff;
 $color-blue--dark: #0069d9;
+$color-grey--dark: #444;
+$color-grey--light: #efefef;
+$color-overlay: rgba(0,0,0, .8);
 $color-red: #dc3545;
+$color-red--dark: #bd2130;
+$color-white: #fff;
+$color-yellow: #ff0;
+
+$filter-white: invert(100%) sepia(97%) saturate(0%) hue-rotate(34deg) brightness(103%) contrast(104%);
