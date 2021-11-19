@@ -18,14 +18,25 @@ const props = {
 // Add sections.
 addSections.forEach((editor) => {
 	ReactDOM.render(
-		<SectionEditor {...editor.dataset} {...props} view="footer" />, 
+		<SectionEditor
+				{...editor.dataset}
+				{...props}
+				view="footer" />, 
 		editor);
 });
 
 // Edit Sections.
-sectionEditors.forEach((editor) => {
+sectionEditors.forEach((editor, index) => {
+	let firstSection = index === 0;
+	let lastSection = index === sectionEditors.length - 1;
+
 	ReactDOM.render(
-		<SectionEditor {...editor.dataset} {...props} view="sidebar" />, 
+		<SectionEditor
+				{...editor.dataset}
+				{...props}
+				firstSection={firstSection}
+				lastSection={lastSection}
+				view="sidebar" />, 
 		editor);
 });
 
