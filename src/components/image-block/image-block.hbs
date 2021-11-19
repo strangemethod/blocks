@@ -1,11 +1,10 @@
 <div class="edit-block"
-		data-operation="edit"
-		data-block-id={{blockId}}
-		data-block-type={{blockType}}
+		data-block-index={{blockIndex}}
+		data-complete="{{sectionComplete}}"
+{{!-- 
 		data-caption={{escape_html caption}}
-		data-field-id={{fieldId}}
-		data-field-type={{fieldType}}
-		data-image-src={{imageSrc}}>
+		data-image-src={{imageSrc}} --}}
+		data-section-index={{sectionIndex}}>
 </div>
 
 <div class="image {{#unless imageSrc}}placeholder{{/unless}}">

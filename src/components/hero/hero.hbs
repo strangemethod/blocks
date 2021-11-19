@@ -1,19 +1,12 @@
 <section class="block hero">
   {{> image-block/image-block
-			blockId=id
-			blockType="hero"
-			fieldId="image"
-			fieldType="image"
 			imageSrc=image
+	  	sectionIndex=sectionIndex
 	}}
 	<div class="hero-overlay">
 		{{> text-block/text-block
-  			blockId=id
-  			blockType="hero"
 				element="h1"
-  			fieldId="text"
-  			fieldType="hero"
-				imageSrc=image
+	  		sectionIndex=sectionIndex
   			text=title
   	}}
 	</div>

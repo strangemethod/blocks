@@ -8,19 +8,9 @@ export default class SectionEditor extends React.Component {
     super(props);
 
     this.state = {
-      modalOpen: false,
       view: this.props.view,
     };
   }
-
-  // addBlock = (data) => {
-  //   const blockData = {
-  //     page: this.pageId,
-  //     blockType: data,
-  //   }
-
-  //   this.postData(blockData, 'add')
-  // }
 
   addSection = () => {
     const data = {
@@ -29,47 +19,6 @@ export default class SectionEditor extends React.Component {
 
     this.props.postData(data, 'add-section')
   }
-
-  // addPage = (title) => {
-  //   const slug = this.cleanUrlSlug(title);
-
-  //   // Post page.
-  //   const pageData = {
-  //     id: slug,
-  //     title: escape(title),
-  //   }
-
-  //   this.postData(pageData, 'addPage')
-
-  //   // Redirect to new page.
-  //   setTimeout(() => {
-  //     window.location.assign('/' + slug + '/');
-  //   }, 1000);
-  // }
-
-  // cleanUrlSlug = (input) => {
-  //   const reservedChars = [':', '/', '#', '?', '&', '@', '%', '+', '~', '"', '\''];
-  //   let slug = input.toLowerCase().replaceAll(' ', '-');
-
-  //   reservedChars.forEach((char) => {
-  //     slug.replaceAll(char, '');
-  //   });
-
-  //   return slug;
-  // }
-
-  closeModal = () => {
-    this.setState({modalOpen: false});
-  }
-
-  // deleteData = (data) => {
-  //   const blockData = {
-  //     page: this.pageId,
-  //     blockId: data,
-  //   }
-
-  //   this.postData(blockData, 'delete')
-  // }
 
   deleteSection = (index, order) => {
     const data = {
@@ -80,17 +29,6 @@ export default class SectionEditor extends React.Component {
     this.props.postData(data, 'delete-section')
   }
 
-  // editBlock = (input, fieldId) => {
-  //   const blockData = {
-  //     page: this.pageId,
-  //     blockId: this.props.blockId,
-  //     fieldId: fieldId || this.props.fieldId,
-  //     fieldInput: input,
-  //   }
-
-  //   this.postData(blockData, 'edit')
-  // }
-
   orderBlock = (index, order) => {
     const data = {
       index: index,
@@ -99,29 +37,6 @@ export default class SectionEditor extends React.Component {
     }
 
     this.props.postData(data, 'order-section')
-  }
-
-  // postData = (data, operation) => {
-  //   fetch(this.endpoints[operation], {
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     method: 'POST',
-  //     body: JSON.stringify(data)
-  //   })
-  //   .then((res) => {
-  //     setTimeout(() => {
-  //       window.location.reload();
-  //     }, 400);
-  //   })
-  //   .catch((res) => {
-  //     console.log(res)
-  //   })
-  // }  
-
-  showModal= () => {
-    this.setState({modalOpen: true});
   }
 
   render() {
@@ -147,10 +62,6 @@ export default class SectionEditor extends React.Component {
     return (
       <React.Fragment>
         {triggers}
-        <Modal 
-            {...props}
-            modalOpen={this.state.modalOpen}
-            operation="add-section" />
       </React.Fragment>
     );
   }

@@ -41,8 +41,10 @@ sectionEditors.forEach((editor, index) => {
 });
 
 // Edit Blocks.
-// blockEditors.forEach((editor) => {
-// 	ReactDOM.render(
-//		<BlockEditor {...editor.dataset} pageId={pageId} />, 
-//			editor);
-// });
+blockEditors.forEach((editor) => {
+	ReactDOM.render(
+		<BlockEditor
+				{...editor.dataset}
+				{...props} />, 
+			editor);
+});

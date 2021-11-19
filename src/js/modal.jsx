@@ -1,7 +1,6 @@
 import React from "react";
-import AddBlock from "./dialogs/add-block.jsx";
 import AddPage from "./dialogs/add-page.jsx";
-import EditBlock from "./edit-block.jsx";
+import EditBlock from "./dialogs/edit-block.jsx";
 
 export default class Modal extends React.Component {
   constructor(props) {
@@ -21,15 +20,14 @@ export default class Modal extends React.Component {
       return null;
     }
 
-    let form;
-    if (this.state.operation === 'add') {
-      form = <AddBlock {...this.props} />;
-    } else if (this.state.operation === 'add-section') {
-      form = <AddBlock {...this.props} />;
-    } else if (this.state.operation === 'edit') {
-      form = <EditBlock {...this.props} />;
-    } else if (this.state.operation === 'add-page') {
-      form = <AddPage {...this.props} />;
+    let dialog;
+    switch (this.state.operation) {
+      case 'add-page':
+        dialog = <AddPage {...this.props} />;
+        break;
+      case 'edit-block':
+        dialog = <EditBlock {...this.props} />;
+        break;
     }
 
     return (
@@ -38,7 +36,7 @@ export default class Modal extends React.Component {
           <div class="close" onClick={this.props.closeModal}>
             <img src="/assets/icon-cancel.svg" />
           </div>
-          {form}
+          {dialog}
         </div>
       </section>
     );

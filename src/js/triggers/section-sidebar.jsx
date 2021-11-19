@@ -34,10 +34,6 @@ export default class SectionSidebar extends React.Component {
     return (
       <React.Fragment>
         {moveUp}
-        <button class="editor__icon editor__icon--bg editor__icon--add"
-            title="Add block">
-          <object type="image/svg+xml" data="/assets/icon-plus-circle.svg"></object>
-        </button>
         <button class="editor__icon editor__icon--delete"
             onClick={() => {this.props.deleteSection(this.props.index)}}
             title="Delete section">

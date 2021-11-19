@@ -1,7 +1,7 @@
 import React from "react";
-import AddMenu from "./add-menu.jsx";
-import EditImage from "./edit-image.jsx";
-import EditText from "./edit-text.jsx";
+import AddMenu from "./dialogs/add-menu.jsx";
+import EditImage from "./dialogs/edit-image.jsx";
+import EditText from "./dialogs/edit-text.jsx";
 
 export default class AddBlock extends React.Component {
   constructor(props) {
