@@ -44,12 +44,21 @@ $icon-size: 40px;
 		margin: 5px;
 		padding: 0;
 
+		&:hover {
+			object {
+				filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+				pointer-events: none;
+			}
+		}
+
 		img {
 			width: 16px;
 		}
 
 		&--bg {
-			img {
+			img,
+			object {
+				cursor: pointer;
 				height: $icon-size;
 				width: $icon-size;
 			}
@@ -57,6 +66,14 @@ $icon-size: 40px;
 		
 		&--delete {
 			background: $color-red;
+
+			&:hover {
+				background: $color-grey--dark;
+
+				object {
+					filter: none;
+				}
+			}
 		}
 	}
 

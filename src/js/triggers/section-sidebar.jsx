@@ -10,20 +10,24 @@ export default class SectionSidebar extends React.Component {
       <React.Fragment>
         <button 
             class="editor__icon editor__icon--bg editor__icon--up"
-            onClick={() => {this.props.orderBlock(this.props.index, '-1')}}>
-          <img src="/assets/icon-up.svg" />
+            onClick={() => {this.props.orderBlock(this.props.index, '-1')}}
+            title="Move up">
+          <object type="image/svg+xml" data="/assets/icon-up.svg"></object>
         </button>
-        <button class="editor__icon editor__icon--bg editor__icon--add">
-          <img src="/assets/icon-plus-circle.svg" />
+        <button class="editor__icon editor__icon--bg editor__icon--add"
+            title="Add block">
+          <object type="image/svg+xml" data="/assets/icon-plus-circle.svg"></object>
         </button>
         <button class="editor__icon editor__icon--delete"
-            onClick={() => {this.props.deleteSection(this.props.index)}}>
-          <img src="/assets/icon-archive.svg" />
+            onClick={() => {this.props.deleteSection(this.props.index)}}
+            title="Delete section">
+          <object type="image/svg+xml" data="/assets/icon-archive.svg"></object>
         </button>
         <button
             class="editor__icon editor__icon--bg editor__icon--down"
-            onClick={() => {this.props.orderBlock(this.props.index, '1')}}>
-          <img src="/assets/icon-down.svg" />
+            onClick={() => {this.props.orderBlock(this.props.index, '1')}}
+            title="Move down">
+          <object type="image/svg+xml" data="/assets/icon-down.svg"></object>
         </button>
       </React.Fragment>
     );
