@@ -1,5 +1,14 @@
 <section class="block text-image container">
   <div class="grid">
+    <div class="grid-col grid-col--6">
+      {{> image-block/image-block
+          blockIndex="1"
+          sectionComplete="true"
+          sectionIndex=sectionIndex
+          imageSrc=image
+        }}
+    </div>
+    <div class="grid-col grid-col--1"></div>
     <div class="grid-col grid-col--5 text-image__text">
       {{> text-block/text-block
           blockIndex="0"
@@ -8,15 +17,6 @@
           sectionIndex=sectionIndex
           text=text
       }}
-    </div>
-    <div class="grid-col grid-col--1"></div>
-    <div class="grid-col grid-col--6">
-      {{> image-block/image-block
-          blockIndex="1"
-          sectionComplete="true"
-          sectionIndex=sectionIndex
-          imageSrc=image
-        }}
     </div>
   </div>
 </section>

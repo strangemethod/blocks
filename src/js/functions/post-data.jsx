@@ -1,7 +1,9 @@
-import Endpoints from '../constants/endpoints.jsx';
+const serverUrl = 'http://localhost:4000';
 
 const PostData = (data, operation) => {
-  fetch(Endpoints[operation], {
+  const endpoint = `${serverUrl}/${operation}`;
+
+  fetch(endpoint, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -11,6 +13,7 @@ const PostData = (data, operation) => {
   })
   .then((res) => {
     setTimeout(() => {
+      console.log('reloooooad');
       window.location.reload();
     }, 400);
   })

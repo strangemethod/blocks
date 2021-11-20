@@ -11,11 +11,6 @@ export default class BlockEditor extends React.Component {
     };
   }
 
-  addBlock = (section, block) => {
-    console.log(this.props);
-    // this.props.postData(data, 'add-block')
-  }
-
   // cleanUrlSlug = (input) => {
   //   const reservedChars = [':', '/', '#', '?', '&', '@', '%', '+', '~', '"', '\''];
   //   let slug = input.toLowerCase().replaceAll(' ', '-');
@@ -31,13 +26,18 @@ export default class BlockEditor extends React.Component {
     this.setState({modalOpen: false});
   }
 
-  deleteBlock = (section, block) => {
-    console.log(this.props);
-    // this.props.postData(data, 'delete-block')
+  deleteBlock = (sectionIndex, blockIndex) => {
+    const data = {
+      blockIndex: blockIndex,
+      operation: 'delete',
+      page: this.props.pageId,
+      sectionIndex: sectionIndex,
+    }
+
+    this.props.postData(data, 'block')
   }
 
   editBlock = (section, block) => {
-  
     // this.props.postData(data, 'edit-block')
   }
 
@@ -47,7 +47,6 @@ export default class BlockEditor extends React.Component {
 
   render() {
     const props = {
-      addBlock: this.addBlock,
       closeModal: this.closeModal,
       deleteBlock: this.deleteBlock,
       editBlock: this.editBlock,

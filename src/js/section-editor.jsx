@@ -12,40 +12,45 @@ export default class SectionEditor extends React.Component {
     };
   }
 
-  addBlock = (type) => {
-    console.log(type);
-    // const data = {
-    //   page: this.props.pageId,
-    // }
+  addBlock = (type, index) => {
+    const data = {
+      sectionIndex: index,
+      operation: 'add',
+      page: this.props.pageId,
+      blockType: type,
+    }
 
-    // this.props.postData(data, 'add-block')
+    this.props.postData(data, 'block')
   }
 
   addSection = () => {
     const data = {
+      operation: 'add',
       page: this.props.pageId,
     }
 
-    this.props.postData(data, 'add-section')
+    this.props.postData(data, 'section')
   }
 
   deleteSection = (index, order) => {
     const data = {
-      index: index,
+      sectionIndex: index,
+      operation: 'delete',
       page: this.props.pageId,
     }
 
-    this.props.postData(data, 'delete-section')
+    this.props.postData(data, 'section')
   }
 
-  orderBlock = (index, order) => {
+  orderSection = (index, order) => {
     const data = {
-      index: index,
+      sectionIndex: index,
       order: order,
+      operation: 'order',
       page: this.props.pageId,
     }
 
-    this.props.postData(data, 'order-section')
+    this.props.postData(data, 'section')
   }
 
   render() {
@@ -54,7 +59,7 @@ export default class SectionEditor extends React.Component {
       addSection: this.addSection,
       closeModal: this.closeModal,
       deleteSection: this.deleteSection,
-      orderBlock: this.orderBlock,
+      orderSection: this.orderSection,
       showModal: this.showModal,
       ...this.props
     }

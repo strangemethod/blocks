@@ -18,70 +18,59 @@ writeFile = (path, data) => {
   });
 }
 
-// Add section
-router.post('/add-section', (req, res) => {
+// Block endpoint.
+router.post('/block', (req, res) => {
   const pageDataPath = `${dataPath}${req.body.page}.json`;
   const pageData = getPageData(pageDataPath);
-  const sectionModel = [Models.image];
+  const operation = req.body.operation
+  let section;
 
-  pageData.push(sectionModel);
-  writeFile(pageDataPath, pageData);
-  res.send('success');
-});
-
-// Delete section
-router.post('/delete-section', (req, res) => {
-  const pageDataPath = `${dataPath}${req.body.page}.json`;
-  const pageData = getPageData(pageDataPath);
-
-  pageData.splice(req.body.index, 1);
-  writeFile(pageDataPath, pageData);
-  res.send('success');
-});
-
-// Reorder section
-router.post('/order-section', (req, res) => {
-  const pageDataPath = `${dataPath}${req.body.page}.json`;
-  const pageData = getPageData(pageDataPath);
-  const section = pageData.splice(req.body.index, 1);
-  if (req.body.order == '1') {
-    req.body.index++;
-  } else {
-    req.body.index--;
+  // Update page data.
+  switch (operation) {
+    case 'add':
+      const blockModel = Models[req.body.blockType];
+      section = pageData[req.body.sectionIndex];
+      section.push(blockModel);
+      break;
+    case 'delete':
+      section = pageData[req.body.sectionIndex];
+      section.splice(req.body.blockIndex, 1);
+      break;
+    case 'edit':
+      break;
   }
 
-  pageData.splice(req.body.index, 0, section[0]);
+  writeFile(pageDataPath, pageData);
+  res.send('success');
+});
+
+// Section endpoint.
+router.post('/section', (req, res) => {
+  const pageDataPath = `${dataPath}${req.body.page}.json`;
+  const pageData = getPageData(pageDataPath);
+  const operation = req.body.operation
+
+  // Update page data.
+  switch (operation) {
+    case 'add':
+      pageData.push([Models.image]);
+      break;
+    case 'delete':
+      pageData.splice(req.body.sectionIndex, 1);
+      break;
+    case 'order':
+      const section = pageData.splice(req.body.sectionIndex, 1);
+      const newIndex = parseInt(req.body.sectionIndex) + parseInt(req.body.order);
+      pageData.splice(newIndex, 0, section[0]);
+      break;
+  }
+
   writeFile(pageDataPath, pageData);
   res.send('success');
 });
 
 
-// Add block.
-// router.post('/add-block', (req, res) => {
-//   const pageDataPath = `${dataPath}${req.body.page}.json`;
-
-//   // Get existing page data.
-//   const pageJson = fs.existsSync(pageDataPath) ? fs.readFileSync(pageDataPath) : null;
-//   const pageData = pageJson ? JSON.parse(pageJson) : {};
-//   const blockCount = Object.keys(pageData).length;
-
-//   // Get component model.
-//   const blockModel = Models[req.body.blockType];
-//   const newId = `block-${blockCount + 1}`;
-
-//   // @todo: ensure block ID doens't exist.
-//   pageData[newId] = blockModel;
-
-//   // Write JSON to file.
-//   jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
-//     if (err) console.error(err)
-//   });
-
-//   res.send('success');
-// });
-
-
-// // Edit block.
+// Edit block.
 // router.post('/edit-block', (req, res) => {
 // 	const pageDataPath = `${dataPath}${req.body.page}.json`;
 
@@ -99,24 +88,6 @@ router.post('/order-section', (req, res) => {
 //   pageData[blockId][fieldId] = fieldInput;
 
 // 	// Write JSON to file.
-//   jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
-//     if (err) console.error(err)
-//   });
-
-//   res.send('success');
-// });
-
-// // Delete block.
-// router.post('/delete-block', (req, res) => {
-//   const pageDataPath = `${dataPath}${req.body.page}.json`;
-
-//   // Get existing page data.
-//   const pageJson = fs.existsSync(pageDataPath) ? fs.readFileSync(pageDataPath) : null;
-//   const pageData = pageJson ? JSON.parse(pageJson) : {};
-
-//   delete pageData[req.body.blockId];
-
-//   // // Write JSON to file.
 //   jsonfile.writeFile(pageDataPath, pageData, {spaces: 2}, function (err) {
 //     if (err) console.error(err)
 //   });
