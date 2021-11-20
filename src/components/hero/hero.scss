@@ -4,6 +4,11 @@
 	max-width: 1600px;
 	position: relative;
 
+	img {
+		height: auto;
+		width: 100%
+	}
+
 	&-overlay {
 		background: rgba(0,0,0,.3);
 		font-size: initial;

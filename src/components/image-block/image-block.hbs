@@ -1,15 +1,14 @@
 <div class="edit-block"
 		data-block-index={{blockIndex}}
 		data-complete="{{sectionComplete}}"
-{{!-- 
-		data-caption={{escape_html caption}}
-		data-image-src={{imageSrc}} --}}
+		data-caption={{escape_html block.caption}}
+		data-image-src={{block.src}}
 		data-section-index={{sectionIndex}}>
 </div>
 
-<div class="image {{#unless imageSrc}}placeholder{{/unless}}">
-	<img src="{{#if imageSrc}}{{imageSrc}}{{else}}/assets/placeholder.png{{/if}}" />
-	{{#if caption}}
-		<p class="caption">{{unescape_html caption}}</p>
+<div class="image">
+	<img src="{{#if block.src}}{{block.src}}{{else}}/assets/placeholder.png{{/if}}" />
+	{{#if block.caption}}
+		<p class="caption">{{unescape_html block.caption}}</p>
 	{{/if}}
 </div>

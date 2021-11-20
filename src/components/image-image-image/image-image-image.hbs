@@ -1,31 +1,25 @@
 <section class="block three-up-image container">
 	<div class="grid">
 		<div class="grid-col grid-col--4">
-	  	{{> image-block/image-block
-	  			blockIndex="0"
-	  			caption=caption-1
-	  			imageSrc=image-1
-	  			sectionComplete="true"
-	  			sectionIndex=sectionIndex
-	  	}}
+      {{> image-block/image-block
+          block=section.[0]
+          sectionComplete="true"
+          sectionIndex=sectionIndex
+      }}
 		</div>
 		<div class="grid-col grid-col--4">
-	  	{{> image-block/image-block
-	  			blockIndex="1"
-	  			caption=caption-2
-	  			imageSrc=image-2
-	  			sectionComplete="true"
-	  			sectionIndex=sectionIndex
-	  	}}
+      {{> image-block/image-block
+          block=section.[1]
+          sectionComplete="true"
+          sectionIndex=sectionIndex
+      }}
 		</div>
 		<div class="grid-col grid-col--4">
-	  	{{> image-block/image-block
-	  			blockIndex="2"
-	  			caption=caption-3
-	  			imageSrc=image-3
-	  			sectionComplete="true"
-	  			sectionIndex=sectionIndex
-	  	}}
+      {{> image-block/image-block
+          block=section.[2]
+          sectionComplete="true"
+          sectionIndex=sectionIndex
+      }}
 		</div>
 	</div>
 </section>

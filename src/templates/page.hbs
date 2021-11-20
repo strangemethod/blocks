@@ -7,7 +7,7 @@
 				{{#if (get_component this)}}
 					<div class="editor" data-index="{{@key}}">
 						{{> (get_partial (get_component this))
-								block=this
+								section=this
 								sectionIndex=@key}}
 						{{!-- Section Editor buttons --}}
 						<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>

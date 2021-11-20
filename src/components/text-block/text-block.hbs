@@ -1,9 +1,10 @@
 <div class="edit-block" 
 	data-block-index={{blockIndex}}
 	data-complete="{{sectionComplete}}"
-	data-section-index={{sectionIndex}}>
+	data-section-index={{sectionIndex}}
+	data-text={{escape_html block.text}}>
 </div>
 
 <{{element}} class="text">
-	{{unescape_html text}}
+	{{unescape_html block.text}}
 </{{element}}>

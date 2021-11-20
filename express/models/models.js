@@ -1,7 +1,7 @@
 const Models = {
   "image": {
-    "caption": "Lorem ipsum",
-    "src": "https://picsum.photos/1920/1080",
+    "caption": "This is the image caption",
+    "src": "/assets/placeholder.png",
     "type": "image",
   },
   "text": {

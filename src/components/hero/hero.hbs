@@ -1,13 +1,8 @@
 <section class="block hero">
-  {{> image-block/image-block
-			imageSrc=image
-	  	sectionIndex=sectionIndex
-	}}
+	<img src="{{#if image}}{{image}}{{else}}https://picsum.photos/1920/1080{{/if}}" />
 	<div class="hero-overlay">
-		{{> text-block/text-block
-				element="h1"
-	  		sectionIndex=sectionIndex
-  			text=title
-  	}}
+		<h1 class="text">
+			{{unescape_html title}}
+		</h1>
 	</div>
 </section>
