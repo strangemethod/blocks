@@ -1,0 +1,7 @@
+{
+  "id": "index",
+  "index" : true,
+  "title": "Blocks",
+  "text": "A simple, database-free CMS for storytelling.",
+  "template": "index.hbs"
+}

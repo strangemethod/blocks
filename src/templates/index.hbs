@@ -1,15 +1,7 @@
 {{#extend "layout"}}
   {{#content "content"}}
-{{!--     <main id="page" data-page="index">
-      <section class="block hero">
-        {{> image/image
-            imageSrc="https://picsum.photos/1920/1080"}}
-        <div class="hero-overlay">
-          {{> text/text
-              element="h1"
-              text="BLOCKS"}}
-        </div>
-      </section>
+    <main id="page" data-page="index">
+      {{> (get_partial "hero") title=page.title text=page.text image=page.cover}}
 
       <section class="container">
         {{#if pages}}
@@ -23,6 +15,6 @@
           </ul>
         {{/if}}
       </section>
-    </main> --}}
+    </main>
   {{/content}}
 {{/extend}}

@@ -17,19 +17,17 @@ const fs = require('fs');
 gulp.task('handlebars', () => {
   const nodeEnv = process.env.NODE_ENV;
   const editMode = nodeEnv === 'development';
+  
+  // Get Pages data.
   const pagesDataPath = path.join(CONFIG_.paths.data, 'pages.json');
   const rawPagesData = fs.readFileSync(pagesDataPath);
   const pagesData = JSON.parse(rawPagesData);
 
-  // Push index page to pages data.
-  const indexPage = {
-    "id": "index",
-    "index" : true,
-    "title": "Blocks",
-    "text": "A simple, database-free CMS for storytelling.",
-    "template": "index.hbs"
-  }
-  pagesData['index'] = indexPage;
+  // Get index page data.
+  const indexDataPath = path.join(CONFIG_.paths.data, 'blocks', `index.json`);
+  const rawIndexData = fs.readFileSync(indexDataPath);
+  indexData = JSON.parse(rawIndexData);
+  pagesData['index'] = indexData;
 
   // Create pages from JSON data.
   const pageKeys = Object.keys(pagesData);

@@ -1,8 +1,13 @@
 <section class="block hero">
 	<img src="{{#if image}}{{image}}{{else}}https://picsum.photos/1920/1080{{/if}}" />
 	<div class="hero-overlay">
-		<h1 class="text">
-			{{unescape_html title}}
-		</h1>
+		<div class="text">
+			<h1>
+				{{unescape_html title}}
+			</h1>
+			{{#if text}}
+				<h2>{{unescape_html text}}</h2>
+			{{/if}}
+		</div>
 	</div>
 </section>
