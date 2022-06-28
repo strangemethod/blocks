@@ -29,13 +29,13 @@ export default class DialogImage extends React.Component {
   }  
 
   submitData = () => {
-    if (this.state.image) {
+    // if (this.state.image) {
       this.props.editBlock(this.state.image, this.props.fieldId);
-      this.props.editBlock(this.state.caption, this.state.captionKey);
+      // this.props.editBlock(this.state.caption, this.state.captionKey);
       this.props.closeModal();
-    } else {
-      this.setState({error: true});
-    }
+    // } else {
+    //   this.setState({error: true});
+    // }
   }
 
   render() {
