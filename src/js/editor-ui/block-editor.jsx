@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "./modal.jsx";
-import BlockOverlay from "./triggers/block-overlay.jsx";
+import Modal from "../modal.jsx";
+import BlockOverlay from "../triggers/block-overlay.jsx";
 
 export default class BlockEditor extends React.Component {
   constructor(props) {

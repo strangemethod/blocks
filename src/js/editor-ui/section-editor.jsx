@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "./modal.jsx";
-import SectionFooter from "./triggers/section-footer.jsx";
-import SectionSidebar from "./triggers/section-sidebar.jsx";
+import Modal from "../modal.jsx";
+import SectionFooter from "../triggers/section-footer.jsx";
+import SectionSidebar from "../triggers/section-sidebar.jsx";
 
 export default class SectionEditor extends React.Component {
   constructor(props) {
