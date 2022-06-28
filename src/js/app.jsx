@@ -1,15 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import BlockEditor from "./editor-ui/block-editor.jsx";
+import EditorHooks from "./constants.js"
 import SectionEditor from "./editor-ui/section-editor.jsx";
 import PostData from "./functions/post-data.jsx";
 
-// Trigger elements.
-const triggers = {
-	'block_edit': document.querySelectorAll('.edit-block'),
-	'section_add': document.querySelectorAll('.add-section'),
-	'section_edit': document.querySelectorAll('.edit-section'),
-}
 
 // Global props.
 const props = {
@@ -17,8 +12,8 @@ const props = {
 	postData: PostData,
 }
 
-// Add sections.
-triggers.section_add.forEach((editor) => {
+// Create section editors.
+EditorHooks['add-section'].forEach((editor) => {
 	ReactDOM.render(
 		<SectionEditor
 				{...editor.dataset}
@@ -27,10 +22,10 @@ triggers.section_add.forEach((editor) => {
 		editor);
 });
 
-// Edit Sections.
-triggers.section_edit.forEach((editor, index) => {
+// Create section editors.
+EditorHooks['edit-section'].forEach((editor, index) => {
 	let firstSection = index === 0;
-	let lastSection = index === triggers.section_edit.length - 1;
+	let lastSection = index === EditorHooks['edit-section'].length - 1;
 
 	ReactDOM.render(
 		<SectionEditor
@@ -42,8 +37,8 @@ triggers.section_edit.forEach((editor, index) => {
 		editor);
 });
 
-// Edit Blocks.
-triggers.block_edit.forEach((editor) => {
+// Create block editors.
+EditorHooks['edit-block'].forEach((editor) => {
 	ReactDOM.render(
 		<BlockEditor
 				{...editor.dataset}

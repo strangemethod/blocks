@@ -11,15 +11,16 @@ export default class AddPage extends React.Component {
   }
 
   addPage = () => {
-    this.props.addPage(this.state.text);
+    if (this.state.title) {
+      this.props.postData(this.state.title, 'add-page');
+      this.props.closeModal();
+    } else {
+      this.setState({error: true});
+    }
   }  
 
-  setText = () => {
-    this.setState({text: event.target.value});
-  }  
-
-  deleteBlock = () => {
-    this.props.deleteData(this.props.blockId);
+  setTitle = () => {
+    this.setState({title: event.target.value});
   }  
 
   render() {
@@ -29,7 +30,7 @@ export default class AddPage extends React.Component {
         <p>Page Title</p>
         <input type="text" 
             className={`${this.state.error ? "error" : ""}`}
-            onChange={this.setText}
+            onChange={this.setTitle}
             />
         <button onClick={this.addPage}>Add Page</button>
       </React.Fragment>

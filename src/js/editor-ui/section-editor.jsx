@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../modal.jsx";
-import SectionFooter from "../triggers/section-footer.jsx";
-import SectionSidebar from "../triggers/section-sidebar.jsx";
+import SectionFooter from "./section-footer.jsx";
+import SectionSidebar from "./section-sidebar.jsx";
 
 export default class SectionEditor extends React.Component {
   constructor(props) {
@@ -64,19 +64,19 @@ export default class SectionEditor extends React.Component {
       ...this.props
     }
 
-    let triggers;
+    let editor;
     switch (this.state.view) {
       case 'footer':
-        triggers = <SectionFooter {...props} />
+        editor = <SectionFooter {...props} />
         break;
       case 'sidebar':
-        triggers = <SectionSidebar {...props} />
+        editor = <SectionSidebar {...props} />
         break;
     }
 
     return (
       <React.Fragment>
-        {triggers}
+        {editor}
       </React.Fragment>
     );
   }
