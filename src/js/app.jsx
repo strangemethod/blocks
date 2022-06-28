@@ -1,15 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Editor from "./editor.jsx";
-// import SectionEditor from "./editor-ui/section-editor.jsx";
+import Editor from "./editor/editor.jsx";
 import PostData from "./functions/post-data.jsx";
-
-
-const EditorHooks = {
-	'add-section': document.querySelectorAll('.add-section'),
-	'edit-block': document.querySelectorAll('.edit-block'),
-	'edit-section': document.querySelectorAll('.edit-section'),
-}
 
 // Global props.
 const props = {
@@ -17,36 +9,26 @@ const props = {
 	postData: PostData,
 }
 
-// Create section editors.
-// EditorHooks['add-section'].forEach((editor) => {
-// 	ReactDOM.render(
-// 		<SectionEditor
-// 				{...editor.dataset}
-// 				{...props}
-// 				view="footer" />, 
-// 		editor);
-// });
+// DOM hooks for React components.
+const Selectors = [
+	'add-section',
+	'edit-block',
+	'edit-section',
+];
 
-// Create section editors.
-// EditorHooks['edit-section'].forEach((editor, index) => {
-// 	let firstSection = index === 0;
-// 	let lastSection = index === EditorHooks['edit-section'].length - 1;
+const EditorHooks = {}; 
+Selectors.forEach((selector) => {
+	EditorHooks[selector] = document.querySelectorAll(`.${selector}`);
+});
 
-// 	ReactDOM.render(
-// 		<SectionEditor
-// 				{...editor.dataset}
-// 				{...props}
-// 				firstSection={firstSection}
-// 				lastSection={lastSection}
-// 				view="sidebar" />, 
-// 		editor);
-// });
-
-// Create block editors.
-EditorHooks['edit-block'].forEach((editor) => {
-	ReactDOM.render(
-		<Editor
-				{...editor.dataset}
-				{...props} />, 
-			editor);
+// Loop through hooks and create react Editor components. 
+Object.keys(EditorHooks).forEach((key) => {
+	EditorHooks[key].forEach((editorHook) => {
+		ReactDOM.render(
+			<Editor
+					buttonSet={key}
+					{...editorHook.dataset}
+					{...props} />, 
+				editorHook);
+	});
 });

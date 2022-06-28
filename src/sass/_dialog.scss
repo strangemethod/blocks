@@ -46,10 +46,16 @@
 			align-self: flex-end;
 			cursor: pointer;
 			font-weight: bold;
-			font-size: 20px;
+			height: 35px;
 			right: 20px;
 			position: absolute;
 			top: 20px;
+			width: 35px;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
 		}
 	}
 

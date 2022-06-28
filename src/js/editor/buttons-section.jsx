@@ -1,8 +1,12 @@
 import React from "react";
 
-export default class SectionSidebar extends React.Component {
+export default class ButtonsSection extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      view: this.props.view,
+    };
   }
 
   render() {
@@ -11,7 +15,9 @@ export default class SectionSidebar extends React.Component {
       moveDownButton = (
         <button
             class="editor__icon editor__icon--down"
-            onClick={() => {this.props.orderSection(this.props.index, 1)}}>
+            onClick={
+              () => {this.props.orderSection(this.props.index, 1)}
+            }>
           <object type="image/svg+xml" data="/assets/icon-arrow-down.svg"></object>
           <div class="tooltip">Move down</div>
         </button>
@@ -23,7 +29,9 @@ export default class SectionSidebar extends React.Component {
       moveUpButton = (
         <button 
             class="editor__icon editor__icon--up"
-            onClick={() => {this.props.orderSection(this.props.index, -1)}}>
+            onClick={
+                () => {this.props.orderSection(this.props.index, -1)}
+            }>
           <object type="image/svg+xml" data="/assets/icon-arrow-up.svg"></object>
           <div class="tooltip">Move up</div>
         </button>
@@ -35,12 +43,16 @@ export default class SectionSidebar extends React.Component {
       addButtons = (
         <div class="editor__icons--add-menu">
           <button class="editor__icon editor__icon--text"
-            onClick={() => {this.props.addBlock('text', this.props.index)}}>
+            onClick={
+                () => {this.props.submitBlock('text', this.props.index)}
+              }>
             <object type="image/svg+xml" data="/assets/icon-textarea.svg"></object>
             <div class="tooltip">Add text block</div>
           </button>
           <button class="editor__icon editor__icon--image"
-            onClick={() => {this.props.addBlock('image', this.props.index)}}>
+            onClick={
+                () => {this.props.submitBlock('image', this.props.index)}
+            }>
             <object type="image/svg+xml" data="/assets/icon-image.svg"></object>
             <div class="tooltip">Add image block</div>
           </button>
@@ -66,4 +78,3 @@ export default class SectionSidebar extends React.Component {
     );
   }
 }
-

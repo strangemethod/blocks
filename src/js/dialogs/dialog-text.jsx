@@ -30,7 +30,6 @@ export default class DialogText extends React.Component {
   render() {
     return (
     	<React.Fragment>
-        <button onClick={() => {this.props.setFieldType(null)}}>Back</button>
         <h2>Text Block</h2>
         <textarea
             className={`${this.state.error ? "error" : ""}`}
@@ -38,7 +37,9 @@ export default class DialogText extends React.Component {
         >
           {this.state.text}
         </textarea>
-        <button class="submit-button" onClick={this.submitData}>Submit</button>
+        <button class="submit-button"
+            onClick={() => {this.props.submitBlock()}} >
+          Submit</button>
       </React.Fragment>
     );
   }
