@@ -1,5 +1,7 @@
 import React from "react";
-import DialogEditBlock from "./dialogs/dialog-edit-block.jsx";
+import DialogImage from "./dialogs/dialog-image.jsx";
+import DialogText from "./dialogs/dialog-text.jsx";
+
 
 export default class Editor extends React.Component {
   constructor(props) {
@@ -52,7 +54,11 @@ export default class Editor extends React.Component {
     let dialog;
     switch (this.state.dialog) {
       case 'edit-block':
-        dialog = <DialogEditBlock {...props} />;
+        if (this.state.field=== 'image') {
+          dialog = <DialogImage {...this.props} />;
+        } else if (this.state.field=== 'text') {
+          dialog = <DialogText {...this.props} />;
+        }
         break;
     }
 
