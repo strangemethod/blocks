@@ -6,12 +6,10 @@ export default class Editor extends React.Component {
     super(props);
 
     this.state = {
-      // dialog to open.
+      // dialog to display.
       dialog: null,
       // field (eg. image, text).
       field: null,
-      // Whether modal is rendered.
-      dialogOpen: false,
     };
   }
 
@@ -24,15 +22,6 @@ export default class Editor extends React.Component {
   //   return slug;
   // }
 
-
-  closeDialog = () => {
-    this.setState({
-      dialog: null,
-      field: null,
-      dialogOpen: false,
-    });
-  }
-
   // deleteBlock = (sectionIndex, blockIndex) => {
     // const data = {
     //   blockIndex: blockIndex,
@@ -43,10 +32,9 @@ export default class Editor extends React.Component {
     // this.props.postData(data, 'block')
   // }
 
-   openDialog = (dialog, field) => {
+   toggleDialog = (dialog, field) => {
     this.setState({
       dialog: dialog,
-      dialogOpen: true,
       field: field,
     });
   }
@@ -58,7 +46,6 @@ export default class Editor extends React.Component {
       // deleteBlock: this.deleteBlock,
       dialog: this.state.dialog,
       field: this.state.field,
-      dialogOpen: this.state.dialogOpen,
       ...this.props
     }
 
@@ -74,7 +61,7 @@ export default class Editor extends React.Component {
         <div class="editor__icons editor__icons--bottom">
           <button 
               class="editor__icon editor__icon--edit"
-              onClick={() => {this.openDialog('edit-block', this.props.field)}}>
+              onClick={() => {this.toggleDialog('edit-block', this.props.field)}}>
             <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
           <div class="tooltip">Edit block</div>
           </button>
@@ -85,10 +72,10 @@ export default class Editor extends React.Component {
             <div class="tooltip">Delete block</div>
           </button>   
         </div>
-        {this.state.dialogOpen &&
+        {this.state.dialog &&
           <section class="modal">
             <div class="modal__form grid container">
-              <div class="close" onClick={() => (this.closeDialog())}>
+              <div class="close" onClick={() => (this.toggleDialog(null, null))}>
                 <img src="/assets/icon-cancel.svg" />
               </div>
               {dialog}
