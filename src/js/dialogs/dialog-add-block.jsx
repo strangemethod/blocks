@@ -1,9 +1,9 @@
 import React from "react";
-import AddMenu from "./add-menu.jsx";
-import EditImage from "./edit-image.jsx";
-import EditText from "./edit-text.jsx";
+import DialogBlock from "./dialog-block.jsx";
+import DialogImage from "./dialog-image.jsx";
+import DialogText from "./dialog-text.jsx";
 
-export default class AddBlock extends React.Component {
+export default class DialogAddBlock extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,11 +29,11 @@ export default class AddBlock extends React.Component {
     let form;
     let menu;
     if (this.state.fieldType === 'image') {
-      form = <EditImage {...this.props} setFieldType={this.setFieldType} />;
+      form = <DialogImage {...this.props} setFieldType={this.setFieldType} />;
     } else if (this.state.fieldType === 'text'){
-      form = <EditText {...this.props} setFieldType={this.setFieldType} />;
+      form = <DialogText {...this.props} setFieldType={this.setFieldType} />;
     } else {
-      menu =  <AddMenu setFieldType={this.setFieldType} />;
+      menu =  <DialogAddBlock setFieldType={this.setFieldType} />;
     }
 
     return (

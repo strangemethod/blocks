@@ -1,14 +1,10 @@
 import React from "react";
-import AddPage from "./dialogs/add-page.jsx";
-import EditBlock from "./dialogs/edit-block.jsx";
+import AddPage from "./dialogs/dialog-page.jsx";
+import EditBlock from "./dialogs/dialog-block.jsx";
 
 export default class Modal extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  deleteBlock = () => {
-    this.props.deleteData(this.props.blockId);
   }
 
   render() {

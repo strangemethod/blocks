@@ -1,12 +1,12 @@
 import React from "react";
 import Modal from "../modal.jsx";
-import BlockOverlay from "./block-overlay.jsx";
 
 export default class BlockEditor extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      blockType: null,
       modalOpen: false,
       operation: null
     };
@@ -38,7 +38,7 @@ export default class BlockEditor extends React.Component {
     this.props.postData(data, 'block')
   }
 
-  editBlock = (section, block) => {
+  editBlock = () => {
     this.setState({
       modalOpen: true,
       operation: 'edit-block',
@@ -48,8 +48,8 @@ export default class BlockEditor extends React.Component {
   render() {
     const props = {
       closeModal: this.closeModal,
-      deleteBlock: this.deleteBlock,
-      editBlock: this.editBlock,
+      // deleteBlock: this.deleteBlock,
+      blockType: this.state.blockType,
       modalOpen: this.state.modalOpen,
       operation: this.state.operation,
       ...this.props
@@ -57,7 +57,20 @@ export default class BlockEditor extends React.Component {
 
     return (
       <React.Fragment>
-        <BlockOverlay {...props} />
+        <div class="editor__icons editor__icons--bottom">
+          <button 
+              class="editor__icon editor__icon--edit"
+              onClick={() => {this.editBlock()}}>
+            <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
+          <div class="tooltip">Edit block</div>
+          </button>
+          <button 
+              class="editor__icon editor__icon--delete"
+              onClick={() => {this.deleteBlock(this.props.sectionIndex, this.props.blockIndex)}}>
+            <object type="image/svg+xml" data="/assets/icon-archive.svg"></object>
+            <div class="tooltip">Delete block</div>
+          </button>   
+        </div>
         <Modal {...props} />
       </React.Fragment>
     );

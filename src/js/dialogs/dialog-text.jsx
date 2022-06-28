@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class EditText extends React.Component {
+export default class DialogText extends React.Component {
   constructor(props) {
     super(props);
 

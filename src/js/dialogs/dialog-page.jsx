@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class AddPage extends React.Component {
+export default class DialogPage extends React.Component {
   constructor(props) {
     super(props);
 

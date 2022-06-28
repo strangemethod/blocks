@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class AddMenu extends React.Component {
+export default class DialogAdd extends React.Component {
   constructor(props) {
     super(props);
   }
