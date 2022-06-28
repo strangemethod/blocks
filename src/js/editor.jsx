@@ -8,9 +8,11 @@ export default class Editor extends React.Component {
     super(props);
 
     this.state = {
-      // dialog to display.
+      // {string || nulll} dialog to display.
       dialog: null,
-      // field (eg. image, text).
+      // {boolean} error state of dialog.
+      error: false,
+      // f{string || nulll}ield (eg. image, text).
       field: null,
     };
   }
@@ -34,10 +36,10 @@ export default class Editor extends React.Component {
     // this.props.postData(data, 'block')
   // }
 
-   toggleDialog = (dialog, field) => {
+   toggleDialog = (dialog) => {
     this.setState({
       dialog: dialog,
-      field: field,
+      field: this.props.field,
     });
   }
 
@@ -67,16 +69,16 @@ export default class Editor extends React.Component {
         <div class="editor__icons editor__icons--bottom">
           <button 
               class="editor__icon editor__icon--edit"
-              onClick={() => {this.toggleDialog('edit-block', this.props.field)}}>
+              onClick={() => {this.toggleDialog('edit-block')}}>
             <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
           <div class="tooltip">Edit block</div>
           </button>
-          <button 
+{/*          <button
               class="editor__icon editor__icon--delete"
               onClick={() => {this.deleteBlock(this.props.sectionIndex, this.props.blockIndex)}}>
             <object type="image/svg+xml" data="/assets/icon-archive.svg"></object>
             <div class="tooltip">Delete block</div>
-          </button>   
+          </button>   */}
         </div>
         {this.state.dialog &&
           <section class="modal">

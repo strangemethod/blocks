@@ -5,8 +5,8 @@ export default class DialogText extends React.Component {
     super(props);
 
     this.state = {
-      error: false,
-      text: unescape(this.props.value),
+      // data for text fields.
+      text: unescape(this.props.text),
     };
   }
 
@@ -32,11 +32,12 @@ export default class DialogText extends React.Component {
     	<React.Fragment>
         <button onClick={() => {this.props.setFieldType(null)}}>Back</button>
         <h2>Text Block</h2>
-        <input type="text" 
-            value={this.state.text}
+        <textarea
             className={`${this.state.error ? "error" : ""}`}
-            onChange={this.setText}
-            />
+            onChange={() => {this.setText()}}
+        >
+          {this.state.text}
+        </textarea>
         <button class="submit-button" onClick={this.submitData}>Submit</button>
       </React.Fragment>
     );

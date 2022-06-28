@@ -25,7 +25,8 @@
 		}
 
 		input,
-		select {
+		select,
+		textarea {
 			border: 1px solid $color-black;
 			border-radius: 5px;
 			margin: 5px 0 20px;
@@ -35,6 +36,10 @@
 			&.error {
 				border-color: red;
 			}
+		}
+
+		textarea {
+			height: 200px;
 		}
 
 		.close {
