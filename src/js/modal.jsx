@@ -5,10 +5,6 @@ import EditBlock from "./dialogs/edit-block.jsx";
 export default class Modal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      operation: this.props.operation
-    };
   }
 
   deleteBlock = () => {
@@ -21,7 +17,7 @@ export default class Modal extends React.Component {
     }
 
     let dialog;
-    switch (this.state.operation) {
+    switch (this.props.operation) {
       case 'add-page':
         dialog = <AddPage {...this.props} />;
         break;

@@ -7,7 +7,8 @@ export default class BlockEditor extends React.Component {
     super(props);
 
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      operation: null
     };
   }
 
@@ -38,11 +39,10 @@ export default class BlockEditor extends React.Component {
   }
 
   editBlock = (section, block) => {
-    // this.props.postData(data, 'edit-block')
-  }
-
-  showModal = () => {
-    this.setState({modalOpen: true});
+    this.setState({
+      modalOpen: true,
+      operation: 'edit-block',
+    });
   }
 
   render() {
@@ -50,7 +50,8 @@ export default class BlockEditor extends React.Component {
       closeModal: this.closeModal,
       deleteBlock: this.deleteBlock,
       editBlock: this.editBlock,
-      showModal: this.showModal,
+      modalOpen: this.state.modalOpen,
+      operation: this.state.operation,
       ...this.props
     }
 

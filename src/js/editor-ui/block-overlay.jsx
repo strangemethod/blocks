@@ -11,7 +11,7 @@ export default class BlockOverlay extends React.Component {
         <div class="editor__icons editor__icons--bottom">
           <button 
               class="editor__icon editor__icon--edit"
-              onClick={this.props.editBlock(this.props.sectionIndex, this.props.blockIndex)}>
+              onClick={() => {this.props.editBlock(this.props.sectionIndex, this.props.blockIndex)}}>
             <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
           <div class="tooltip">Edit block</div>
           </button>
