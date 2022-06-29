@@ -19,7 +19,7 @@ export default class ButtonsBlock extends React.Component {
         <button
             class="editor__icon editor__icon--delete"
             onClick={() => {
-                this.props.deleteBlock(this.props.sectionIndex, this.props.blockIndex)
+                this.props.postBlock('delete', this.props.sectionIndex, this.props.blockIndex)
             }}>
           <object type="image/svg+xml" data="/assets/icon-archive.svg"></object>
           <div class="tooltip">Delete block</div>

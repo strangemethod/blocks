@@ -29,13 +29,11 @@ export default class DialogImage extends React.Component {
   }  
 
   submitData = () => {
-    // if (this.state.image) {
-      this.props.editBlock(this.state.image, this.props.fieldId);
-      // this.props.editBlock(this.state.caption, this.state.captionKey);
-      this.props.closeModal();
-    // } else {
-    //   this.setState({error: true});
-    // }
+    if (this.state.text) {
+      this.props.postBlock('edit', this.props.sectionIndex, null, 'image')
+    } else {
+      this.setState({error: true});
+    }
   }
 
   render() {
@@ -60,7 +58,7 @@ export default class DialogImage extends React.Component {
             onChange={this.setCaption} />
         <button
             class="submit-button"
-            onClick={() => {this.props.submitBlock()}}>
+            onClick={() => {this.submitData()}}>
           Submit
         </button>
       </React.Fragment>

@@ -63,5 +63,12 @@
       "type": "text"
     }
   ],
+  [
+    {
+      "caption": "This is the image caption",
+      "src": "/assets/placeholder.png",
+      "type": "image"
+    }
+  ],
   []
 ]

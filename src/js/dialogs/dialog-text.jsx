@@ -16,16 +16,12 @@ export default class DialogText extends React.Component {
 
   submitData = () => {
     if (this.state.text) {
-      this.props.editBlock(this.state.text);
-      this.props.closeModal();
+      console.log(this.props);
+      //this.props.postBlock('edit', this.props.sectionIndex, this.props.blockIndex, 'text')
     } else {
       this.setState({error: true});
     }
-  }  
-
-  deleteBlock = () => {
-    this.props.deleteData(this.props.blockId);
-  }  
+  }
 
   render() {
     return (
@@ -33,12 +29,11 @@ export default class DialogText extends React.Component {
         <h2>Text Block</h2>
         <textarea
             className={`${this.state.error ? "error" : ""}`}
-            onChange={() => {this.setText()}}
-        >
+            onChange={() => {this.setText()}}>
           {this.state.text}
         </textarea>
         <button class="submit-button"
-            onClick={() => {this.props.submitBlock()}} >
+            onClick={() => {this.submitData()}}>
           Submit</button>
       </React.Fragment>
     );
