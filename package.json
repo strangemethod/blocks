@@ -4,9 +4,9 @@
   "description": "Blocks. A simple CMS for storytelling.",
   "main": "app.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"nodemon express/app.js\" \"gulp --gulpfile gulpfile.dev.js\"",
-    "front-end": "gulp --gulpfile gulpfile.dev.js",
-    "prod": "concurrently --kill-others \"nodemon express/app.js\" \"gulp\""
+    "dev": "concurrently --kill-others \"nodemon express/app.js\" \"gulp default\"",
+    "front-end": "gulp default",
+    "prod": "concurrently --kill-others \"nodemon express/app.js\" \"gulp default\""
   },
   "author": "Andrew Bowles <andrew.a.bowles@gmail.com> (http://www.andrewbowles.com)",
   "license": "MIT",

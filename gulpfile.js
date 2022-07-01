@@ -29,6 +29,8 @@ const fs = require('fs');
 var gulpConnect = require('gulp-connect');
 
 
+process.env.NODE_ENV = 'development';
+
 /*
  * Copy assets.
  */
