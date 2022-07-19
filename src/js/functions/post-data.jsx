@@ -1,7 +1,7 @@
 const serverUrl = 'http://localhost:4000';
 
-const PostData = (data, operation) => {
-  const endpoint = `${serverUrl}/${operation}`;
+const PostData = (data, route) => {
+  const endpoint = `${serverUrl}/${route}`;
 
   fetch(endpoint, {
     headers: {

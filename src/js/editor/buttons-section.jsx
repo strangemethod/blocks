@@ -69,7 +69,9 @@ export default class ButtonsSection extends React.Component {
         {moveUpButton}
         {addButtons}
         <button class="editor__icon editor__icon--delete"
-            onClick={() => {this.props.postSection('delete', this.props.index)}}>
+            onClick={
+                () => {this.props.postSection('delete', this.props.index)}
+            }>
           <object type="image/svg+xml" data="/assets/icon-archive.svg"></object>
           <div class="tooltip">Delete section</div>
         </button>

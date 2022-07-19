@@ -46,6 +46,7 @@ router.post('/block', (req, res) => {
 
 // Section endpoint.
 router.post('/section', (req, res) => {
+  console.log('hit section');
   const pageDataPath = `${dataPath}${req.body.page}.json`;
   const pageData = getPageData(pageDataPath);
   const operation = req.body.operation
@@ -56,6 +57,7 @@ router.post('/section', (req, res) => {
       pageData.push([Models.image]);
       break;
     case 'delete':
+      console.log('section delete');
       pageData.splice(req.body.sectionIndex, 1);
       break;
     case 'order':

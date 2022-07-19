@@ -59,8 +59,6 @@ export default class Editor extends React.Component {
       text: text,
     }
 
-    console.log(data);
-
     // this.props.postData(data, 'block')
   }
 
@@ -70,10 +68,9 @@ export default class Editor extends React.Component {
       order: order,
       page: this.props.pageId,
       sectionIndex: index,
-
     }
 
-    this.props.postData(data, 'section')
+    // this.props.postData(data, 'section')
   }
 
   render() {
@@ -104,7 +101,7 @@ export default class Editor extends React.Component {
     switch (this.state.dialog) {
       case 'edit-block':
         if (this.state.field=== 'image') {
-          dialog = <DialogImage {...this.props} />;
+          dialog = <DialogImage {...props} />;
         } else if (this.state.field=== 'text') {
           dialog = <DialogText {...props} />;
         }

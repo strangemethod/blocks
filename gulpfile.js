@@ -62,12 +62,13 @@ function css() {
 /*
  * Connect the local server.
  */
-function connect() {
+function connect(done) {
   gulpConnect.server({
     port: 3000,
     root: ['dist'],
     livereload: true
   });
+  return done();
 }
 
 /*
@@ -155,22 +156,43 @@ function js() {
     .pipe(livereload(server));
 }
 
+
 /*
  * Watch for file changes and run tasks.
  */
-function watchFiles() {
-  server.listen(35729, function (err) {
-    if (err) return console.error(err);
-    watch(path.join(paths.assets, '*'), ['assets']);
-    watch(path.join(paths.data, '**/*.json'), ['handlebars']);
-    watch(path.join(paths.partials, '**/*.hbs'), ['handlebars']);
-    watch(path.join(paths.templates, '**/*.hbs'), ['handlebars']);
-    watch(path.join(paths.components, '**/*.{scss,js}'), ['components']);
-    watch(path.join(paths.sass, '**/*.scss'), ['sass']);
-    watch(path.join(paths.scripts, '**/*.jsx'), ['scripts']);
-  });
+function watchFiles(done) {
+  // return watch(['./src/js/editor/editor.jsx'], series(js))
+  return (
+    watch(
+      path.join(paths.scripts, '**/*.jsx'),
+      series(js, function jsCallback(done) {
+        done();
+      })
+    )
+  )
 }
+
+// function watchFiles() {
+//   server.listen(35729, function (err) {
+//     if (err) return console.error(err);
+
+
+//    watch(['./src/js/editor/editor.jsx'], function() {
+//       console.log('js changed');
+//       js();
+//     });
+ 
+
+//     // watch(path.join(paths.assets, '*'), ['assets']);
+//     // watch(path.join(paths.data, '**/*.json'), ['hbs']);
+//     // watch(path.join(paths.partials, '**/*.hbs'), ['hbs']);
+//     // watch(path.join(paths.templates, '**/*.hbs'), ['hbs']);
+//     // watch(path.join(paths.components, '**/*.{scss,js}'), ['hbs']);
+//     // watch(path.join(paths.scss, '**/*.scss'), ['css']);
+//     // watch(path.join(paths.scripts, '**/*.jsx'), ['js']);
+//   });
+// }
 
 
 // gulp.task('default', [connect', 'watch'], function() {});
-exports.default = series(clean, parallel(css, js, hbs, assets), series(connect, watchFiles))
+exports.default = series(clean, parallel(css, js, hbs, assets), parallel(watchFiles, connect))
