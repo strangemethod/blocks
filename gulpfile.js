@@ -168,30 +168,46 @@ function watchFiles(done) {
       series(js, function jsCallback(done) {
         done();
       })
+    ),
+    watch(
+      path.join(paths.data, '**/*.json'),
+      series(hbs, function hbsCallback(done) {
+        done();
+      })
+    ),
+    watch(
+      path.join(paths.assets, '*'),
+      series(assets, function assetsCallback(done) {
+        console.log('assets changed')
+        done();
+      })
+    ),
+    watch(
+      path.join(paths.partials, '**/*.hbs'),
+      series(hbs, function partialsCallback(done) {
+        done();
+      })
+    ),
+    watch(
+      path.join(paths.templates, '**/*.hbs'),
+      series(hbs, function templatesCallback(done) {
+        done();
+      })
+    ),
+    watch(
+      path.join(paths.components, '**/*.hbs'),
+      series(hbs, function componentsCallback(done) {
+        done();
+      })
+    ),
+    watch(
+      path.join(paths.scss, '**/*.scss'),
+      series(css, function cssCallback(done) {
+        done();
+      })
     )
   )
 }
-
-// function watchFiles() {
-//   server.listen(35729, function (err) {
-//     if (err) return console.error(err);
-
-
-//    watch(['./src/js/editor/editor.jsx'], function() {
-//       console.log('js changed');
-//       js();
-//     });
- 
-
-//     // watch(path.join(paths.assets, '*'), ['assets']);
-//     // watch(path.join(paths.data, '**/*.json'), ['hbs']);
-//     // watch(path.join(paths.partials, '**/*.hbs'), ['hbs']);
-//     // watch(path.join(paths.templates, '**/*.hbs'), ['hbs']);
-//     // watch(path.join(paths.components, '**/*.{scss,js}'), ['hbs']);
-//     // watch(path.join(paths.scss, '**/*.scss'), ['css']);
-//     // watch(path.join(paths.scripts, '**/*.jsx'), ['js']);
-//   });
-// }
 
 
 // gulp.task('default', [connect', 'watch'], function() {});

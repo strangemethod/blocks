@@ -5,7 +5,7 @@ Blocks has no database. An Express API writes content data to JSON.
 
 ## Install and Run
 - `npm install`
-- `npm run dev` runs express and the front end (gulp and webpack concurrently) in dev mode, which allows editing.
+- `npm start` runs express and the front end (gulp and webpack concurrently) in dev mode, which allows editing.
 - `npm run front-end` runs gulp and webpack only for debugging the front end.
 - `npm run prod` runs express and the front end (gulp and webpack concurrently) in prod mode, which does not allow editing.
 

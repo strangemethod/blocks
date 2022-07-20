@@ -4,7 +4,7 @@
   "description": "Blocks. A simple CMS for storytelling.",
   "main": "app.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"nodemon express/app.js\" \"gulp default\"",
+    "start": "concurrently --kill-others \"nodemon express/app.js\" \"gulp default\"",
     "front-end": "gulp default",
     "prod": "concurrently --kill-others \"nodemon express/app.js\" \"gulp default\""
   },
