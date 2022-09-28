@@ -5,6 +5,7 @@ export default class ButtonsSection extends React.Component {
     super(props);
 
     this.state = {
+      firstSection: this.props.index === "0",
       view: this.props.view,
     };
   }
@@ -25,7 +26,7 @@ export default class ButtonsSection extends React.Component {
     }
 
     let moveUpButton;
-    if (!this.props.firstSection) {
+    if (!this.state.firstSection) {
       moveUpButton = (
         <button 
             class="editor__icon editor__icon--up"
@@ -33,7 +34,7 @@ export default class ButtonsSection extends React.Component {
                 () => {this.props.postSection('order', this.props.index, -1)}
             }>
           <object type="image/svg+xml" data="/assets/icon-arrow-up.svg"></object>
-          <div class="tooltip">Move up</div>
+          <div class="tooltip">Move up {this.state.firstSection}x</div>
         </button>
       )
     }
