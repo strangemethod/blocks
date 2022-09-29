@@ -3,10 +3,12 @@ import React from "react";
 // Button sets.
 import ButtonsBlock from "./buttons-block.jsx";
 import ButtonsFooter from "./buttons-footer.jsx";
+import ButtonsPage from "./buttons-page.jsx";
 import ButtonsSection from "./buttons-section.jsx";
 
 // Dialogs.
 import DialogImage from "../dialogs/dialog-image.jsx";
+import DialogPage from "../dialogs/dialog-page.jsx";
 import DialogText from "../dialogs/dialog-text.jsx";
 
 
@@ -59,7 +61,7 @@ export default class Editor extends React.Component {
       text: text,
     }
 
-    // this.props.postData(data, 'block')
+    this.props.postData(data, 'block')
   }
 
   postSection = (operation, index=null, order=null) => {
@@ -70,7 +72,7 @@ export default class Editor extends React.Component {
       sectionIndex: index,
     }
 
-    // this.props.postData(data, 'section')
+    this.props.postData(data, 'section')
   }
 
   render() {
@@ -86,6 +88,9 @@ export default class Editor extends React.Component {
 
     let buttonSet;
     switch (this.props.buttonSet) {
+      case 'add-page':
+        buttonSet = <ButtonsPage {...props} />;
+        break;
       case 'add-section':
         buttonSet = <ButtonsFooter {...props} />;
         break;
@@ -99,6 +104,9 @@ export default class Editor extends React.Component {
 
     let dialog;
     switch (this.state.dialog) {
+      case 'add-page':
+        dialog = <DialogPage {...props} />;
+        break;
       case 'edit-block':
         if (this.state.field=== 'image') {
           dialog = <DialogImage {...props} />;

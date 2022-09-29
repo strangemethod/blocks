@@ -37,6 +37,7 @@ process.env.NODE_ENV = 'development';
 function assets () {
   return src(path.join(paths.assets, '*'))
     .pipe(dest(`${paths.output}/assets`));
+    return done();
 }
 
 /*

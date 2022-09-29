@@ -29,7 +29,7 @@ export default class DialogImage extends React.Component {
   }  
 
   submitData = () => {
-    if (this.state.text) {
+    if (this.state.caption) {
       this.props.postBlock('edit', this.props.sectionIndex, null, 'image')
     } else {
       this.setState({error: true});

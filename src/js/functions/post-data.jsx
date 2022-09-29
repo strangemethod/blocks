@@ -13,7 +13,7 @@ const PostData = (data, route) => {
   })
   .then((res) => {
     setTimeout(() => {
-      console.log('reloooooad');
+      console.log('Data posted.');
       window.location.reload();
     }, 400);
   })

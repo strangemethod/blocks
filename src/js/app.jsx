@@ -11,6 +11,7 @@ const props = {
 
 // DOM hooks for React components.
 const Selectors = [
+	'add-page',
 	'add-section',
 	'edit-block',
 	'edit-section',

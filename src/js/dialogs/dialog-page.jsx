@@ -12,8 +12,8 @@ export default class DialogPage extends React.Component {
 
   addPage = () => {
     if (this.state.title) {
-      this.props.postData(this.state.title, 'add-page');
-      this.props.closeModal();
+      this.props.postData({'title': this.state.title}, 'add-page');
+      this.props.closeDialog();
     } else {
       this.setState({error: true});
     }
