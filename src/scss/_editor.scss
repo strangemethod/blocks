@@ -20,11 +20,12 @@ $tooltip-height: 24px;
 	&__icons {
 		display: none;
 		position: absolute;
+		z-index: 9;
 
 		&--bottom {
 			align-items: flex-end;
 			flex-direction: row;
-			bottom: -25px;
+			bottom: 0;
 			left: 50%;
 			transform: translateX(-50%);
 		}

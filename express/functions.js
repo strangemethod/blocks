@@ -44,7 +44,6 @@ const writeBlocksData = (title) => {
   // Assign image src to data model.
   const imagesData = images.map((imagePath) => {
     return {
-      'caption': Models.image.caption,
       'src': `/img/${pageId}/${imagePath}`,
       'type': Models.image.type
     };
