@@ -1,8 +1,6 @@
 const paths = {
 	'blocksData': './src/data/blocks/',
-	'contentSrc': './content/',
-	'contentDest': `./dist/assets/img/`,
-	'prodContent': `/assets/img/`,
+	'images': `./dist/img/`,
 	'pagesData': './src/data/pages.json',
 };
 

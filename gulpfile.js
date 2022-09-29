@@ -2,6 +2,9 @@ const {series, parallel, src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('node-sass'));
 const {paths} = require('./config');
 
+// Assets
+const merge = require('merge-stream');
+
 // Clean 
 const del = require('del');
 
@@ -27,17 +30,17 @@ const layouts = require('handlebars-layouts');
 const fs = require('fs');
 
 var gulpConnect = require('gulp-connect');
-
-
 process.env.NODE_ENV = 'development';
 
 /*
  * Copy assets.
  */
 function assets () {
-  return src(path.join(paths.assets, '*'))
+  let copyAssets = src(path.join(paths.assets, '*'))
     .pipe(dest(`${paths.output}/assets`));
-    return done();
+  let copyContent = src(path.join(paths.content, '**/*'))
+    .pipe(dest(`${paths.output}/img`));
+  return merge(copyAssets, copyContent);
 }
 
 /*
@@ -45,7 +48,7 @@ function assets () {
  */
 function clean(done) {
   // clean the build folders
-  del.sync([paths.output])
+  del.sync([`${paths.output}`])
   return done()
 }
 
