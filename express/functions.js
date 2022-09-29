@@ -43,14 +43,26 @@ const writeBlocksData = (title) => {
 
   // Assign image src to data model.
   const imagesData = images.map((imagePath) => {
-    return [{
+    return {
       'caption': Models.image.caption,
       'src': `/img/${pageId}/${imagePath}`,
       'type': Models.image.type
-    }];
+    };
   });
-  
-  jsonfile.writeFile(blocksDataPath, imagesData, {spaces: 2}, function (err) {
+
+  // Break image data into individual arrays of 2.
+  const perChunk = 2; 
+  const chunkedImageData = imagesData.reduce((resultArray, item, index) => { 
+    const chunkIndex = Math.floor(index / perChunk);
+    if(!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [];
+    }
+    resultArray[chunkIndex].push(item);
+    return resultArray;
+  }, []);
+
+  // Write data to blocks file.
+  jsonfile.writeFile(blocksDataPath, chunkedImageData, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 }
