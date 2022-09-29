@@ -34,18 +34,18 @@ const writeBlocksData = (title) => {
 
   // Filter out any non-image files.
   const images = fs.readdirSync(imagesPath).filter((imagePath) => {
-    const isSystemFile = imagePath[0] === '.';
     const allowedExtensions = ['jpg', 'png', 'gif'];
-    const segments = imagePath.split['.'];
+    const segments = imagePath.split('.');
     const isImage = segments[segments.length - 1] in allowedExtensions;
-    if (!isSystemFile && isImage) return imagePath;
+    if (isImage) return imagePath;
+    return imagePath;
   });
 
   // Assign image src to data model.
   const imagesData = images.map((imagePath) => {
     return [{
       'caption': Models.image.caption,
-      'src': `${PATHS.prodContent}${pageId}/${imagePath}`,
+      'src': `/img/${pageId}/${imagePath}`,
       'type': Models.image.type
     }];
   });

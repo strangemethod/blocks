@@ -2,5 +2,8 @@
   "demo-page": {
     "title": "Demo%20Page",
     "cover": "https://picsum.photos/1920/1080"
+  },
+  "greece": {
+    "title": "greece"
   }
 }

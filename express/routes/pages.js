@@ -15,7 +15,7 @@ const FUNCT = require('../functions.js');
 router.post('/add-page', (req, res) => {
   FUNCT.writeBlocksData(req.body.title);
   FUNCT.writePageData(req.body.title);
-  res.send(pageData);
+  res.send('success');
 });
 
 module.exports = router;
