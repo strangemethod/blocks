@@ -1,7 +1,12 @@
 {{#extend "layout"}}
 	{{#content "content"}}
 		<main id="page" data-page="{{id}}">
-			{{> (get_partial "hero") title=page.title image=page.cover}}
+			{{> (get_partial "hero") 
+					title=page.title 
+					headline=page.headline
+					subheadline=page.subheadline
+					date=page.date
+					image=page.cover}}
 
 			{{#each blocks}}
 				{{#if (get_component this)}}

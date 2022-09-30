@@ -1,0 +1,11 @@
+.centered-image {
+	@include bp(desktop-sm) {
+		margin: 40px 0;
+	}
+
+	&--tight {
+		@include bp(desktop-sm) {
+			margin: 0;
+		}
+	}
+}

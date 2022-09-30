@@ -1,13 +1,23 @@
-<section class="block centered-text container">
+<section class="block centered-text container {{#if section.[0].headline}}centered-text--padded{{/if}}">
 	<div class="grid">
 		<div class="grid-col grid-col--2"></div>
 		<div class="grid-col grid-col--8">
-      {{> text-block/text-block
-          block=section.[0]
-          element="h2"
-          sectionIndex=sectionIndex
-          text=block.text
-      }}
+      {{#if section.[0].headline}}
+        {{> text-block/text-block
+            block=section.[0]
+            element="h2"
+            sectionIndex=sectionIndex
+            text=section.[0].headline
+        }}
+      {{/if}}
+      {{#if section.[0].subheadline}}
+        {{> text-block/text-block
+            block=section.[0]
+            element="p"
+            sectionIndex=sectionIndex
+            text=section.[0].subheadline
+        }}
+      {{/if}}
 		</div>
 		<div class="grid-col grid-col--2"></div>
 	</div>

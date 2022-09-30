@@ -205,6 +205,12 @@ function watchFiles(done) {
       })
     ),
     watch(
+      path.join(paths.components, '**/*.scss'),
+      series(css, function componentsCallback(done) {
+        done();
+      })
+    ),
+    watch(
       path.join(paths.scss, '**/*.scss'),
       series(css, function cssCallback(done) {
         done();

@@ -15,14 +15,27 @@ $grid-img-max-height: 490px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 0 5px;
 
   &-col {
     align-items: stretch;
     display: flex;
+    margin-bottom: 10px;
     position: relative;
+
+    &.align-bottom {
+      align-self: flex-end;
+    }
+
+    .align-center {
+      align-self: center;
+    }
 
     &--1 {
       @include col-width(12);
+
+      height: 0;
+      margin: 0;
 
       @include bp(tablet) {
         @include col-width(1);

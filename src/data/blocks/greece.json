@@ -1,27 +1,21 @@
 [
   [
     {
-      "src": "/img/greece/IMG_9510.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9511.jpg",
-      "type": "image"
+      "type": "text",
+      "headline": "First views of the Acroplis from Monastiraki.",
+      "subheadline": "After checking into our hotel in the Monastiraki neighborhood, we decided to take a walk and get a glimpse of the Acroplis just as it was beginning to get dark. Standing in front of the ruins of the Roman Agora (built in 19 BCE), the view is immediately impressive in its scale. A half moon hung directly above the plateau and a street performer played ambient loops on his electric guitar."
     }
   ],
   [
     {
-      "src": "/img/greece/IMG_9512.jpg",
-      "type": "image"
-    },
+      "src": "/img/greece/IMG_9510.jpg",
+      "type": "image",
+      "caption": "The Roman Agora is shown in the foreground. The octagonal building is the Horologion of Andronikos Kyrrhestes, also known as the Tower of the Winds. It features sundials, a water clock, and a wind vane. It is considered to be the world's first meteorological station."
+    }
+  ],
+  [
     {
       "src": "/img/greece/IMG_9520.jpg",
-      "type": "image"
-    }
-  ],
-  [
-    {
-      "src": "/img/greece/IMG_9521.jpg",
       "type": "image"
     },
     {
@@ -31,17 +25,29 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9525.jpg",
-      "type": "image"
-    },
+      "type": "text",
+      "subheadline": "We got up early the next morning and made the steep walk up to the Acropolis. The Odeon of Herodes Atticus, with its stunning ruin wall, is still used for live concerts."
+    }
+  ],
+
+  [
     {
-      "src": "/img/greece/IMG_9527.jpg",
-      "type": "image"
+      "src": "/img/greece/IMG_9525.jpg",
+      "type": "image",
+      "caption": "The The Theatre of Dionysus, on the south slopes of the Acropolis. I was reading the Bacchae by Euripdes during this trip, and greatly enjoyed imagining the orignal performances of the play at this site."
+
     }
   ],
   [
     {
-      "src": "/img/greece/IMG_9531.jpg",
+      "type": "text",
+      "headline": "Views from the Acropolis"
+    }
+  ],
+
+  [
+    {
+      "src": "/img/greece/IMG_9527.jpg",
       "type": "image"
     },
     {
@@ -52,6 +58,13 @@
   [
     {
       "src": "/img/greece/IMG_9534.jpg",
+      "type": "image",
+      "tight": true
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9531.jpg",
       "type": "image"
     },
     {
@@ -62,11 +75,8 @@
   [
     {
       "src": "/img/greece/IMG_9538.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9539.jpg",
-      "type": "image"
+      "type": "image",
+      "caption": "The majestic Caryatids that support the Erechtheion, a temple dedicated to the goddess Athena."
     }
   ],
   [
@@ -81,12 +91,9 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9544.jpg",
-      "type": "image"
-    },
-    {
       "src": "/img/greece/IMG_9545.jpg",
-      "type": "image"
+      "type": "image",
+      "caption": "New marble is interlaced with the ruins for structural support."
     }
   ],
   [
@@ -101,47 +108,38 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9554.jpg",
-      "type": "image"
-    },
-    {
       "src": "/img/greece/IMG_9557.jpg",
-      "type": "image"
+      "type": "image",
+      "caption": "Monastiraki station."
+
     }
   ],
   [
     {
-      "src": "/img/greece/IMG_9566.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9568.jpg",
-      "type": "image"
-    }
-  ],
-  [
-    {
-      "src": "/img/greece/IMG_9572.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9575.jpg",
-      "type": "image"
+      "type": "text",
+      "headline": "The Panathenaic Stadium",
+      "subheadline": "The stadium, made entirely from marble, is the site of the Olympic flame handover ceremony at the beginning of each Olympic games."
     }
   ],
   [
     {
       "src": "/img/greece/IMG_9576.jpg",
       "type": "image"
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9568.jpg",
+      "type": "image"
     },
     {
-      "src": "/img/greece/IMG_9583.jpg",
+      "src": "/img/greece/IMG_9566.jpg",
       "type": "image"
     }
   ],
   [
     {
-      "src": "/img/greece/IMG_9584.jpg",
+      "src": "/img/greece/IMG_9554.jpg",
       "type": "image"
     },
     {
@@ -151,7 +149,27 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9589.jpg",
+      "type": "text",
+      "subheadline": "All the site seeing made us hungry. On the left, Niloo enjoys a greek salad with a slab of feta next to a grilled sea bream at the Athens fish market. On the right, more Sea Bream with a delicious lemon-mustard sauce at Sirocco restaurant in Milos."
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "headline": "Milos",
+      "subheadline": "Getting to the island of Milos was a journey, but it was worth it. After our ferry was canceled due to high winds, we booked a last-minute flight for the following morning. Once we arrived, we hardly left this beach for two days."
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9584.jpg",
+      "type": "image",
+      "tight": true
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9603.jpg",
       "type": "image"
     },
     {
@@ -161,12 +179,43 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9603.jpg",
+      "src": "/img/greece/IMG_9583.jpg",
+      "type": "image",
+      "caption": "Our hotel room terrace with private pool.",
+      "tight": true
+    }
+  ],
+
+  [
+    {
+      "src": "/img/greece/IMG_9621.jpg",
+      "type": "image",
+      "caption": "The exposed rock of Milos is interesting shades of yellow, orange and pink due to minerals."
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9589.jpg",
       "type": "image"
     },
     {
-      "src": "/img/greece/IMG_9621.jpg",
+      "src": "/img/greece/IMG_9685.jpg",
       "type": "image"
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9894.jpg",
+      "type": "image",
+      "tight": true,
+      "caption": "Greece is a country full of cats, and Niloo tends to attract cats everywhere we travel."
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "headline": "Kalymnos",
+      "subheadline": "The island of Kalymnos is a global rocking climbing mecca. Unlike most Greek tourist islands in the Cyclades, Kalymnos is in the Dodecanese islands near Turkey. To get there, we flew to the island of Kos, and then took a short ferry."
     }
   ],
   [
@@ -176,17 +225,15 @@
     },
     {
       "src": "/img/greece/IMG_9675.jpg",
-      "type": "image"
+      "type": "image",
+      "align": "bottom"
     }
   ],
   [
     {
-      "src": "/img/greece/IMG_9685.jpg",
-      "type": "image"
-    },
-    {
       "src": "/img/greece/IMG_9688.jpg",
-      "type": "image"
+      "type": "image",
+      "tight": true
     }
   ],
   [
@@ -201,11 +248,13 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9702.jpg",
-      "type": "image"
-    },
+      "type": "text",
+      "subheadline": "Scooters are the most common way to get around on Kalymnos. We were joined by our friends Brad and Katya, who were ready to climb!"
+    }
+  ],
+  [
     {
-      "src": "/img/greece/IMG_9703.jpg",
+      "src": "/img/greece/IMG_9702.jpg",
       "type": "image"
     }
   ],
@@ -215,7 +264,7 @@
       "type": "image"
     },
     {
-      "src": "/img/greece/IMG_9705.jpg",
+      "src": "/img/greece/IMG_9703.jpg",
       "type": "image"
     }
   ],
@@ -372,10 +421,6 @@
   [
     {
       "src": "/img/greece/IMG_9870.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9894.jpg",
       "type": "image"
     }
   ],

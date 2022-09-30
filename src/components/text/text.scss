@@ -1,4 +1,15 @@
 .centered-text {
+
+	&--padded {
+		@include bp(desktop-sm) {
+			margin: 80px 0 40px;
+		}
+	}
+
+	.grid-col {
+		display: block;
+	}
+
 	h2 {
 		text-align: center;
 	}
