@@ -30,7 +30,6 @@ const layouts = require('handlebars-layouts');
 const fs = require('fs');
 
 var gulpConnect = require('gulp-connect');
-process.env.NODE_ENV = 'development';
 
 /*
  * Copy assets.
@@ -79,9 +78,8 @@ function connect(done) {
  * Compile handlebars templates
  */
 function hbs(done) {
-  const nodeEnv = process.env.NODE_ENV;
-  const editMode = nodeEnv === 'development';
-  
+  const editMode = process.env.NODE_ENV === 'development';
+
   // Get Pages data.
   const pagesDataPath = path.join(paths.data, 'pages.json');
   const rawPagesData = fs.readFileSync(pagesDataPath);
@@ -150,9 +148,6 @@ function hbs(done) {
  * Compile scripts.
  */
 function js() {  
-  const nodeEnv = process.env.NODE_ENV;
-  const webpackMode = nodeEnv === 'development' ? nodeEnv : 'production';
-
   return src(path.join(paths.scripts, 'app.jsx'))
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(uglify())

@@ -7,6 +7,7 @@ module.exports = {
         path: outputDir,
         filename: 'app.js'
     },
+    mode: 'development',
     module: {
         rules: [{
             test: /\.(jsx|js)$/,

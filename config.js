@@ -8,8 +8,6 @@ const paths = {
   scss: './src/scss/',
   scripts: './src/js/',
   templates: './src/templates/',
-  webpack_dev: 'webpack.development.config.js',
-  webpack_prod: '.webpack.production.config.js',
 };
 
 module.exports.paths = paths;

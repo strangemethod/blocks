@@ -29,13 +29,11 @@
       "subheadline": "We got up early the next morning and made the steep walk up to the Acropolis. The Odeon of Herodes Atticus, with its stunning ruin wall, is still used for live concerts."
     }
   ],
-
   [
     {
       "src": "/img/greece/IMG_9525.jpg",
       "type": "image",
       "caption": "The The Theatre of Dionysus, on the south slopes of the Acropolis. I was reading the Bacchae by Euripdes during this trip, and greatly enjoyed imagining the orignal performances of the play at this site."
-
     }
   ],
   [
@@ -44,7 +42,6 @@
       "headline": "Views from the Acropolis"
     }
   ],
-
   [
     {
       "src": "/img/greece/IMG_9527.jpg",
@@ -111,7 +108,6 @@
       "src": "/img/greece/IMG_9557.jpg",
       "type": "image",
       "caption": "Monastiraki station."
-
     }
   ],
   [
@@ -185,7 +181,6 @@
       "tight": true
     }
   ],
-
   [
     {
       "src": "/img/greece/IMG_9621.jpg",
@@ -340,31 +335,21 @@
   ],
   [
     {
-      "src": "/img/greece/IMG_9743.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9745.jpg",
-      "type": "image"
-    }
-  ],
-  [
-    {
-      "src": "/img/greece/IMG_9746.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/img/greece/IMG_9748.jpg",
-      "type": "image"
-    }
-  ],
-  [
-    {
       "src": "/img/greece/IMG_9761.jpg",
       "type": "image"
     },
     {
       "src": "/img/greece/IMG_9763.jpg",
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "src": "/img/greece/IMG_9743.jpg",
+      "type": "image"
+    },
+    {
+      "src": "/img/greece/IMG_9745.jpg",
       "type": "image"
     }
   ],
