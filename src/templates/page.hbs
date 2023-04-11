@@ -1,24 +1,56 @@
 {{#extend "layout"}}
 	{{#content "content"}}
-		<main id="page" data-page="{{id}}">
+		<main id="page" class="page {{#if editMode}}edit-mode{{/if}}" data-page="{{id}}" >
+			{{!-- 			
 			{{> (get_partial "hero") 
 					title=page.title 
 					headline=page.headline
 					subheadline=page.subheadline
 					date=page.date
 					image=page.cover}}
+			 --}}
+			{{#if editMode}}
+				<div class="overlay-grid">
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+						<div class="grid-col grid-col--1"></div>
+				 </div>
+			{{/if}}
 
+			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
-				{{#if (get_component this)}}
-					<div class="editor" data-index="{{@key}}">
-						{{> (get_partial (get_component this))
-								section=this
-								sectionIndex=@key}}
-						{{!-- Section Editor buttons --}}
-						<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>
-					</div>
-				{{/if}}
+				<section class="grid block">
+					{{!-- Loop through content items --}}
+					{{#each this}}
+						<div class="grid-col grid-col--{{this.cols}}">
+							{{#if this.image}}
+								<img src="{{this.image}}" />
+							{{/if}}
+							{{#if ../../editMode}}
+								<span class="resize"></span>
+							{{/if}}
+						</div>
+				  {{/each}}
+					{{!-- Edit mode buttons --}}
+					{{!-- 
+					{{#if ../editMode}}
+						<div class="editor" data-index="{{@key}}">
+							<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>
+						</div>
+					{{/if}} 
+					--}}
+				 </section>
 			{{/each}}
+
 
 			<section class="container editor">
 				<div class="grid">

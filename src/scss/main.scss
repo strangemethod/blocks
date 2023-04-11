@@ -7,14 +7,15 @@
 
 // Components.
 @import '../components/hero/hero.scss';
-@import '../components/image/image.scss';
-@import '../components/text/text.scss';
-@import '../components/text-block/text-block.scss';
-@import '../components/text-image/text-image.scss';
+// @import '../components/image/image.scss';
+// @import '../components/text/text.scss';
+// @import '../components/text-block/text-block.scss';
+// @import '../components/text-image/text-image.scss';
 
 /*
  * @todo: remove Editor styles from dist bundle.
  */
+@import 'edit-mode';
 @import 'editor';
 @import 'dialog';
 

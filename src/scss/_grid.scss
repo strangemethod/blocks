@@ -1,23 +1,21 @@
 /*
  * Flexbox grid layout.
  */
-
-$grid-img-height: 40vw;
-$grid-img-max-height: 490px;
-
-@mixin col-width($cols) {
-  flex-basis: calc(#{($cols/12) * 100}% - 10px);
-  width: calc(#{($cols/12) * 100}% - 10px);
-}
-
 .grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 40px 20px;
+  position: relative;
 
-  &-col {
+  @include bp(tablet) {
+    flex-direction: row;
+  }
+
+  .grid-col {
     display: flex;
-    margin-bottom: 10px;
+    overflow: visible;
+    position: relative;
 
     &.align-bottom {
       align-items: flex-end;
@@ -28,27 +26,18 @@ $grid-img-max-height: 490px;
     }
   }
 
+  // Grid columns.
   @for $i from 1 through 12 {
     .grid-col--#{$i} {
-      grid-column: span 12;
+      flex-basis: 100%;
 
       @include bp(tablet) {
-        grid-column: span $i;
+        flex-basis: (100% / 12) * $i;
       }
     }
   }
 
-  &--overlay {
-    left: 0;
-    height: 100%;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
+  img {
     width: 100%;
-
-    .grid-col {
-      background: $color-yellow;
-      opacity: .5;
-    }
   }
 }

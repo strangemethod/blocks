@@ -2,6 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Editor from "./editor/editor.jsx";
 import PostData from "./functions/post-data.jsx";
+import {ResizeGrid} from "./functions/resize-grid.jsx";
+
+
+// ES6 module to resize grids.
+const grids = document.querySelectorAll('.grid.block');
+grids.forEach((grid) => {
+	new ResizeGrid(grid);
+});
 
 // Global props.
 const props = {
@@ -33,3 +41,8 @@ Object.keys(EditorHooks).forEach((key) => {
 				editorHook);
 	});
 });
+
+/*
+ * Drag and drop hooks.
+ */
+const draggables = document.querySelectorAll(`.draggable`);

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "concurrently --kill-others \"nodemon express/app.js\" \"NODE_ENV='development' gulp default\"",
-    "front-end": "gulp default",
+    "front-end": "NODE_ENV='development' gulp default",
     "prod": "concurrently --kill-others \"nodemon express/app.js\" \"NODE_ENV='production' gulp default\""
   },
   "author": "Andrew Bowles <andrew.a.bowles@gmail.com> (http://www.andrewbowles.com)",

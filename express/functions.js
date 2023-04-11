@@ -41,27 +41,25 @@ const writeBlocksData = (title) => {
     return imagePath;
   });
 
-  // Assign image src to data model.
-  const imagesData = images.map((imagePath) => {
-    return {
-      'src': `/img/${pageId}/${imagePath}`,
-      'type': Models.image.type
-    };
+  // Create a block for each image (with default 2-8-2 grid layout).
+  const imageBlocks = images.map((imagePath) => {
+    return [
+      {
+        'cols': '2'
+      },
+      {
+        'cols': '8',
+        'image': `/img/${pageId}/${imagePath}`,
+      },
+      {
+        'cols': '2'
+      },
+    ];
   });
 
-  // Break image data into grouped array.
-  const perChunk = 1; 
-  const chunkedImageData = imagesData.reduce((resultArray, item, index) => { 
-    const chunkIndex = Math.floor(index / perChunk);
-    if(!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
-    }
-    resultArray[chunkIndex].push(item);
-    return resultArray;
-  }, []);
 
   // Write data to blocks file.
-  jsonfile.writeFile(blocksDataPath, chunkedImageData, {spaces: 2}, function (err) {
+  jsonfile.writeFile(blocksDataPath, imageBlocks, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 }
