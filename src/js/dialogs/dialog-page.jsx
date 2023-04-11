@@ -6,7 +6,7 @@ export default class DialogPage extends React.Component {
 
     this.state = {
       error: false,
-      text: unescape(this.props.value),
+      title: null,
     };
   }
 
@@ -19,20 +19,18 @@ export default class DialogPage extends React.Component {
     }
   }  
 
-  setTitle = () => {
+ setTitle = () => {
     this.setState({title: event.target.value});
-  }  
+  }
 
   render() {
     return (
       <React.Fragment>
-        <h3>Add a new page</h3>
-        <p>Page Title</p>
-        <input type="text" 
-            className={`${this.state.error ? "error" : ""}`}
-            onChange={this.setTitle}
-            />
-        <button onClick={this.addPage}>Add Page</button>
+        <h2>Add a new page</h2>
+        <h3>Page Title</h3>
+        <input className={`${this.state.error ? "error" : ""}`} onChange={() => {this.setTitle()}} />
+        <p>Note: page title must match an image directory under /content/img.</p>
+        <button onClick={() => {this.addPage()}}>Add page</button>
       </React.Fragment>
     );
   }

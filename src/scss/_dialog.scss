@@ -1,3 +1,5 @@
+$modal-margins: 60px;
+
 .modal {
 	background: $color-overlay;
 	left: 0;
@@ -11,6 +13,7 @@
 	&__form {
 		background: $color-grey--light;
 		flex-direction: column;
+		height: calc(100vh - #{$modal-margins});
 		justify-content: flex-start;
 		left: 50%;
 		margin: 0;
@@ -18,7 +21,7 @@
 		position: relative;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		width: calc(100vw - 120px);
+		width: calc(100vw - #{$modal-margins});
 
 		form {
 			margin-top: 40px;

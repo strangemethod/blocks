@@ -8,12 +8,10 @@ export default class ButtonsFooter extends React.Component {
   render() {
     return (
         <button 
-            class="editor__icon editor__icon--bg editor__icon--add"
-            onClick={
-                () => {this.props.postSection('add')}
-            }>
+            className="editor__icon editor__icon--bg editor__icon--add"
+            onClick={() => {this.props.postSection('add')}}>
           <object type="image/svg+xml" data="/assets/icon-plus-circle.svg"></object>
-          <div class="tooltip">Add new section</div>
+          <div className="tooltip">Add new section</div>
        </button>
     );
   }

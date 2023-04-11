@@ -49,8 +49,8 @@ const writeBlocksData = (title) => {
     };
   });
 
-  // Break image data into individual arrays of 2.
-  const perChunk = 2; 
+  // Break image data into grouped array.
+  const perChunk = 1; 
   const chunkedImageData = imagesData.reduce((resultArray, item, index) => { 
     const chunkIndex = Math.floor(index / perChunk);
     if(!resultArray[chunkIndex]) {

@@ -11,113 +11,44 @@ $grid-img-max-height: 490px;
 }
 
 .grid {
-  align-items: stretch;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 5px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
 
   &-col {
-    align-items: stretch;
     display: flex;
     margin-bottom: 10px;
-    position: relative;
 
     &.align-bottom {
-      align-self: flex-end;
+      align-items: flex-end;
     }
 
-    .align-center {
-      align-self: center;
+    &.align-center {
+      align-items: center;
     }
+  }
 
-    &--1 {
-      @include col-width(12);
-
-      height: 0;
-      margin: 0;
+  @for $i from 1 through 12 {
+    .grid-col--#{$i} {
+      grid-column: span 12;
 
       @include bp(tablet) {
-        @include col-width(1);
+        grid-column: span $i;
       }
     }
+  }
 
-    &--2 {
-      @include col-width(12);
+  &--overlay {
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
 
-      @include bp(tablet) {
-        @include col-width(2);
-      }
-    }
-
-    &--3 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(3);
-      }
-    }
-
-    &--4 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(4);
-      }
-    }
-
-    &--5 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(5);
-      }
-    }
-
-    &--6 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(6);
-      }
-    }
-
-    &--7 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(7);
-      }
-    }
-
-    &--8 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(8);
-      }
-    }
-
-    &--9 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(9);
-      }
-    }
-
-
-    &--10 {
-      @include col-width(12);
-
-      @include bp(tablet) {
-        @include col-width(10);
-      }
-    }
-
-
-    &--12 {
-      @include col-width(12);
+    .grid-col {
+      background: $color-yellow;
+      opacity: .5;
     }
   }
 }

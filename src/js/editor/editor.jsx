@@ -120,9 +120,9 @@ export default class Editor extends React.Component {
       <React.Fragment>
         {buttonSet}
         {this.state.dialog &&
-          <section class="modal">
-            <div class="modal__form grid container">
-              <div class="close" onClick={() => (this.openDialog(null, null))}>
+          <section className="modal">
+            <div className="modal__form">
+              <div className="close" onClick={() => (this.openDialog(null, null))}>
                 <img src="/assets/icon-cancel.svg" />
               </div>
               {dialog}

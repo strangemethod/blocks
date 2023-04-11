@@ -9,7 +9,7 @@ export default class ButtonsPage extends React.Component {
     return (
         <div>
           <button 
-              class="editor__icon editor__icon--bg editor__icon--add"
+              className="editor__icon editor__icon--bg editor__icon--add"
               onClick={
                   () => {this.props.openDialog('add-page')}
               }>
