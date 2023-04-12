@@ -17,11 +17,8 @@ export default class Editor extends React.Component {
     super(props);
 
     this.state = {
-      // {string || nulll} dialog to display.
       dialog: null,
-      // {boolean} error state of dialog.
       error: false,
-      // {string || nulll}ield (eg. image, text).
       field: null,
     };
   }

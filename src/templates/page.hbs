@@ -32,12 +32,8 @@
 					{{!-- Loop through content items --}}
 					{{#each this}}
 						<div class="grid-col grid-col--{{this.cols}}">
-							{{#if this.image}}
-								<img src="{{this.image}}" />
-							{{/if}}
-							{{#if ../../editMode}}
-								<span class="resize"></span>
-							{{/if}}
+							{{#if this.image}}<img src="{{this.image}}" />{{/if}}
+							{{#if ../../editMode}}<div class="grid-resize"></div>{{/if}}
 						</div>
 				  {{/each}}
 					{{!-- Edit mode buttons --}}

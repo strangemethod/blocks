@@ -163,7 +163,7 @@ function watchFiles(done) {
   // return watch(['./src/js/editor/editor.jsx'], series(js))
   return (
     watch(
-      path.join(paths.scripts, '**/*.jsx'),
+      [path.join(paths.scripts, '**/*.jsx'), path.join(paths.scripts, '**/*.js')],
       series(js, function jsCallback(done) {
         done();
       })

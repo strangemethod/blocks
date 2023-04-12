@@ -1,48 +1,44 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Editor from "./editor/editor.jsx";
-import PostData from "./functions/post-data.jsx";
-import {ResizeGrid} from "./functions/resize-grid.jsx";
+import PostData from "./functions/post-data.js";
+import ResizeGrid from "./functions/resize-grid.js"
+
+import {CLASSES, EDITOR_SELECTORS, SELECTORS} from "./constants.js"
 
 
-// ES6 module to resize grids.
-const grids = document.querySelectorAll('.grid.block');
-grids.forEach((grid) => {
-	new ResizeGrid(grid);
+/*
+ * ES6 modules.
+ * Used for Editor functions that work with the existing UI.
+ * eg. drag and drop grid resizing.
+ */ 
+const blocks = document.querySelectorAll(CLASSES.block);
+blocks.forEach((block) => {
+	new ResizeGrid(block);
 });
 
+
+/*
+ * React components.
+ * Only use when new markup needs to be injected for the Editor UI.
+ * eg. modals and dialogs.
+ */
 // Global props.
 const props = {
-	pageId: document.getElementById('page').dataset.page,
+	pageId: document.getElementById(SELECTORS.page).dataset.page,
 	postData: PostData,
 }
 
-// DOM hooks for React components.
-const Selectors = [
-	'add-page',
-	'add-section',
-	'edit-block',
-	'edit-section',
-];
-
-const EditorHooks = {}; 
-Selectors.forEach((selector) => {
-	EditorHooks[selector] = document.querySelectorAll(`.${selector}`);
-});
-
-// Loop through hooks and create react Editor components. 
-Object.keys(EditorHooks).forEach((key) => {
-	EditorHooks[key].forEach((editorHook) => {
+// Loop through editor hooks and create react components. 
+EDITOR_SELECTORS.forEach((selector) => {
+	const editorHooks = document.querySelectorAll(`.${selector}`);
+	editorHooks.forEach((editorHook) => {
 		ReactDOM.render(
 			<Editor
-					buttonSet={key}
+					buttonSet={selector}
 					{...editorHook.dataset}
 					{...props} />, 
-				editorHook);
+			editorHook
+		);
 	});
 });
-
-/*
- * Drag and drop hooks.
- */
-const draggables = document.querySelectorAll(`.draggable`);

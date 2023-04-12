@@ -1,7 +1,9 @@
-class ResizeGrid {
+import {SELECTORS} from "../constants.js"
+
+export default class ResizeGrid {
 	constructor(grid) {
 		this.grid = grid;
-		this.resizeHandles = grid.querySelectorAll('.resize');
+		this.resizeHandles = grid.querySelectorAll(SELECTORS.grid_resize);
 		// todo: recalc on window resize.
 		this.gridWidth = grid.offsetWidth;
 		this.gridCol;
@@ -11,7 +13,7 @@ class ResizeGrid {
 		this.dragging = false;
 		this.dragStartPos;
 
-		this.bindEventListeners()
+		this.bindEventListeners();
 	}
 
 
@@ -36,7 +38,7 @@ class ResizeGrid {
 	 * Mouse down handler.
 	 */
 	handleMouseDown(e) {
-		if (e.target.classList.contains("resize")) {
+		if (e.target.classList.contains(SELECTORS.grid_resize)) {
 			this.dragging = true;    
 			this.dragStartPos = e.clientX;
 			
@@ -54,7 +56,7 @@ class ResizeGrid {
 	 * Mouse up handler.
 	 */
 	handleMouseUp() {
-		 if (this.dragging) this.dragging = false;
+		if (this.dragging) this.dragging = false;
 	}
 
 	/*
@@ -72,5 +74,3 @@ class ResizeGrid {
 		}
 	}
 };
-
-export {ResizeGrid};
