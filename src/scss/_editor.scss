@@ -1,63 +1,55 @@
 $button-size: 40px;
-$icon-size: 30px;
+$button-size-large: 80px;
+$icon-size: 16px;
 $icon-size-medium: 20px;
-$icon-size-small: 16px;
+$icon-size-large: 30px;
 $tooltip-height: 24px;
 
 
 .editor {
 	position: relative;
 
-	.edit-block {
-		background: transparent;
+	/*
+	 * Overlay grid.
+	 */
+	&__grid {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		left: 50%;
 		height: 100%;
-		left: 0;
-		position: absolute;
+		margin: 0;
+		padding: 0 20px;
+		position: fixed;
 		top: 0;
+		transform: translateX(-50%);
 		width: 100%;
-	}
+		z-index: -1;
 
-	// Floating icons.
-	&__icons {
-		display: none;
-		position: absolute;
-		z-index: 9;
-
-		&--bottom {
-			align-items: flex-end;
+		@include bp(tablet) {
 			flex-direction: row;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
 		}
 
-		&--right {
-			align-items: flex-end;
-			flex-direction: column;
-			right: 10px;
-			top: 50%;
-			transform: translateY(-50%);
+		.grid-col {
+			background: #dc3545;
+			opacity: 0.15;
+			outline: 1px solid black;
 		}
 
-		&--add-menu {
-			display: flex;
-			flex-direction: row;
-			height: calc($button-size + 10px);
-	
-			&:hover {
-				.editor__icon--image,
-				.editor__icon--text {
-					display: block;
-				}
+		@for $i from 1 through 12 {
+			.grid-col--#{$i} {
+				flex-basis: 100%;
 
-				.editor__icon--add {
-					background: $color-red;
+				@include bp(tablet) {
+					flex-basis: (100% / 12) * $i;
 				}
-
 			}
 		}
 	}
 
+  /*
+   * Icons
+   */   
 	&__icon {
 		background: $color-black;
 		border: none;
@@ -78,7 +70,7 @@ $tooltip-height: 24px;
 				pointer-events: none;
 			}
 
-			.tooltip {
+			.editor__tooltip {
 				display: block;
 			}
 		}
@@ -92,56 +84,95 @@ $tooltip-height: 24px;
 			height: $icon-size;
 			width: $icon-size;
 		}
+	}
 
-		&--text,
-		&--image {
-			object {
-				height: $icon-size-medium;
-				width: $icon-size-medium;
-			}
-		}
+	&__icon--large {
+		border-radius: $button-size-large;
+		height: $button-size-large;
+		width: $button-size-large;
 
-		&--delete,
-		&--edit {
-			object {
-				height: $icon-size-small;
-				width: $icon-size-small;
-			}
-		}
-		
-		&--delete object {
-			filter: none;
-		}
-
-		&--image,
-		&--text {
-			display: none;
-		}
-
-		.tooltip {
-			background: $color-grey--dark;
-			border-radius: 5px;
-			color: $color-white;
-			display: none;
-			left: -124px;
-			font-size: 12px;
-			line-height: $tooltip-height;
-			height: $tooltip-height;
-			pointer-events: none;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 120px;
-			z-index: 9;
+		object {
+			height: $icon-size-large;
+			width: $icon-size-large;
 		}
 	}
 
-	&:hover .editor__icons--right, 
-	.edit-block:hover .editor__icons--bottom {
-		display: flex;
+	&__icon--delete object {
+		filter: none;
 	}
 
-	.add-section .editor__icon {
-		margin: 20px auto;
+	// Icon instances
+	&__toggle .editor__icon {
+		bottom: 40px;
+		position: fixed;
+		right: 40px;
+		z-index: 9;
+	}
+
+	&__tooltip {
+		background: $color-grey--dark;
+		border-radius: 5px;
+		color: $color-white;
+		display: none;
+		left: -124px;
+		font-size: 12px;
+		line-height: $tooltip-height;
+		height: $tooltip-height;
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 120px;
 	}
 }
+
+
+	// &__icons {
+	// 	display: none;
+	// 	position: absolute;
+	// 	z-index: 9;
+
+		// &--bottom {
+		// 	align-items: flex-end;
+		// 	flex-direction: row;
+		// 	bottom: 0;
+		// 	left: 50%;
+		// 	transform: translateX(-50%);
+		// }
+
+		// &--right {
+		// 	align-items: flex-end;
+		// 	flex-direction: column;
+		// 	right: 10px;
+		// 	top: 50%;
+		// 	transform: translateY(-50%);
+		// }
+
+		// &--add-menu {
+		// 	display: flex;
+		// 	flex-direction: row;
+		// 	height: calc($button-size + 10px);
+	
+		// 	&:hover {
+		// 		.editor__icon--image,
+		// 		.editor__icon--text {
+		// 			display: block;
+		// 		}
+
+		// 		.editor__icon--add {
+		// 			background: $color-red;
+		// 		}
+
+		// 	}
+		// }
+	// }
+
+	// &:hover .editor__icons--right, 
+	// .edit-block:hover .editor__icons--bottom {
+	// 	display: flex;
+	// }
+
+	// .add-section .editor__icon {
+	// 	margin: 20px auto;
+	// }
+	// 

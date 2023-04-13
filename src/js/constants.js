@@ -14,6 +14,8 @@ export const EDITOR_SELECTORS = [
 
 // Selectors with no class or ID prefix.
 export const SELECTORS = {
-	'grid_resize': 'grid-resize',
+	'edit_mode': 'edit-mode',
+	'edit_mode_toggle': 'edit-mode-toggle',	
 	'page': 'page',
+	'resize_hook': 'grid-resize-hook',
 }

@@ -1,6 +1,6 @@
 {{#extend "layout"}}
 	{{#content "content"}}
-		<main id="page" class="page {{#if editMode}}edit-mode{{/if}}" data-page="{{id}}" >
+		<main id="page" class="page" data-page="{{id}}" >
 			{{!-- 			
 			{{> (get_partial "hero") 
 					title=page.title 
@@ -9,22 +9,6 @@
 					date=page.date
 					image=page.cover}}
 			 --}}
-			{{#if editMode}}
-				<div class="overlay-grid">
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-						<div class="grid-col grid-col--1"></div>
-				 </div>
-			{{/if}}
 
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
@@ -33,7 +17,7 @@
 					{{#each this}}
 						<div class="grid-col grid-col--{{this.cols}}">
 							{{#if this.image}}<img src="{{this.image}}" />{{/if}}
-							{{#if ../../editMode}}<div class="grid-resize"></div>{{/if}}
+							{{#if ../../editMode}}<div class="grid-resize-hook"></div>{{/if}}
 						</div>
 				  {{/each}}
 					{{!-- Edit mode buttons --}}
@@ -46,13 +30,9 @@
 					--}}
 				 </section>
 			{{/each}}
-
-
-			<section class="container editor">
-				<div class="grid">
-					<div class="grid-col grid-col--12 add-section"></div>
-				</div>
-			</section>
 		</main>
+		{{#if editMode}}
+			<span id="edit-mode-toggle" class="editor__toggle"></span>
+		{{/if}}
 	{{/content}}
 {{/extend}}

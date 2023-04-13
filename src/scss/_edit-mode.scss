@@ -1,40 +1,7 @@
+/*
+ * Edit mode styles for non-react components.
+ */
 .edit-mode {
-	.overlay-grid {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		left: 50%;
-		height: 100%;
-		margin: 0;
-		padding: 0 20px;
-		position: absolute;
-		top: 0;
-		transform: translateX(-50%);
-		width: 100%;
-		z-index: 0;
-
-		@include bp(tablet) {
-			flex-direction: row;
-		}
-
-		.grid-col {
-			background: #dc3545;
-			opacity: 0.15;
-			outline: 1px solid black;
-		}
-
-		@for $i from 1 through 12 {
-			.grid-col--#{$i} {
-				flex-basis: 100%;
-
-				@include bp(tablet) {
-					flex-basis: (100% / 12) * $i;
-				}
-			}
-		}
-	}
-
-	// Grid column resize handles.
   .grid-resize {
     background: transparent;
     cursor: col-resize;
@@ -48,5 +15,10 @@
   .grid-col:last-child .resize {
     display: none;
     pointer-events: none;
+  }
+
+  .block:hover .grid-col {
+    cursor: pointer;
+    outline: 1px dashed $color-grey--dark;
   }
 }
