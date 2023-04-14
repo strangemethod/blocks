@@ -11,15 +11,14 @@ const PostData = (data, route) => {
     method: 'POST',
     body: JSON.stringify(data)
   })
-  .then((res) => {
+  .then(res => res.json())
+  .then(json => {
+    console.log(json)
     setTimeout(() => {
-      console.log('Data posted.');
       window.location.reload();
     }, 400);
   })
-  .catch((res) => {
-    console.log(res)
-  })
+  .catch(err => console.error('error:' + err));
 }
 
 export default PostData;

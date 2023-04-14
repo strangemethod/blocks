@@ -4,7 +4,6 @@ import Editor from "./editor/editor.jsx";
 import EditMode from "./editor/edit-mode.jsx";
 import GridResize from "./editor/grid-resize.jsx";
 import PostData from "./functions/post-data.js";
-import ResizeGrid from "./functions/resize-grid.js"
 import {CLASSES, EDITOR_SELECTORS, SELECTORS} from "./constants.js"
 
 
@@ -18,15 +17,19 @@ function Store(initialState = {}) {
   this.state = initialState;
 }
 
+Store.prototype.getState = function() {
+  return this.state;
+};
+
 Store.prototype.mergeState = function(partialState) {
   Object.assign(this.state, partialState);
-  console.log(this.state);
 };
 
 let editorStore = new Store();
 
 // Global props.
 const props = {
+  getState: editorStore.getState.bind(editorStore),
   mergeState: editorStore.mergeState.bind(editorStore),
   pageElement: pageElement,
 	pageId: pageElement.dataset.page,

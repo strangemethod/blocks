@@ -1,5 +1,5 @@
 import React from "react";
-import {SELECTORS} from "../constants.js"
+import {ENDPOINTS, SELECTORS} from "../constants.js"
 
 export default class EditMode extends React.Component {
   constructor(props) {
@@ -7,15 +7,23 @@ export default class EditMode extends React.Component {
 
     this.state = {
       editMode: false,
-      foo: 0,
     };
+  }
+
+  /*
+   * Post changes in state store to API.
+   */
+  saveChanges() {
+    const data = {
+      page: this.props.pageId,
+      data: this.props.getState(),
+    }
+
+    this.props.postData(data, ENDPOINTS.edit_block);
   }
 
   toggleEditMode() {
     this.setState({editMode: !this.state.editMode});
-    this.setState({foo: this.state.foo + 1});
-
-    this.props.mergeState({'foo': this.state.foo});
 
     // Class toggle needed to show non-react UI elements.
     this.props.pageElement.classList.toggle(SELECTORS.edit_mode);
@@ -29,16 +37,32 @@ export default class EditMode extends React.Component {
 
     return (
       <React.Fragment>
-        <button 
-            className="editor__icon editor__icon--edit editor__icon--large"
-            onClick={() => {this.toggleEditMode()}}>
-          <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
-          <div className="editor__tooltip">Toggle Edit Mode</div>
-        </button>
-        {this.state.editMode && 
-          <div className="editor__grid">
-            {gridCols}
-          </div>
+        {!this.state.editMode && 
+          <button 
+              className="editor__icon editor__icon--edit editor__icon--large"
+              onClick={() => {this.toggleEditMode()}}>
+            <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
+            <div className="editor__tooltip">Enable Edit Mode</div>
+          </button>
+        }
+        {this.state.editMode &&
+          <React.Fragment>
+            <button 
+                className="editor__icon editor__icon--close editor__icon--large"
+                onClick={() => {this.toggleEditMode()}}>
+              <object type="image/svg+xml" data="/assets/icon-close.svg"></object>
+              <div className="editor__tooltip">Leave Edit Mode</div>
+            </button>
+            <button 
+                className="editor__icon editor__icon--save editor__icon--large"
+                onClick={() => {this.saveChanges()}}>
+              <object type="image/svg+xml" data="/assets/icon-save.svg"></object>
+              <div className="editor__tooltip">Save Changes</div>
+            </button>
+            <div className="editor__grid">
+              {gridCols}
+            </div>
+          </React.Fragment>
         }
       </React.Fragment>
     );

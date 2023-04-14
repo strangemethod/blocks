@@ -107,6 +107,15 @@ $tooltip-height: 24px;
 		position: fixed;
 		right: 40px;
 		z-index: 9;
+
+		&--edit,
+		&--save {
+			right: 40px;
+		}
+
+		&--close {
+			right: 140px;
+		}
 	}
 
 	&__tooltip {

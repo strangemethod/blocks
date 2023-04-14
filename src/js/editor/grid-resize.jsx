@@ -1,20 +1,22 @@
 import React from "react";
 import * as ReactDOM from 'react-dom';
-import {SELECTORS} from "../constants.js"
+import {CLASSES, SELECTORS} from "../constants.js"
 
 export default class GridResize extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       col: null,
+      cols: null,
       colCount: 12,
       colPercent: (1 / 12) * 100,
       colWidth: null,
       dragging: false,
       dragStartPos: null,
       grid: null,
+      gridData: [],
+      gridIndex: null,
       gridWidth: null,
       newNextCol: null,
       newNextColWidth: null,
@@ -26,13 +28,16 @@ export default class GridResize extends React.Component {
  componentDidMount() {
     const col = ReactDOM.findDOMNode(this).parentNode.parentNode;
     const grid = col.parentNode;
+    const gridIndex = grid.dataset.index;
     // todo: recalc on resize
     const gridWidth = grid.offsetWidth;
     const nextCol = col.nextElementSibling;
 
+    this.updateGridData(grid);
     this.setState({
       col,
       grid,
+      gridIndex,
       gridWidth,
       nextCol,
     });
@@ -101,12 +106,42 @@ export default class GridResize extends React.Component {
    this.setState({dragging: false});
 
     // Snap to nearest column.
-    const newColWidth = this.getNearestCol(this.state.newColWidth) * this.state.colPercent;
-    const newNextColWidth = this.getNearestCol(this.state.newNextColWidth) * this.state.colPercent;
+    const nearestCol = this.getNearestCol(this.state.newColWidth);
+    const nearestNextCol = this.getNearestCol(this.state.newNextColWidth);
+    const newColWidth = nearestCol * this.state.colPercent; 
+    const newNextColWidth = nearestNextCol * this.state.colPercent;
 
-    // Update column widths with inline style.
+    // Update column widths and data attributes.
     this.state.col.style.flexBasis = `${newColWidth}%`;
     this.state.nextCol.style.flexBasis = `${newNextColWidth}%`;
+    this.state.col.dataset.cols = `${nearestCol}`;
+    this.state.nextCol.dataset.cols = `${nearestNextCol}`;
+
+    this.updateGridData();
+    this.updateAppState();
+  }
+
+  /* 
+   * Send grid edits to the app state.
+   */
+  updateAppState(){
+    const blocksData = {};
+    if (!blocksData[this.state.gridIndex]) blocksData[this.state.gridIndex] = {};
+    blocksData[this.state.gridIndex].cols = this.state.gridData;
+    this.props.mergeState(blocksData);
+  }
+
+  /* 
+   * Get data attributes from grid columns.
+   */
+  updateGridData(grid=this.state.grid){
+    const cols = grid.querySelectorAll(CLASSES.grid_col);
+    const gridData = [...cols].map(col => col.dataset.cols);
+
+    this.setState({
+      cols,
+      gridData,
+    });
   }
 
 

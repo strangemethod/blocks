@@ -12,10 +12,10 @@
 
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
-				<section class="grid block">
+				<section class="grid block" {{#if ../../editMode}}data-index="{{@index}}"{{/if}}>
 					{{!-- Loop through content items --}}
 					{{#each this}}
-						<div class="grid-col grid-col--{{this.cols}}">
+						<div class="grid-col grid-col--{{this.cols}}" {{#if ../../editMode}}data-cols="{{this.cols}}" data-index="{{@index}}"{{/if}}>
 							{{#if this.image}}<img src="{{this.image}}" />{{/if}}
 							{{#if ../../editMode}}<div class="grid-resize-hook"></div>{{/if}}
 						</div>
