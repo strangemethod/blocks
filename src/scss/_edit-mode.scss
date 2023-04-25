@@ -12,6 +12,11 @@
     z-index: 999;
   }
 
+  .grid-col.dragging {
+    background: $color-red;
+    opacity: .5;
+  }
+
   .grid-col:last-child .resize {
     display: none;
     pointer-events: none;

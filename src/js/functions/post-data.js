@@ -14,9 +14,6 @@ const PostData = (data, route) => {
   .then(res => res.json())
   .then(json => {
     console.log(json)
-    setTimeout(() => {
-      window.location.reload();
-    }, 400);
   })
   .catch(err => console.error('error:' + err));
 }

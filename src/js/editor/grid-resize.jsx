@@ -12,7 +12,6 @@ export default class GridResize extends React.Component {
       colCount: 12,
       colPercent: (1 / 12) * 100,
       colWidth: null,
-      dragging: false,
       dragStartPos: null,
       grid: null,
       gridData: [],
@@ -22,13 +21,16 @@ export default class GridResize extends React.Component {
       newNextColWidth: null,
       nextCol: null,
       nextColWidth: null,
+      resizing: false,
     };
   }
 
  componentDidMount() {
     const col = ReactDOM.findDOMNode(this).parentNode.parentNode;
     const grid = col.parentNode;
+    const gridCols = grid.querySelectorAll('.grid-col');
     const gridIndex = grid.dataset.index;
+    const gridImages = grid.querySelectorAll('.block__image');
     // todo: recalc on resize
     const gridWidth = grid.offsetWidth;
     const nextCol = col.nextElementSibling;
@@ -44,12 +46,52 @@ export default class GridResize extends React.Component {
 
     // Events that require delegation from window.
     window.addEventListener("mouseup", () => {
-      if (this.state.dragging) this.handleMouseUp();
+      if (this.state.resizing) this.handleMouseUp();
     });
 
     window.addEventListener("mousemove", (e) => {
-      if (this.state.dragging) this.handleMouseMove(e);
+      if (this.state.resizing) this.handleMouseMove(e);
     });
+
+    // Events that require delegation from window.
+    gridImages.forEach(image => {
+      image.addEventListener("dragstart", (e) => {
+        this.drag(e);
+      });
+    });
+
+    gridCols.forEach(col => {
+      col.addEventListener("drop", (e) => {
+        e.target.classList.remove('dragging');
+        this.drop(e);
+      });
+      col.addEventListener("dragover", (e) => {
+        this.allowDrop(e);
+      });
+      col.addEventListener("dragenter", (e) => {
+        e.target.classList.add('dragging');
+      });
+      col.addEventListener("dragleave", (e) => {
+        e.target.classList.remove('dragging');
+      });
+    });
+
+  }
+
+  allowDrop(e) {
+    e.preventDefault();
+  }
+
+  drag(e) {
+    e.dataTransfer.setData("text", e.target.id);
+
+  }
+
+  drop(e) {
+    e.preventDefault();
+    console.log('drop');
+    const data = e.dataTransfer.getData("text");
+    e.target.appendChild(document.getElementById(data));
   }
 
   /* 
@@ -69,8 +111,8 @@ export default class GridResize extends React.Component {
   }
 
   handleMouseDown(e) {
-    if (!this.state.dragging) {
-      const dragging = true;
+    if (!this.state.resizing) {
+      const resizing = true;
       const dragStartPos = e.clientX;
       const colFlexBasis = window.getComputedStyle(this.state.col).flexBasis;
       const colWidth = parseFloat(colFlexBasis) / 100.0;
@@ -78,7 +120,7 @@ export default class GridResize extends React.Component {
       const nextColWidth = parseFloat(nextColFlexBasis) / 100.0;
 
       this.setState({
-        dragging,
+        resizing,
         dragStartPos,
         colWidth,
         nextColWidth,
@@ -103,7 +145,7 @@ export default class GridResize extends React.Component {
   }
 
   handleMouseUp() {
-   this.setState({dragging: false});
+   this.setState({resizing: false});
 
     // Snap to nearest column.
     const nearestCol = this.getNearestCol(this.state.newColWidth);
@@ -146,10 +188,10 @@ export default class GridResize extends React.Component {
 
 
   render() {
-    var gridCols = [];
-    for (let i = 0; i < 12; i++) {
-      gridCols.push(<div className="grid-col grid-col--1" key={i}></div>);
-    }
+    // var gridCols = [];
+    // for (let i = 0; i < 12; i++) {
+    //   gridCols.push(<div className="grid-col grid-col--1" key={i}></div>);
+    // }
 
     return (
       <span

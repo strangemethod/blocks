@@ -12,23 +12,34 @@
 
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
-				<section class="grid block" {{#if ../../editMode}}data-index="{{@index}}"{{/if}}>
-					{{!-- Loop through content items --}}
-					{{#each this}}
-						<div class="grid-col grid-col--{{this.cols}}" {{#if ../../editMode}}data-cols="{{this.cols}}" data-index="{{@index}}"{{/if}}>
-							{{#if this.image}}<img src="{{this.image}}" />{{/if}}
-							{{#if ../../editMode}}<div class="grid-resize-hook"></div>{{/if}}
-						</div>
-				  {{/each}}
-					{{!-- Edit mode buttons --}}
-					{{!-- 
-					{{#if ../editMode}}
-						<div class="editor" data-index="{{@key}}">
-							<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>
-						</div>
-					{{/if}} 
-					--}}
-				 </section>
+				<section class="block" {{#if ../../editMode}}data-index="{{@index}}"{{/if}}>
+					<div class="grid">
+						{{!-- Loop through content items --}}
+						{{#each this}}
+							<div class="grid-col grid-col--{{this.cols}}" {{#if ../../editMode}}data-cols="{{this.cols}}" data-index="{{@index}}"{{/if}}>
+								{{#if this.image}}
+									<img
+											src="{{this.image}}"
+											class="block__image"
+											{{#if ../../editMode}}
+												draggable="true"
+												id="image-{{@../index}}-{{@index}}"
+											{{/if}}
+										/>
+								{{/if}}
+								{{#if ../../editMode}}<div class="grid-resize-hook"><span>foobar</span></div>{{/if}}
+							</div>
+					  {{/each}}
+						{{!-- Edit mode buttons --}}
+						{{!-- 
+						{{#if ../editMode}}
+							<div class="editor" data-index="{{@key}}">
+								<div class="edit-section editor__icons editor__icons--right" data-index="{{@key}}"></div>
+							</div>
+						{{/if}} 
+						--}}
+					</div>
+				</section>
 			{{/each}}
 		</main>
 		{{#if editMode}}

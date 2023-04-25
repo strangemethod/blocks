@@ -20,6 +20,7 @@ export default class EditMode extends React.Component {
     }
 
     this.props.postData(data, ENDPOINTS.edit_block);
+    this.toggleEditMode();
   }
 
   toggleEditMode() {
