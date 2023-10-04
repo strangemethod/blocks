@@ -1,0 +1,19 @@
+.header {
+	background: $color-overlay--light;
+	padding: 20px 30px;
+	position: fixed;
+	width: 100%;
+
+	.logo {
+		color: $color-black;
+		font-family: $font-headline;
+		font-size: 36px;
+		font-weight: 500;
+		line-height: 48px;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+}

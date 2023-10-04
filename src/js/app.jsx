@@ -1,64 +1,77 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Editor from "./editor/editor.jsx";
-import EditMode from "./editor/edit-mode.jsx";
-import GridResize from "./editor/grid-resize.jsx";
+
 import PostData from "./functions/post-data.js";
-import {CLASSES, EDITOR_SELECTORS, SELECTORS} from "./constants.js"
+import {SELECTORS} from "./constants.js"
+
+// React classes
+import Buttons from "./react/buttons.jsx";
+import Modal from "./react/modal.jsx";
+import Sidebar from "./react/sidebar.jsx";
+
+// ES6 functions
+import AutoGrid from "./functions/auto-grid.js";
 
 
-const blocks = document.querySelectorAll(CLASSES.block);
-const editModeHook = document.getElementById(SELECTORS.edit_mode_toggle);
-const gridResizeHooks = document.querySelectorAll(`.${SELECTORS.resize_hook}`);
-const pageElement = document.getElementById(SELECTORS.page);
-
-
-function Store(initialState = {}) {
-  this.state = initialState;
+const refreshPage = () => {
+  setTimeout(() => {
+    window.location.reload(false);
+  }, 1000);
 }
 
-Store.prototype.getState = function() {
-  return this.state;
-};
-
-Store.prototype.mergeState = function(partialState) {
-  Object.assign(this.state, partialState);
-};
-
-let editorStore = new Store();
-
-// Global props.
-const props = {
-  getState: editorStore.getState.bind(editorStore),
-  mergeState: editorStore.mergeState.bind(editorStore),
-  pageElement: pageElement,
-	pageId: pageElement.dataset.page,
-	postData: PostData,
+// Global props
+const globalProps = {
+  postData: PostData,
+  refreshPage: refreshPage,
 }
 
-ReactDOM.render(
-	<EditMode {...props} />, 
-	editModeHook
-);
 
-gridResizeHooks.forEach((resizeHook) => {
+/* 
+ * React Hooks
+ * For editor layer only.
+ */
+const pageAddHook = document.getElementById(SELECTORS.page_add);
+if (pageAddHook) {
   ReactDOM.render(
-    <GridResize {...props} />, 
-    resizeHook
+     <Modal 
+        dialog="page-add"
+        {...globalProps} />, 
+     pageAddHook
+  );
+}
+
+const blockAddHook = document.getElementById(SELECTORS.block_add);
+if (blockAddHook) {
+  ReactDOM.render(
+    <Sidebar 
+        dialog="block-add" {...globalProps}
+        images={blockAddHook.dataset.images}
+        page={blockAddHook.dataset.page} />, 
+    blockAddHook
+  );
+}
+
+
+const blockButtonsHooks = document.querySelectorAll(SELECTORS.block_buttons);
+blockButtonsHooks.forEach((buttonsHook) => {
+  ReactDOM.render(
+    <Buttons 
+        {...globalProps} 
+        index={buttonsHook.dataset.index}
+        page={buttonsHook.dataset.page} />, 
+    buttonsHook
   );
 });
 
 
-// Loop through editor hooks and create react components. 
-// EDITOR_SELECTORS.forEach((selector) => {
-// 	const editorHooks = document.querySelectorAll(`.${selector}`);
-// 	editorHooks.forEach((editorHook) => {
-// 		ReactDOM.render(
-// 			<Editor
-// 					buttonSet={selector}
-// 					{...editorHook.dataset}
-// 					{...props} />, 
-// 			editorHook
-// 		);
-// 	});
-// });
+/* 
+ * ES6 hooks.
+ * For static front-end only.
+ */
+
+const grids = document.querySelectorAll(SELECTORS.auto_grid);
+
+grids.forEach((grid) => {
+  AutoGrid(grid);
+});
+

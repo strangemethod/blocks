@@ -2,20 +2,34 @@
 @import 'mixins';
 @import 'colors';
 @import 'type';
-@import 'page';
+
+@import 'forms';
 @import 'grid';
+@import 'page';
+@import 'utilities';
+
+//@todo move to components
+@import 'home';
 
 // Components.
-@import '../components/hero/hero.scss';
-// @import '../components/image/image.scss';
-// @import '../components/text/text.scss';
-// @import '../components/text-block/text-block.scss';
-// @import '../components/text-image/text-image.scss';
+@import '../components/header/header.scss';
 
-/*
- * @todo: remove Editor styles from dist bundle.
- */
-@import 'edit-mode';
-@import 'editor';
-@import 'dialog';
+// Todo create separate bundle for Editor UI.
+@import 'buttons';
+@import 'modal';
+@import 'sidebar';
 
+// Resets
+body {
+	margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

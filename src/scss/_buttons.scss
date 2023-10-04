@@ -1,0 +1,96 @@
+$tooltip-height: 24px;
+$button-size: 45px;
+$icon-size-small: 16px;
+$icon-size-large: 30px;
+
+.block-buttons {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+
+	&:hover {
+		.block-buttons-set {
+			opacity: 1;
+		}
+	}
+
+	&-set {
+		display: flex;
+		justify-content: center;
+		opacity: 0;
+		position: absolute;
+		transition: .2s opacity ease-out;
+	}
+
+	&-side {
+		flex-direction: column;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		width: 60px;
+	}
+
+	&-bottom {
+		bottom: 0;
+		flex-direction: row;
+		height: 60px;
+		width: 100%;
+	}
+
+	&-button {
+		align-items: center;
+		background: $color-black;
+		border: none;
+		border-radius: $button-size;
+		cursor: pointer;
+		display: flex;
+		height: $button-size;
+		justify-content: center;
+		margin: 5px;
+		position: relative;
+		width: $button-size;
+
+		&:hover {
+			background: $color-blue;
+
+			.tooltip {
+				display: block;
+			}
+		}
+
+		object,
+		svg {
+			filter: $filter-white;
+			height: $icon-size-small;
+			pointer-events: none;
+			width: $icon-size-small;
+		}
+
+		.button-icon-large {
+			height: $icon-size-large;
+			width: $icon-size-large;
+		}
+
+		.button-filter-none {
+			filter: none;
+		}
+	}
+
+	.tooltip {
+		background: $color-grey--dark;
+		border-radius: 5px;
+		color: $color-white;
+		display: none;
+		left: -124px;
+		font-size: 12px;
+		line-height: $tooltip-height;
+		height: $tooltip-height;
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 120px;
+	}
+}

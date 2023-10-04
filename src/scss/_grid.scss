@@ -10,11 +10,15 @@
 
   @include bp(tablet) {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
   }
 
   .grid-col {
-    display: flex;
-    overflow: visible;
+    padding: 5px;
     position: relative;
 
     &.align-bottom {
@@ -39,5 +43,21 @@
 
   img {
     width: 100%;
+  }
+}
+
+
+/* 
+ * Auto grid rows based on image sizes
+ */
+.auto-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+  position: relative;
+
+  &-image {
+    width: 100%;
+    height: auto;
   }
 }

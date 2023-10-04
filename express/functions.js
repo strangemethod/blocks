@@ -5,12 +5,59 @@ const Models = require('./models/models.js');
 const PATHS = require('./constants.js');
 
 
+
+/* 
+ * Delete block by index.
+ * @param {string} page
+ * @param {number} index
+ */
+const deleteBlock = (page, index) => {
+  const pageId = slugify(page);
+  const filePath = `${PATHS.blocksData}${pageId}.json`;
+  const data = getBlocksData(filePath)
+
+  data.splice(index, 1);
+
+  // Write data to blocks file.
+  jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
+}
+
+/* 
+ * Get data object containing list of blocks for a page.
+ */
+const getBlocksData = (filePath) => {
+  const blocksJson = fs.existsSync(filePath) ? fs.readFileSync(filePath) : null;
+  return blocksJson ? JSON.parse(blocksJson) : [];    
+}
+
 /* 
  * Get data object containing list of all pages.
  */
 const getPagesData = () => {
   const pagesJson = fs.existsSync(PATHS.pagesData) ? fs.readFileSync(PATHS.pagesData) : null;
   return pagesJson ? JSON.parse(pagesJson) : [];    
+}
+
+/* 
+ * Re-order block.
+ * @param {string} page
+ * @param {number} index
+ * @param {number} delta
+ */
+const orderBlock = (page, index, delta) => {
+  const pageId = slugify(page);
+  const filePath = `${PATHS.blocksData}${pageId}.json`;
+  const data = getBlocksData(filePath)
+
+  const block = data.splice(index, 1);
+  data.splice(index + delta, 0, ...block);
+  
+  // Write data to blocks file.
+  jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
+    if (err) console.error(err)
+  });
 }
 
 /* 
@@ -27,39 +74,15 @@ const slugify = (str) => {
  * Initial data is based on image directory with matching slug.
  * @param {string} title
  */
-const writeBlocksData = (title) => {
+const writeBlocksData = (title, images) => {
   const pageId = slugify(title);
-  const blocksDataPath = `${PATHS.blocksData}${pageId}.json`;
-  const imagesPath = `${PATHS.images}${pageId}/`;
+  const filePath = `${PATHS.blocksData}${pageId}.json`;
+  const data = getBlocksData(filePath)
 
-  // Filter out any non-image files.
-  const images = fs.readdirSync(imagesPath).filter((imagePath) => {
-    const allowedExtensions = ['jpg', 'png', 'gif'];
-    const segments = imagePath.split('.');
-    const isImage = segments[segments.length - 1] in allowedExtensions;
-    if (isImage) return imagePath;
-    return imagePath;
-  });
-
-  // Create a block for each image (with default 2-8-2 grid layout).
-  const imageBlocks = images.map((imagePath) => {
-    return [
-      {
-        'cols': '2'
-      },
-      {
-        'cols': '8',
-        'image': `/img/${pageId}/${imagePath}`,
-      },
-      {
-        'cols': '2'
-      },
-    ];
-  });
-
+  if (images) data.push(images);
 
   // Write data to blocks file.
-  jsonfile.writeFile(blocksDataPath, imageBlocks, {spaces: 2}, function (err) {
+  jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 }
@@ -67,14 +90,16 @@ const writeBlocksData = (title) => {
 /* 
  * Write new page to list of all pages.
  * @param {string} title
+ * @param {Array} images
  */
-const writePageData = (title) => {
-  let pagesData = getPagesData();
+const writePageData = (title, images) => {
+  const pagesData = getPagesData();
   const pageId = slugify(title);
-  const pageData = {
-    'title': title,
+
+  pagesData[pageId] = {
+    'images': images,
+    'title': title
   }
-  pagesData[pageId] = pageData;
 
   // Write to pages.json.
   jsonfile.writeFile(PATHS.pagesData, pagesData, {spaces: 2}, function (err) {
@@ -82,7 +107,9 @@ const writePageData = (title) => {
   });
 }
 
+module.exports.deleteBlock = deleteBlock;
 module.exports.getPagesData = getPagesData;
+module.exports.orderBlock = orderBlock;
 module.exports.slugify = slugify;
 module.exports.writeBlocksData = writeBlocksData;
 module.exports.writePageData = writePageData;

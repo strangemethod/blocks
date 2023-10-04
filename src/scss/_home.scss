@@ -1,0 +1,14 @@
+.page-menu {
+	.grid-col {
+		position: relative;
+	}
+
+	&__title {
+		color: $color-white;
+		left: 50%;
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

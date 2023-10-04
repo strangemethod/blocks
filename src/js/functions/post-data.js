@@ -1,9 +1,9 @@
 const serverUrl = 'http://localhost:4000';
 
-const PostData = (data, route) => {
+const PostData = async (data, route) => {
   const endpoint = `${serverUrl}/${route}`;
 
-  fetch(endpoint, {
+  const response = await fetch(endpoint, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -13,9 +13,11 @@ const PostData = (data, route) => {
   })
   .then(res => res.json())
   .then(json => {
-    console.log(json)
+    return json;
   })
   .catch(err => console.error('error:' + err));
+
+  return response;
 }
 
 export default PostData;

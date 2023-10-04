@@ -1,0 +1,58 @@
+$add-block-height: 180px;
+$sidebar-width: 440px;
+
+	#block-add {
+		border: 2px dashed $color-grey--light;
+		border-radius: 5px;
+		height: $add-block-height;
+		justify-content: center;
+	}
+
+	.sidebar {
+		background: $color-white;
+		border-left: 2px solid $color-grey--dark;
+		height: 100%;
+		index: 999;
+		overflow-y: scroll;
+		padding: 120px 0;
+		position: fixed;
+		right: $sidebar-width * -1;
+		top: 0;
+		transition: .4s ease-out;
+		width: $sidebar-width;
+
+		&.open {
+			right: 0;
+		}
+
+		&-cta {
+			cursor: pointer;
+			line-height: $add-block-height;
+			margin: 0;
+			text-align: center;
+			width: 100%;
+		}
+
+		&-header {
+			align-items: center;
+			background: $color-white;
+			border-bottom: 1px solid $color-grey--light;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 0 20px;
+			position: fixed;
+			top: 0;
+			width: $sidebar-width;
+			z-index: 999;
+		}
+
+		.image-select {
+			margin: 20px;
+			position: relative;
+
+			img {
+				width: 100%;
+			}
+		}
+	}

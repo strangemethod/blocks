@@ -1,21 +1,24 @@
 {{#extend "layout"}}
   {{#content "content"}}
-    <main id="page" data-page="index">
-      {{> (get_partial "hero") title=page.title text=page.text image=page.cover}}
-
-      <section class="container">
-        {{#if pages}}
-          <h2>Pages</h2>
-          <ul class="page-menu">
+    <main class="page">
+      <section class="container align-center">
+        {{#if (has_keys pages)}}
+          <div class="grid justify-start page-menu">
             {{#each pages}}
-              <li>
-                <a href="/{{@key}}">{{unescape_html this.title}}</a>
-              </li>
+              <div class="grid-col grid-col--4">
+                <a href="./blocks/{{@key}}/">
+                  <img src="{{this.images.[0]}}" />
+                  <h3 class="page-menu__title">{{unescape_html this.title}}</h3>
+                </a>
+              </div>
             {{/each}}
-          </ul>
+          </div>
+        {{else}}
+          <p>{{page.description}}</p>
         {{/if}}
+
         {{#if editMode}}
-          <div class="add-page"></div>
+          <div id="page-add"></div>
         {{/if}}
       </section>
     </main>

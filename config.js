@@ -3,10 +3,10 @@ const paths = {
   components: './src/components/',
   content: './content/',
   data: './src/data/',
+  layouts: './src/layouts/',
   output: './dist/',
-  partials: './src/partials/',
-  scss: './src/scss/',
   scripts: './src/js/',
+  scss: './src/scss/',
   templates: './src/templates/',
 };
 

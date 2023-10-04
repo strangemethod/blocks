@@ -86,7 +86,7 @@ function hbs(done) {
   const pagesData = JSON.parse(rawPagesData);
 
   // Get index page data.
-  const indexDataPath = path.join(paths.data, 'blocks', `index.json`);
+  const indexDataPath = path.join(paths.data, `index.json`);
   const rawIndexData = fs.readFileSync(indexDataPath);
   indexData = JSON.parse(rawIndexData);
   pagesData['index'] = indexData;
@@ -97,7 +97,7 @@ function hbs(done) {
     const page = pagesData[pageKey];
     const pageTemplate = page.template || 'page.hbs';
     const isIndex = pageKey === 'index';
-    const destPath = isIndex ? '' : `${pageKey}/`;
+    const destPath = isIndex ? '' : `/blocks/${pageKey}/`;
     let blocksData = {};
 
     if (!isIndex) {
@@ -107,7 +107,7 @@ function hbs(done) {
     }
 
     const pagesStream = hb()
-        .partials(path.join(paths.partials, '*.hbs'))
+        .partials(path.join(paths.layouts, '*.hbs'))
         .partials(path.join(paths.components, '**/*.hbs'))
         .data(path.join(paths.data, '*.json'))
         .data({'id': pageKey, 'page': page, 'blocks': blocksData })
@@ -129,8 +129,14 @@ function hbs(done) {
           get_partial: function(input) {
             return input + '/' + input;
           },
+          has_keys: function(obj) {
+            return Object.keys(obj).length;
+          },
           unescape_html: function(input) {
             return unescape(input);
+          },
+          to_json: function(obj) {
+            return JSON.stringify(obj, null, 3);
           },
         })
         .helpers(layouts);
@@ -182,7 +188,7 @@ function watchFiles(done) {
       })
     ),
     watch(
-      path.join(paths.partials, '**/*.hbs'),
+      path.join(paths.layouts, '**/*.hbs'),
       series(hbs, function partialsCallback(done) {
         done();
       })
