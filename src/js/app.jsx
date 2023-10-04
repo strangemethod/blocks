@@ -15,7 +15,7 @@ import AutoGrid from "./functions/auto-grid.js";
 
 const refreshPage = () => {
   setTimeout(() => {
-    window.location.reload(false);
+    window.location.reload(true);
   }, 1000);
 }
 

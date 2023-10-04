@@ -52,7 +52,7 @@ const orderBlock = (page, index, delta) => {
   const data = getBlocksData(filePath)
 
   const block = data.splice(index, 1);
-  data.splice(index + delta, 0, ...block);
+  data.splice(Number(index) + delta, 0, ...block);
   
   // Write data to blocks file.
   jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
