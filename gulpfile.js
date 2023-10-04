@@ -1,6 +1,7 @@
 const {series, parallel, src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('node-sass'));
 const {paths} = require('./config');
+const jsonfile = require('jsonfile');
 
 // Assets
 const merge = require('merge-stream');
@@ -82,13 +83,16 @@ function hbs(done) {
 
   // Get Pages data.
   const pagesDataPath = path.join(paths.data, 'pages.json');
-  const rawPagesData = fs.readFileSync(pagesDataPath);
-  const pagesData = JSON.parse(rawPagesData);
+  const pagesData = JSON.parse(fs.existsSync(pagesDataPath)) ? fs.readFileSync(pagesDataPath) : {};
 
   // Get index page data.
-  const indexDataPath = path.join(paths.data, `index.json`);
-  const rawIndexData = fs.readFileSync(indexDataPath);
-  indexData = JSON.parse(rawIndexData);
+  const indexData = {
+    "id": "index",
+    "index" : true,
+    "title": "Blocks",
+    "description": "A simple, database-free CMS for storytelling.",
+    "template": "index.hbs"
+  }
   pagesData['index'] = indexData;
 
   // Create pages from JSON data.
@@ -130,7 +134,7 @@ function hbs(done) {
             return input + '/' + input;
           },
           has_keys: function(obj) {
-            return Object.keys(obj).length;
+            return obj && Object.keys(obj).length;
           },
           unescape_html: function(input) {
             return unescape(input);
