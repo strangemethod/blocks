@@ -37,7 +37,7 @@ const getBlocksData = (filePath) => {
  */
 const getPagesData = () => {
   const pagesJson = fs.existsSync(PATHS.pagesData) ? fs.readFileSync(PATHS.pagesData) : null;
-  return pagesJson ? JSON.parse(pagesJson) : [];    
+  return pagesJson ? JSON.parse(pagesJson) : {};    
 }
 
 /* 
@@ -100,6 +100,8 @@ const writePageData = (title, images) => {
     'images': images,
     'title': title
   }
+
+  console.log(pagesData);
 
   // Write to pages.json.
   jsonfile.writeFile(PATHS.pagesData, pagesData, {spaces: 2}, function (err) {

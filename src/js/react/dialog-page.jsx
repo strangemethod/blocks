@@ -80,8 +80,8 @@ export default class DialogPage extends React.Component {
       title: this.state.title,
     }
 
-    const s3Data = await this.props.postData(data, 'add-page');
-    this.props.refreshPage();
+    await this.props.postData(data, 'add-page');
+    // this.props.refreshPage();
   }
 
   setTitle = () => {

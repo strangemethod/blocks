@@ -83,7 +83,7 @@ function hbs(done) {
 
   // Get Pages data.
   const pagesDataPath = path.join(paths.data, 'pages.json');
-  const pagesData = JSON.parse(fs.existsSync(pagesDataPath)) ? fs.readFileSync(pagesDataPath) : {};
+  const pagesData = fs.existsSync(pagesDataPath) ? JSON.parse(fs.readFileSync(pagesDataPath)) : {};
 
   // Get index page data.
   const indexData = {
@@ -187,7 +187,6 @@ function watchFiles(done) {
     watch(
       path.join(paths.assets, '*'),
       series(assets, function assetsCallback(done) {
-        console.log('assets changed')
         done();
       })
     ),
