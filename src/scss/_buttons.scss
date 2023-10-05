@@ -22,6 +22,10 @@ $icon-size-large: 30px;
 		opacity: 0;
 		position: absolute;
 		transition: .2s opacity ease-out;
+
+		&.open {
+			opacity: 1;
+		}
 	}
 
 	&-side {
