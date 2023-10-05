@@ -70,19 +70,28 @@ const slugify = (str) => {
 
 
 /* 
- * Write data for the blocks of a new page.
- * Initial data is based on image directory with matching slug.
+ * Write data for block.
  * @param {string} title
+ * @param {string} type
+ * @param {string} text
+ * @param {string} images
  */
-const writeBlocksData = (title, images) => {
+const writeBlockData = (title, type, text, images) => {
   const pageId = slugify(title);
   const filePath = `${PATHS.blocksData}${pageId}.json`;
-  const data = getBlocksData(filePath)
+  const blocksData = getBlocksData(filePath)
+  const blockData = {type: type}
 
-  if (images) data.push(images);
+  if (images) {
+    blockData.images = images;
+  } else if (text) {
+    blockData.text = text;
+  }
+
+  blocksData.push(blockData);
 
   // Write data to blocks file.
-  jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
+  jsonfile.writeFile(filePath, blocksData, {spaces: 2}, function (err) {
     if (err) console.error(err)
   });
 }
@@ -113,5 +122,5 @@ module.exports.deleteBlock = deleteBlock;
 module.exports.getPagesData = getPagesData;
 module.exports.orderBlock = orderBlock;
 module.exports.slugify = slugify;
-module.exports.writeBlocksData = writeBlocksData;
+module.exports.writeBlockData = writeBlockData;
 module.exports.writePageData = writePageData;

@@ -4,16 +4,26 @@
 		<main id="page" class="page" data-page="{{id}}">			
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
-				<div class="auto-grid container">
-					{{#each this}}
-						<div class="column">
-							<img class="auto-grid-image" src="{{this}}" />
+				{{#if (equal_values this.type 'image')}}
+					<div class="auto-grid container">
+						{{#each this.images}}
+							<div class="column">
+								<img class="auto-grid-image" src="{{this}}" />
+							</div>
+						{{/each}}
+						{{#if ../../editMode}}
+							<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}"></div>
+						{{/if}}
+					</div>
+				{{else}}
+					<div class="grid container block-text">
+						<div class="grid-col grid-col--2"></div>
+						<div class="grid-col grid-col--8">
+							<h2>{{this.text}}</h2>
 						</div>
-					{{/each}}
-					{{#if ../../editMode}}
-						<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}"></div>
-					{{/if}}
-				</div>
+						<div class="grid-col grid-col--2"></div>
+					</div>
+				{{/if}}
 			{{/each}}
 
 			{{!-- Add new block. --}}

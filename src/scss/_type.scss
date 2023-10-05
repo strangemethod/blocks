@@ -70,8 +70,18 @@ a:hover {
 	&-primary {
 		background: $color-blue;
 
-		&:hover {
-			background: $color-grey--dark;
+		&:active,
+		&:focus {
+			background: $color-blue;
+		}
+	}
+
+	&-secondary {
+		background: $color-grey--dark;
+
+		&:active,
+		&:focus {
+			background: $color-blue;
 		}
 	}
 

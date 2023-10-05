@@ -20,6 +20,7 @@ $sidebar-width: 440px;
 		top: 0;
 		transition: .4s ease-out;
 		width: $sidebar-width;
+		z-index: 999;
 
 		&.open {
 			right: 0;
@@ -45,6 +46,16 @@ $sidebar-width: 440px;
 			top: 0;
 			width: $sidebar-width;
 			z-index: 999;
+		}
+
+		&-options {
+			display: flex;
+			flex-direction: row;
+			padding: 0 20px;
+
+			.button {
+				margin-right: 10px;
+			}
 		}
 
 		.image-select {

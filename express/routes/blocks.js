@@ -11,10 +11,12 @@ const FUNCT = require('../functions.js');
 /*
  * Add block endpoint.
  * @param page {string} name of json file containing the block.
+ * @param type {string} 'image' or 'text'
+ * @param text {string}
  * @param images {array} images to write to block.
  */
 router.post('/add-block', (req, res) => {
-  FUNCT.writeBlocksData(req.body.title, req.body.images);
+  FUNCT.writeBlockData(req.body.title, req.body.type, req.body.text, req.body.images);
   res.send({'success': true});
 });
 

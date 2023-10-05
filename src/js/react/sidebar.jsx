@@ -6,7 +6,9 @@ export default class Sidebar extends React.Component {
 
     this.state = {
       open: false,
-      selects: new Set()
+      selects: new Set(),
+      type: 'image',
+      text: null,
     };
   }
 
@@ -28,10 +30,26 @@ export default class Sidebar extends React.Component {
     this.setState({selects: selects});
   }
 
-  submitImageSelection = async() => {
+  setBlockType = (type) => {
+    this.setState({type: type});
+  }
+
+  setText = () => {
+    this.setState({text: event.target.value});
+  }
+
+  submitContent = async() => {
     const data = {
-      images: [...this.state.selects],
-      title: this.props.page
+      images: null,
+      text: null,
+      title: this.props.page,
+      type: this.state.type
+    }
+
+    if (this.state.type === 'image') {
+      data.images = [...this.state.selects];
+    } else {
+      data.text = this.state.text;
     }
 
     const s3Data = await this.props.postData(data, 'add-block');
@@ -39,7 +57,7 @@ export default class Sidebar extends React.Component {
   }
 
   render() {
-    const images = JSON.parse(this.props.images).map((image, idx) => {
+    const imageForm = JSON.parse(this.props.images).map((image, idx) => {
       const selectedClass = this.state.selects.has(image) ? 'selected' : '';
       return (
         <div className={`${selectedClass} image-select`} key={idx}>
@@ -55,11 +73,28 @@ export default class Sidebar extends React.Component {
         </h2>
         <div className={`${this.state.open ? "open" : ""} sidebar`} >
           <div className="sidebar-header">
-            <h3>Select Images</h3>
+            <h3>Block Content</h3>
             <div className="button button-low" onClick={() => (this.toggleSidebar())}>Back</div>
-            <div className="button button-primary" onClick={() => (this.submitImageSelection())}>Select</div>
+            <div className="button button-primary" onClick={() => (this.submitContent())}>Submit</div>
           </div>
-          {images}
+          <div className="sidebar-options">
+            <div className={`${this.state.type === "image" ? "button-primary" : "button-secondary"} button`} 
+                onClick={() => (this.setBlockType('image'))}>
+              Image
+            </div>
+            <div className={`${this.state.type === "text" ? "button-primary" : "button-secondary"} button`}
+                onClick={() => (this.setBlockType('text'))}>
+              Text
+            </div>
+          </div>
+          {this.state.type === 'image' &&
+            <div>{imageForm}</div>
+          }
+          {this.state.type === 'text' &&
+            <div className="container">
+              <textarea placeholder="Enter block text" onChange={() => {this.setText()}} ></textarea>
+            </div>
+          }
         </div>
       </React.Fragment>
     );

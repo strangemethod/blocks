@@ -44,13 +44,23 @@ const blockAddHook = document.getElementById(SELECTORS.block_add);
 if (blockAddHook) {
   ReactDOM.render(
     <Sidebar 
-        dialog="block-add" {...globalProps}
+        {...globalProps}
         images={blockAddHook.dataset.images}
         page={blockAddHook.dataset.page} />, 
     blockAddHook
   );
 }
 
+const blockEditHook = document.getElementById(SELECTORS.block_add);
+if (blockAddHook) {
+  ReactDOM.render(
+    <Sidebar 
+        {...globalProps}
+        images={blockAddHook.dataset.images}
+        page={blockAddHook.dataset.page} />, 
+    blockAddHook
+  );
+}
 
 const blockButtonsHooks = document.querySelectorAll(SELECTORS.block_buttons);
 blockButtonsHooks.forEach((buttonsHook) => {
