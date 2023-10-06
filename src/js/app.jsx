@@ -45,6 +45,7 @@ if (blockAddHook) {
   ReactDOM.render(
     <Sidebar 
         {...globalProps}
+        dialog="content"
         images={blockAddHook.dataset.images}
         page={blockAddHook.dataset.page} />, 
     blockAddHook
