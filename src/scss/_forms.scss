@@ -11,6 +11,19 @@ input {
 	}
 }
 
+select {
+	border: 1px solid $color-grey--dark;
+	border-radius: 5px;
+	display: block;
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+
+	&.error {
+		border: 2px solid $color-red;
+	}
+}
+
 textarea {
   border-radius: 5px;
 	height: 200px;

@@ -5,14 +5,20 @@
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
 				{{#if (equal_values this.type 'image')}}
-					<div class="auto-grid container">
+					<div class="auto-grid container {{get_style_classes this.styles}}" >
 						{{#each this.images}}
 							<div class="column">
 								<img class="auto-grid-image" src="{{this}}" />
 							</div>
 						{{/each}}
 						{{#if ../../editMode}}
-							<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}"></div>
+							<div class="block-buttons"
+									data-index="{{@key}}"
+									data-page="{{../../id}}" 
+									data-type="image"
+									data-margin="{{get_style_attr this.styles 'margin'}}"
+									data-width="{{get_style_attr this.styles 'width'}}">
+							</div>
 						{{/if}}
 					</div>
 				{{else}}
@@ -23,7 +29,7 @@
 						</div>
 						<div class="grid-col grid-col--2"></div>
 						{{#if ../../editMode}}
-							<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}"></div>
+							<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}" data-type="text"></div>
 						{{/if}}
 					</div>
 				{{/if}}

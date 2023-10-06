@@ -8,8 +8,8 @@ const PATHS = require('./constants.js');
 
 /* 
  * Delete block by index.
- * @param {string} page
- * @param {number} index
+ * @param page {string} 
+ * @param index {number} 
  */
 const deleteBlock = (page, index) => {
   const pageId = slugify(page);
@@ -23,6 +23,28 @@ const deleteBlock = (page, index) => {
     if (err) console.error(err)
   });
 }
+
+/* 
+ * Edit block by index.
+ * @param page {string}
+ * @param index {number}
+ * @param styles {object}
+ */
+const editBlock = (page, index, styles) => {
+  const pageId = slugify(page);
+  const filePath = `${PATHS.blocksData}${pageId}.json`;
+  const data = getBlocksData(filePath)
+
+  if (styles) {
+    data[index].styles = styles;
+
+    // Write data to blocks file.
+    jsonfile.writeFile(filePath, data, {spaces: 2}, function (err) {
+      if (err) console.error(err)
+    });
+  }
+}
+
 
 /* 
  * Get data object containing list of blocks for a page.
@@ -42,9 +64,9 @@ const getPagesData = () => {
 
 /* 
  * Re-order block.
- * @param {string} page
- * @param {number} index
- * @param {number} delta
+ * @param page {string} 
+ * @param index {number} 
+ * @param delta {number} 
  */
 const orderBlock = (page, index, delta) => {
   const pageId = slugify(page);
@@ -62,7 +84,7 @@ const orderBlock = (page, index, delta) => {
 
 /* 
  * Converts string to page slug.
- * @param {string} str
+ * @param str {string}
  */
 const slugify = (str) => {
   return str.replace(/\s+/g, '-').toLowerCase();;
@@ -71,10 +93,10 @@ const slugify = (str) => {
 
 /* 
  * Write data for block.
- * @param {string} title
- * @param {string} type
- * @param {string} text
- * @param {string} images
+ * @param title {string}
+ * @param type {string}
+ * @param text {string}
+ * @param images {string}
  */
 const writeBlockData = (title, type, text, images) => {
   const pageId = slugify(title);
@@ -98,8 +120,8 @@ const writeBlockData = (title, type, text, images) => {
 
 /* 
  * Write new page to list of all pages.
- * @param {string} title
- * @param {Array} images
+ * @param title {string} 
+ * @param  images {Array} 
  */
 const writePageData = (title, images) => {
   const pagesData = getPagesData();
@@ -110,8 +132,6 @@ const writePageData = (title, images) => {
     'title': title
   }
 
-  console.log(pagesData);
-
   // Write to pages.json.
   jsonfile.writeFile(PATHS.pagesData, pagesData, {spaces: 2}, function (err) {
     if (err) console.error(err)
@@ -119,6 +139,7 @@ const writePageData = (title, images) => {
 }
 
 module.exports.deleteBlock = deleteBlock;
+module.exports.editBlock = editBlock;
 module.exports.getPagesData = getPagesData;
 module.exports.orderBlock = orderBlock;
 module.exports.slugify = slugify;

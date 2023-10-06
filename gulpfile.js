@@ -133,6 +133,20 @@ function hbs(done) {
           get_partial: function(input) {
             return input + '/' + input;
           },
+          get_style_classes: function(styles) {
+            let stylesClass = '';
+            if (styles && styles.margin) {
+              stylesClass += `margin-${styles.margin}` 
+            }
+            if (styles && styles.width) {
+              stylesClass += ` width-${styles.width}` 
+            }
+
+            return stylesClass;
+          },
+          get_style_attr: function(styles, attr) {
+            if (styles && styles[attr]) return styles[attr];
+          },
           has_keys: function(obj) {
             return obj && Object.keys(obj).length;
           },

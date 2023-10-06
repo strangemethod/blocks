@@ -58,7 +58,10 @@ blockButtonsHooks.forEach((buttonsHook) => {
     <Buttons 
         {...globalProps} 
         index={buttonsHook.dataset.index}
-        page={buttonsHook.dataset.page} />, 
+        page={buttonsHook.dataset.page}
+        type={buttonsHook.dataset.type}
+        margin={buttonsHook.dataset.margin}
+        width={buttonsHook.dataset.width} />, 
     buttonsHook
   );
 });

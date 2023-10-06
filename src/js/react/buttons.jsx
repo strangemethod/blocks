@@ -19,9 +19,9 @@ export default class Buttons extends React.Component {
     this.props.refreshPage();
   }
 
-  toggleStyleDialog = () => {
+  openStyleDialog = () => {
     this.setState({
-      styleDialog: !this.state.styleDialog
+      styleDialog: true
     });
   }
 
@@ -43,10 +43,6 @@ export default class Buttons extends React.Component {
             <object type="image/svg+xml" data="/assets/icon-arrow-up.svg" className="button-icon-large"></object>
             <div className="tooltip">Move up</div>
           </button>
-          <button className="block-buttons-button" onClick={() => {this.deleteBlock()}}>
-            <object type="image/svg+xml" data="/assets/icon-archive.svg" className="button-filter-none"></object>
-            <div className="tooltip">Delete</div>
-          </button>
           <button className="block-buttons-button" onClick={() => {this.orderBlock(1)}}>
             <object type="image/svg+xml" data="/assets/icon-arrow-down.svg" className="button-icon-large"></object>
             <div className="tooltip">Move down</div>
@@ -57,10 +53,14 @@ export default class Buttons extends React.Component {
             <object type="image/svg+xml" data="/assets/icon-edit.svg"></object>
             <div className="tooltip">Edit Content</div>
           </button>
-          <button className="block-buttons-button" onClick={() => {this.toggleStyleDialog()}}>
+          <button className="block-buttons-button" onClick={() => {this.openStyleDialog()}}>
             <object type="image/svg+xml" data="/assets/icon-palette.svg"></object>
             <div className="tooltip">Styles</div>
             <Sidebar {...this.props} open={this.state.styleDialog} dialog="style"/>
+          </button>
+          <button className="block-buttons-button" onClick={() => {this.deleteBlock()}}>
+            <object type="image/svg+xml" data="/assets/icon-archive.svg" className="button-filter-none"></object>
+            <div className="tooltip">Delete</div>
           </button>
         </div>
       </div>

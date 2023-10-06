@@ -1,6 +1,33 @@
 .page {
 	padding-top: 180px;
 
+	.container {
+		padding: 0 30px;
+		margin: 10px auto;
+		max-width: $container-width;
+	
+		// Style modifiers.
+		&.margin-medium {
+			margin: 80px auto
+		}
+
+		&.margin-large {
+			margin: 160px auto;
+		}
+
+		&.width-8 {
+			width: 66.67%;
+		}
+
+		&.width-10 {
+			width: 83.33%;
+		}
+
+		&.width-full {
+			padding: 0;
+		}
+	}
+
 	.block-text {
 		padding: 80px 20px;
 		text-align: center;

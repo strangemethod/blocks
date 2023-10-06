@@ -22,6 +22,18 @@ router.post('/add-block', (req, res) => {
 
 
 /*
+ * Edit block endpoint.
+ * @param page {string} name of json file containing the block.
+ * @param index {number} array index of block.
+ * @param styles {object} styles object
+ */
+router.post('/edit-block', (req, res) => {
+  FUNCT.editBlock(req.body.page, req.body.index, req.body.styles);
+  res.send({'success': true});
+});
+
+
+/*
  * Delete block endpoint.
  * @param page {string} name of json file containing the block.
  * @param index {number} array index of block.
