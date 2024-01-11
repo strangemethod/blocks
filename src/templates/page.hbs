@@ -4,35 +4,34 @@
 		<main id="page" class="page" data-page="{{id}}">			
 			{{!-- Loop through blocks. --}}
 			{{#each blocks}}
-				{{#if (equal_values this.type 'image')}}
-					<div class="auto-grid container {{get_style_classes this.styles}}" >
+				<div class="{{#if (equal_values this.type 'image')}}auto-grid{{else}}grid block-text{{/if}}
+						container
+						{{get_style_classes this.styles}}">
+
+					{{#if (equal_values this.type 'image')}}	
 						{{#each this.images}}
 							<div class="column">
 								<img class="auto-grid-image" src="{{this}}" />
 							</div>
 						{{/each}}
-						{{#if ../../editMode}}
-							<div class="block-buttons"
-									data-index="{{@key}}"
-									data-page="{{../../id}}" 
-									data-type="image"
-									data-margin="{{get_style_attr this.styles 'margin'}}"
-									data-width="{{get_style_attr this.styles 'width'}}">
-							</div>
-						{{/if}}
-					</div>
-				{{else}}
-					<div class="grid container block-text">
+					{{else}}
 						<div class="grid-col grid-col--2"></div>
 						<div class="grid-col grid-col--8">
 							<h2>{{this.text}}</h2>
 						</div>
 						<div class="grid-col grid-col--2"></div>
-						{{#if ../../editMode}}
-							<div class="block-buttons" data-index="{{@key}}" data-page="{{../../id}}" data-type="text"></div>
-						{{/if}}
-					</div>
-				{{/if}}
+					{{/if}}
+					{{#if ../../editMode}}
+						<div class="block-buttons"
+								data-index="{{@key}}"
+								data-last-block="{{last_in_array ../../blocks @key}}"
+								data-page="{{../../id}}" 
+								data-type="image"
+								data-margin="{{get_style_attr this.styles 'margin'}}"
+								data-width="{{get_style_attr this.styles 'width'}}">
+						</div>
+					{{/if}}
+				</div>
 			{{/each}}
 
 			{{!-- Add new block. --}}

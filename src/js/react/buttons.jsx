@@ -39,14 +39,18 @@ export default class Buttons extends React.Component {
     return (
       <div className="block-buttons">
         <div className="block-buttons-set block-buttons-side">
-          <button className="block-buttons-button" onClick={() => {this.orderBlock(-1)}}>
-            <object type="image/svg+xml" data="/assets/icon-arrow-up.svg" className="button-icon-large"></object>
-            <div className="tooltip">Move up</div>
-          </button>
-          <button className="block-buttons-button" onClick={() => {this.orderBlock(1)}}>
-            <object type="image/svg+xml" data="/assets/icon-arrow-down.svg" className="button-icon-large"></object>
-            <div className="tooltip">Move down</div>
-          </button>
+          {this.props.index != '0' &&
+            <button className="block-buttons-button" onClick={() => {this.orderBlock(-1)}}>
+              <object type="image/svg+xml" data="/assets/icon-arrow-up.svg" className="button-icon-large"></object>
+              <div className="tooltip">Move up</div>
+            </button>
+          }
+          {this.props.lastBlock !== 'true' &&
+            <button className="block-buttons-button" onClick={() => {this.orderBlock(1)}}>
+              <object type="image/svg+xml" data="/assets/icon-arrow-down.svg" className="button-icon-large"></object>
+              <div className="tooltip">Move down</div>
+            </button>
+          }
         </div>
         <div className={`${this.state.styleDialog ? "open" : ""} block-buttons-set block-buttons-bottom`}>
           <button className="block-buttons-button">

@@ -2,6 +2,7 @@ const {series, parallel, src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('node-sass'));
 const {paths} = require('./config');
 const jsonfile = require('jsonfile');
+const {helpers} = require('./helpers');
 
 // Assets
 const merge = require('merge-stream');
@@ -116,47 +117,7 @@ function hbs(done) {
         .data(path.join(paths.data, '*.json'))
         .data({'id': pageKey, 'page': page, 'blocks': blocksData })
         .data({'editMode': editMode})
-        .helpers({
-          get_component: function(blockArray) {
-            const blockTypes = blockArray.map((block) => {
-              return block.type;
-            });
-            const component = blockArray.length ? blockTypes.join('-') : null;
-            return component;
-          },
-          equal_values: function(a, b) {
-            return a == b;
-          },
-          escape_html: function(input) {
-            return escape(input);
-          },
-          get_partial: function(input) {
-            return input + '/' + input;
-          },
-          get_style_classes: function(styles) {
-            let stylesClass = '';
-            if (styles && styles.margin) {
-              stylesClass += `margin-${styles.margin}` 
-            }
-            if (styles && styles.width) {
-              stylesClass += ` width-${styles.width}` 
-            }
-
-            return stylesClass;
-          },
-          get_style_attr: function(styles, attr) {
-            if (styles && styles[attr]) return styles[attr];
-          },
-          has_keys: function(obj) {
-            return obj && Object.keys(obj).length;
-          },
-          unescape_html: function(input) {
-            return unescape(input);
-          },
-          to_json: function(obj) {
-            return JSON.stringify(obj, null, 3);
-          },
-        })
+        .helpers(helpers)
         .helpers(layouts);
 
     return src(path.join(paths.templates, pageTemplate))

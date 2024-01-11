@@ -58,9 +58,10 @@ blockButtonsHooks.forEach((buttonsHook) => {
     <Buttons 
         {...globalProps} 
         index={buttonsHook.dataset.index}
+        lastBlock={buttonsHook.dataset.lastBlock}
+        margin={buttonsHook.dataset.margin}
         page={buttonsHook.dataset.page}
         type={buttonsHook.dataset.type}
-        margin={buttonsHook.dataset.margin}
         width={buttonsHook.dataset.width} />, 
     buttonsHook
   );
